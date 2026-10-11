@@ -1,4 +1,10 @@
-# 灰烬回廊 / Ash Corridor
+# 灰烬回廊
+
+**[▶ 点击试玩灰烬回廊](https://chenxigao88-collab.github.io/-----/)**
+
+![灰烬回廊实机画面](artifacts/chapter-production.png)
+
+![紫鸢专属紫色刀光与大招](artifacts/violet-melee-preview.png)
 
 原创HTML5俯视动作Roguelite，当前版本 **0.10 · 独立兵装与绘制特效**。35个连通房间、三个区域、局内1–12级三选一成长、六处陷阱房、七种普通近战／辅助敌人，以及三阶段Boss「灰冠骑士」。剧情跟随区域推进，营地支持保存和继续旅程。两名角色的逐段枪斗、五元素十反应、三槽符印、可爱休息动画和紫鸢大招完整保留。
 
@@ -58,10 +64,6 @@
 人物身体按移动或短闪方向朝向，停止后保持最后朝向，武器独立跟随鼠标；待机采用固定站姿做轻微上下呼吸。枪斗动作包含贴身打击、滑步、拔出副武器与反击的分段表现；动作表现与伤害时点同步。怪物按身体轮廓设置受击范围，F2的碰撞显示可查看实际范围。
 
 本轮使用内置图片生成功能新增128帧四方向动作，含真实倒置的后空翻、伸腿踢击和落地旋身。查看[实机动画](artifacts/26-gunfu-routine.gif)、[36帧分解](artifacts/26-gunfu-routine-frames.png)及[原图与实际提示词](docs/GUNFU_ART_0.4.md)。
-
-## 发布在线试玩
-
-已配置 GitHub Pages 自动发布。将项目上传到 GitHub 后，在仓库 **Settings → Pages → Source** 选择 **GitHub Actions**，再推送到 main 或 master 分支，即可生成在线试玩地址。完整步骤见 [GitHub Pages 发布说明](docs/GITHUB-PAGES.md)。
 
 ## 开发
 
