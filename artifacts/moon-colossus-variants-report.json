@@ -1,0 +1,3895 @@
+{
+  "url": "http://127.0.0.1:5174/",
+  "scenarioCount": 8,
+  "checks": [
+    {
+      "facing": "right",
+      "targets": 1,
+      "time": 4.3,
+      "elapsed": 4.300000000000003,
+      "locked": 1,
+      "playerPosition": {
+        "x": 625,
+        "y": 340
+      },
+      "moonAnchor": {
+        "x": 543,
+        "y": 192
+      },
+      "bossLift": 0,
+      "draws": [
+        {
+          "kind": "paint",
+          "id": "moon_colossus_split_2",
+          "layer": "background",
+          "x": 543,
+          "y": 192,
+          "width": 460,
+          "height": 460,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "moon_colossus_wings_4",
+          "layer": "background",
+          "x": 625,
+          "y": 268,
+          "width": 460,
+          "height": 330,
+          "alpha": 0.65
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "boss"
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 540,
+          "y": 342,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 540,
+          "y": 285,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 540,
+          "y": 312,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "player"
+        },
+        {
+          "kind": "heroBody",
+          "id": "moon_body_21",
+          "box": {
+            "left": 494.0166924642108,
+            "right": 610.8166955159686,
+            "top": 243.23333263397217,
+            "bottom": 360.03333568573
+          }
+        }
+      ],
+      "checks": [
+        "one colossal background moon",
+        "no foreground moon or explosion",
+        "small enemy marks",
+        "hero drawn after moon, marks and Boss",
+        "hero completely inside the view",
+        "Boss stays grounded"
+      ]
+    },
+    {
+      "facing": "right",
+      "targets": 1,
+      "time": 4.7,
+      "elapsed": 4.700000000000023,
+      "locked": 1,
+      "playerPosition": {
+        "x": 625,
+        "y": 340
+      },
+      "moonAnchor": {
+        "x": 543,
+        "y": 192
+      },
+      "bossLift": 0,
+      "draws": [
+        {
+          "kind": "paint",
+          "id": "moon_colossus_burst_1",
+          "layer": "background",
+          "x": 543,
+          "y": 192,
+          "width": 476.66666666666924,
+          "height": 476.66666666666924,
+          "alpha": 1
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "boss"
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 531.2335155556763,
+          "y": 320.78052115962777,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 528.9186348281615,
+          "y": 316.5854747030179,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 529.0296368155456,
+          "y": 330.05705223691785,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 531.6430508187349,
+          "y": 313.8273357079619,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 548.3436777898477,
+          "y": 318.78778756008325,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 537.8038790674424,
+          "y": 312.72368214273035,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 541.5662041849173,
+          "y": 340.18455950895884,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 540.0059617918052,
+          "y": 319.3416441734446,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 528.5685128894895,
+          "y": 331.3825843456448,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 526.4596424186585,
+          "y": 329.6656293182276,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 552.5007193441878,
+          "y": 325.05646012848155,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 535.3164652047808,
+          "y": 335.24795470747665,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 528.3881623862686,
+          "y": 325.6711144633913,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 534.0357453917584,
+          "y": 330.3198534436,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 528.0657959461944,
+          "y": 326.4897276418234,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 546.0132596037763,
+          "y": 328.30696988031036,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 545.6485780830973,
+          "y": 335.7780443725808,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 537.9557763272159,
+          "y": 339.2882082971139,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 541.7242803737738,
+          "y": 335.168967637339,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 527.6928019716773,
+          "y": 331.51776402579935,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 622.8593835080129,
+          "y": 315.50764395584025,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 639.9590550461459,
+          "y": 323.36730223124937,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 623.9631482572378,
+          "y": 319.52694374077475,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 630.7196720636695,
+          "y": 334.20998679988264,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 618.4092538019285,
+          "y": 322.19902119792226,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 623.1041618294081,
+          "y": 320.30247824719174,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 633.1200221075255,
+          "y": 327.1120436644224,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 616.8106179216262,
+          "y": 323.194651145611,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 630.4647068656336,
+          "y": 322.06032744481035,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 636.9233608474855,
+          "y": 330.4775721242423,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 622.8895308475566,
+          "y": 317.59995852869145,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 634.3388533734515,
+          "y": 314.2276767830075,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 626.6961052328508,
+          "y": 316.74286651863446,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 629.9518174340333,
+          "y": 328.9916877637568,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 624.0763419050943,
+          "y": 318.054864122082,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 613.358751948596,
+          "y": 317.8651354926408,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 623.2136880715288,
+          "y": 329.6682289335284,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 629.103875327422,
+          "y": 315.663878966924,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 620.3929506327516,
+          "y": 334.7043513774754,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 624.9238828636281,
+          "y": 318.20570698322825,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 540,
+          "y": 342,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "player"
+        },
+        {
+          "kind": "heroBody",
+          "id": "moon_body_22",
+          "box": {
+            "left": 519.5499900247742,
+            "right": 629.9499877359558,
+            "top": 244.70000052452087,
+            "bottom": 355.0999982357025
+          }
+        }
+      ],
+      "checks": [
+        "one colossal background moon",
+        "no foreground moon or explosion",
+        "small enemy marks",
+        "hero drawn after moon, marks and Boss",
+        "hero completely inside the view",
+        "Boss stays grounded"
+      ]
+    },
+    {
+      "facing": "right",
+      "targets": 8,
+      "time": 4.3,
+      "elapsed": 4.300000000000003,
+      "locked": 8,
+      "playerPosition": {
+        "x": 673,
+        "y": 340
+      },
+      "moonAnchor": {
+        "x": 591,
+        "y": 192
+      },
+      "bossLift": 0,
+      "draws": [
+        {
+          "kind": "paint",
+          "id": "moon_colossus_split_2",
+          "layer": "background",
+          "x": 591,
+          "y": 192,
+          "width": 460,
+          "height": 460,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "moon_colossus_wings_4",
+          "layer": "background",
+          "x": 673,
+          "y": 268,
+          "width": 460,
+          "height": 330,
+          "alpha": 0.65
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "boss"
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 540,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 595,
+          "y": 280,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 572,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 627,
+          "y": 280,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 604,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 563,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 540,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 595,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 572,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 627,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 604,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 659,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 636,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 540,
+          "y": 265,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 540,
+          "y": 292,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 540,
+          "y": 305,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 540,
+          "y": 332,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 572,
+          "y": 265,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 572,
+          "y": 292,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 572,
+          "y": 305,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 572,
+          "y": 332,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 604,
+          "y": 265,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 604,
+          "y": 292,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 604,
+          "y": 305,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 604,
+          "y": 332,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 636,
+          "y": 265,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 636,
+          "y": 292,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 636,
+          "y": 305,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 636,
+          "y": 332,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "player"
+        },
+        {
+          "kind": "heroBody",
+          "id": "moon_body_21",
+          "box": {
+            "left": 552.4166939900897,
+            "right": 669.2166970418475,
+            "top": 243.23333263397217,
+            "bottom": 360.03333568573
+          }
+        }
+      ],
+      "checks": [
+        "one colossal background moon",
+        "no foreground moon or explosion",
+        "small enemy marks",
+        "hero drawn after moon, marks and Boss",
+        "hero completely inside the view",
+        "Boss stays grounded"
+      ]
+    },
+    {
+      "facing": "right",
+      "targets": 8,
+      "time": 4.7,
+      "elapsed": 4.700000000000023,
+      "locked": 8,
+      "playerPosition": {
+        "x": 673,
+        "y": 340
+      },
+      "moonAnchor": {
+        "x": 591,
+        "y": 192
+      },
+      "bossLift": 0,
+      "draws": [
+        {
+          "kind": "paint",
+          "id": "moon_colossus_burst_1",
+          "layer": "background",
+          "x": 591,
+          "y": 192,
+          "width": 476.66666666666924,
+          "height": 476.66666666666924,
+          "alpha": 1
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "boss"
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 548.7290886590927,
+          "y": 306.9054895420371,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 536.3540372376144,
+          "y": 301.57247357483936,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 529.6671936283819,
+          "y": 298.2336763283517,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 545.9991712222958,
+          "y": 296.05164440384715,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 534.2302688816025,
+          "y": 310.2590455478573,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 534.9738948942363,
+          "y": 297.22171478875714,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 549.0636315786769,
+          "y": 304.04129503039235,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 528.1805496324819,
+          "y": 295.31720047046605,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 532.7907316138245,
+          "y": 299.7766911638019,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 544.902994644928,
+          "y": 301.1334613509319,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 534.568859072577,
+          "y": 315.6543589742483,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 526.3665031333901,
+          "y": 302.72058975783773,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 532.7495959820295,
+          "y": 308.9378350965136,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 542.395505535452,
+          "y": 294.8279938533725,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 530.5984034940503,
+          "y": 312.0449021390874,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 529.0192622866691,
+          "y": 304.77900759758825,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 538.830857440975,
+          "y": 300.4939715340543,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 534.6389318453062,
+          "y": 310.69800750747584,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 545.7264397118763,
+          "y": 304.61702026584425,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 540.5732236412587,
+          "y": 294.0015339532838,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 540.6528433167889,
+          "y": 353.8567939927093,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 545.7826744232083,
+          "y": 351.55363311262164,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 534.5026105540667,
+          "y": 355.21835103873104,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 536.7997088646042,
+          "y": 334.46219434761394,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 528.3629647327849,
+          "y": 345.17058418869055,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 532.9407661299907,
+          "y": 348.6043489129515,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 543.4882727155932,
+          "y": 334.29163105017784,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 530.0084882782455,
+          "y": 354.7829662626217,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 558.4683019268701,
+          "y": 300.7417957635323,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 575.4114145672073,
+          "y": 299.54446462836853,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 560.6170146005143,
+          "y": 309.50831002053206,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 584.0442440859343,
+          "y": 311.18613609190237,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 577.2799212427948,
+          "y": 306.3922307535465,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 565.7103413486002,
+          "y": 308.914113127056,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 577.5525566541152,
+          "y": 301.94131035026726,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 583.6394672894709,
+          "y": 305.3973563579488,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 566.2715124083587,
+          "y": 344.63818013453715,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 559.7711511035994,
+          "y": 351.7474047543486,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 578.5123800777026,
+          "y": 354.533212778097,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 569.116174255567,
+          "y": 357.5245550132969,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 575.5396423418166,
+          "y": 350.46931675428,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 577.9563059865823,
+          "y": 336.90665244288874,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 572.4522705153995,
+          "y": 333.4738458931074,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 570.2017683144124,
+          "y": 335.90444993846154,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 609.8632172801604,
+          "y": 299.0128585873756,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 603.1714507744349,
+          "y": 310.66765378016026,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 611.2404169027694,
+          "y": 297.28551392737415,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 590.799499405091,
+          "y": 302.14281097017846,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 612.5675500329957,
+          "y": 306.3875835973122,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 607.9349128444043,
+          "y": 319.40130012870475,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 600.5599588078184,
+          "y": 309.3502186152183,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 591.6188388859746,
+          "y": 303.18980029309535,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 602.9045324061055,
+          "y": 337.00489938672337,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 589.7001367740249,
+          "y": 345.77355521113884,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 604.9864814209677,
+          "y": 353.598446044723,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 618.4802088068614,
+          "y": 342.97263883364093,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 592.816761212397,
+          "y": 340.19578142583345,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 611.2975475173495,
+          "y": 345.34375953041706,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 599.9803709532403,
+          "y": 354.1465752121889,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 607.5287013616406,
+          "y": 350.6915370123019,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 644.559616202926,
+          "y": 296.63291071601014,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 626.5764478817653,
+          "y": 303.9897367557392,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 632.3343694026657,
+          "y": 313.8508272123725,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 647.1078597528923,
+          "y": 297.71706556665055,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 633.1378723761989,
+          "y": 296.18587645781827,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 647.083217786055,
+          "y": 314.99522904317547,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 642.616443845449,
+          "y": 312.685154295927,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 632.1172949069334,
+          "y": 307.3688297636498,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 629.6827609692633,
+          "y": 349.2213969920409,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 642.1962836139709,
+          "y": 335.92566848352783,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 631.647115042491,
+          "y": 346.56273466391565,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 634.0317957417287,
+          "y": 360.18697286795987,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 631.6183075777751,
+          "y": 348.3453414471192,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 638.8054503744925,
+          "y": 338.1601352166746,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 637.93683654029,
+          "y": 336.60855086392365,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 621.963453603404,
+          "y": 349.82314772817267,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 675.6662682662052,
+          "y": 318.90313579437947,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 683.3261726758518,
+          "y": 332.83735462536305,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 672.9147842644591,
+          "y": 317.43923781290425,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 661.7532560205252,
+          "y": 323.7873579496583,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 676.5690396845082,
+          "y": 318.82964215231306,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 683.1666860567763,
+          "y": 320.95001513245114,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 679.6533285062133,
+          "y": 325.42998283260204,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 677.86128685015,
+          "y": 317.8425061850336,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 685.5036206668567,
+          "y": 323.6664676121139,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 668.8508095345859,
+          "y": 316.8344551601987,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 675.0325294297446,
+          "y": 336.4228785341958,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 668.0458428951085,
+          "y": 331.3578845106775,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 667.5383734238742,
+          "y": 318.1373516758406,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 682.4518070031667,
+          "y": 321.3523161057133,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 678.1762123436035,
+          "y": 328.9268663390659,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 675.6127252652274,
+          "y": 320.12575594165355,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 667.9685557411964,
+          "y": 326.07225595202226,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 679.8624727876802,
+          "y": 332.6771183244274,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 665.5995961332023,
+          "y": 320.98846255048795,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 673.5466524039148,
+          "y": 334.45281150356016,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 540,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 595,
+          "y": 280,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 572,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 627,
+          "y": 280,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 604,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 563,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 540,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 595,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 572,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 627,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 604,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 659,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 636,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "player"
+        },
+        {
+          "kind": "heroBody",
+          "id": "moon_body_22",
+          "box": {
+            "left": 574.749988880365,
+            "right": 685.1499865915466,
+            "top": 244.70000052452087,
+            "bottom": 355.0999982357025
+          }
+        }
+      ],
+      "checks": [
+        "one colossal background moon",
+        "no foreground moon or explosion",
+        "small enemy marks",
+        "hero drawn after moon, marks and Boss",
+        "hero completely inside the view",
+        "Boss stays grounded"
+      ]
+    },
+    {
+      "facing": "left",
+      "targets": 1,
+      "time": 4.3,
+      "elapsed": 4.300000000000003,
+      "locked": 1,
+      "playerPosition": {
+        "x": 335,
+        "y": 340
+      },
+      "moonAnchor": {
+        "x": 417,
+        "y": 192
+      },
+      "bossLift": 0,
+      "draws": [
+        {
+          "kind": "paint",
+          "id": "moon_colossus_split_2",
+          "layer": "background",
+          "x": 417,
+          "y": 192,
+          "width": 460,
+          "height": 460,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "moon_colossus_wings_4",
+          "layer": "background",
+          "x": 335,
+          "y": 268,
+          "width": 460,
+          "height": 330,
+          "alpha": 0.65
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "boss"
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 420,
+          "y": 342,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 420,
+          "y": 285,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 420,
+          "y": 312,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "player"
+        },
+        {
+          "kind": "heroBody",
+          "id": "moon_body_21",
+          "box": {
+            "left": 349.1833416137524,
+            "right": 465.98334466551023,
+            "top": 243.23333263397217,
+            "bottom": 360.03333568573
+          }
+        }
+      ],
+      "checks": [
+        "one colossal background moon",
+        "no foreground moon or explosion",
+        "small enemy marks",
+        "hero drawn after moon, marks and Boss",
+        "hero completely inside the view",
+        "Boss stays grounded"
+      ]
+    },
+    {
+      "facing": "left",
+      "targets": 1,
+      "time": 4.7,
+      "elapsed": 4.700000000000023,
+      "locked": 1,
+      "playerPosition": {
+        "x": 335,
+        "y": 340
+      },
+      "moonAnchor": {
+        "x": 417,
+        "y": 192
+      },
+      "bossLift": 0,
+      "draws": [
+        {
+          "kind": "paint",
+          "id": "moon_colossus_burst_1",
+          "layer": "background",
+          "x": 417,
+          "y": 192,
+          "width": 476.66666666666924,
+          "height": 476.66666666666924,
+          "alpha": 1
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "boss"
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 416.46800134018764,
+          "y": 320.14588197444044,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 412.87746379660916,
+          "y": 337.83605472437495,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 414.4614648445974,
+          "y": 326.6206845436455,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 413.9805801369151,
+          "y": 323.49897535928466,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 422.94809085584296,
+          "y": 328.6236111967873,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 420.4719835283246,
+          "y": 314.03730988555424,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 427.4739491385843,
+          "y": 323.30570329513745,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 415.7494261494525,
+          "y": 330.34275027250163,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 424.93102824163367,
+          "y": 314.4320070708472,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 420.63934627223284,
+          "y": 317.4679424159693,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 423.9554971621271,
+          "y": 319.50680813173085,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 418.1189153965187,
+          "y": 320.55006722779945,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 415.77153204424565,
+          "y": 311.5741158305631,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 413.00004057308166,
+          "y": 326.9948181156022,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 430.59354007950435,
+          "y": 323.4057298474864,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 424.1178291743787,
+          "y": 316.75937617716215,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 433.8417899521951,
+          "y": 320.33574016462,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 414.638008379427,
+          "y": 330.36964073176534,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 429.95111149042947,
+          "y": 335.6081216151752,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 417.0250477736987,
+          "y": 332.777417948023,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 342.7238011734773,
+          "y": 319.5185468021706,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 341.54874904637256,
+          "y": 334.8419723846022,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 347.8430243550005,
+          "y": 322.93184297995236,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 346.38044601604764,
+          "y": 329.4123778216842,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 325.54913843421105,
+          "y": 328.02834820827803,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 328.66702923600303,
+          "y": 331.7682091983106,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 325.89904309221816,
+          "y": 316.53415163094826,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 345.3208591067206,
+          "y": 318.65259357790904,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 336.4291069632505,
+          "y": 332.7648168605691,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 330.3192051381865,
+          "y": 324.85990959336795,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 336.92763369377093,
+          "y": 312.33661193049346,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 328.27381868195675,
+          "y": 314.1790858639778,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 339.24807194175065,
+          "y": 312.4895880429908,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 327.96809628311416,
+          "y": 318.51799491926727,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 345.7494700505405,
+          "y": 329.1472111991209,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 346.82928555467504,
+          "y": 325.0269900643373,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 347.29886719750994,
+          "y": 317.63375536662744,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 340.1561744175663,
+          "y": 331.7571779950117,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 323.97673775177594,
+          "y": 325.89031123274833,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 341.6145801652004,
+          "y": 318.3699633149009,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 420,
+          "y": 342,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "player"
+        },
+        {
+          "kind": "heroBody",
+          "id": "moon_body_22",
+          "box": {
+            "left": 330.0500122640442,
+            "right": 440.45000997522584,
+            "top": 244.70000052452087,
+            "bottom": 355.0999982357025
+          }
+        }
+      ],
+      "checks": [
+        "one colossal background moon",
+        "no foreground moon or explosion",
+        "small enemy marks",
+        "hero drawn after moon, marks and Boss",
+        "hero completely inside the view",
+        "Boss stays grounded"
+      ]
+    },
+    {
+      "facing": "left",
+      "targets": 8,
+      "time": 4.3,
+      "elapsed": 4.300000000000003,
+      "locked": 8,
+      "playerPosition": {
+        "x": 287,
+        "y": 340
+      },
+      "moonAnchor": {
+        "x": 369,
+        "y": 192
+      },
+      "bossLift": 0,
+      "draws": [
+        {
+          "kind": "paint",
+          "id": "moon_colossus_split_2",
+          "layer": "background",
+          "x": 369,
+          "y": 192,
+          "width": 460,
+          "height": 460,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "moon_colossus_wings_4",
+          "layer": "background",
+          "x": 287,
+          "y": 268,
+          "width": 460,
+          "height": 330,
+          "alpha": 0.65
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "boss"
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 420,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 411,
+          "y": 280,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 388,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 379,
+          "y": 280,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 356,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 443,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 420,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 411,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 388,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 379,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 356,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 347,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 324,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 420,
+          "y": 265,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 420,
+          "y": 292,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 420,
+          "y": 305,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 420,
+          "y": 332,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 388,
+          "y": 265,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 388,
+          "y": 292,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 388,
+          "y": 305,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 388,
+          "y": 332,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 356,
+          "y": 265,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 356,
+          "y": 292,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 356,
+          "y": 305,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 356,
+          "y": 332,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 324,
+          "y": 265,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 324,
+          "y": 292,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "paint",
+          "id": "moon_seal_3",
+          "layer": "foreground",
+          "x": 324,
+          "y": 305,
+          "width": 34,
+          "height": 34,
+          "alpha": 0.4
+        },
+        {
+          "kind": "paint",
+          "id": "moon_rift_2",
+          "layer": "foreground",
+          "x": 324,
+          "y": 332,
+          "width": 48,
+          "height": 48,
+          "alpha": 0.48
+        },
+        {
+          "kind": "player"
+        },
+        {
+          "kind": "heroBody",
+          "id": "moon_body_21",
+          "box": {
+            "left": 290.7833400878735,
+            "right": 407.5833431396313,
+            "top": 243.23333263397217,
+            "bottom": 360.03333568573
+          }
+        }
+      ],
+      "checks": [
+        "one colossal background moon",
+        "no foreground moon or explosion",
+        "small enemy marks",
+        "hero drawn after moon, marks and Boss",
+        "hero completely inside the view",
+        "Boss stays grounded"
+      ]
+    },
+    {
+      "facing": "left",
+      "targets": 8,
+      "time": 4.7,
+      "elapsed": 4.700000000000023,
+      "locked": 8,
+      "playerPosition": {
+        "x": 287,
+        "y": 340
+      },
+      "moonAnchor": {
+        "x": 369,
+        "y": 192
+      },
+      "bossLift": 0,
+      "draws": [
+        {
+          "kind": "paint",
+          "id": "moon_colossus_burst_1",
+          "layer": "background",
+          "x": 369,
+          "y": 192,
+          "width": 476.66666666666924,
+          "height": 476.66666666666924,
+          "alpha": 1
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "chaser"
+        },
+        {
+          "kind": "enemy",
+          "enemyKind": "boss"
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 427.55976263073893,
+          "y": 300.47801265518626,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 421.42018210868827,
+          "y": 311.44732978212744,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 429.0967073200302,
+          "y": 311.09657737820476,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 427.12133680189237,
+          "y": 307.22862179119693,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 418.1953062063731,
+          "y": 294.20065627552606,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 430.30346929003775,
+          "y": 305.0489785803734,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 417.0960621740172,
+          "y": 294.294394752891,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 416.73660602040013,
+          "y": 308.1658763229379,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 425.28067328104953,
+          "y": 309.26777673063356,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 424.44275001053023,
+          "y": 312.81865281722133,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 417.2708032857546,
+          "y": 316.93435885825204,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 414.78086305888127,
+          "y": 302.7541615811859,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 418.9036808912363,
+          "y": 289.916283199557,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 419.61702576486084,
+          "y": 311.3661502772787,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 425.71477730607046,
+          "y": 302.4452778081668,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 408.0452385953126,
+          "y": 301.3864998111501,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 416.90062375812875,
+          "y": 315.9597532134058,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 424.9103710752048,
+          "y": 313.0055275887778,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 420.82422718923584,
+          "y": 313.1894463607776,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 429.5551802864394,
+          "y": 314.3652648523129,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 411.65761008556797,
+          "y": 346.5060017129259,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 427.65559083774355,
+          "y": 339.9524878424669,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 416.29238070501657,
+          "y": 351.6775974235278,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 423.7632618641825,
+          "y": 335.2338801323218,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 409.1505955643966,
+          "y": 344.880497683569,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 424.4125350069851,
+          "y": 354.29255413182017,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 415.2022625725962,
+          "y": 336.72640073514066,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 427.49026287275296,
+          "y": 348.8877963952589,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 396.47996683389994,
+          "y": 317.43880349889804,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 396.77425403331654,
+          "y": 309.0509778702218,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 374.4656079173488,
+          "y": 311.2581381486448,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 394.91928479400775,
+          "y": 305.83567180907596,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 395.76658988082806,
+          "y": 300.4327644464107,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 392.8596386671122,
+          "y": 306.8873739509113,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 383.1815819637168,
+          "y": 313.0220839330993,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 398.47096822304854,
+          "y": 302.395879420039,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 394.56515890496297,
+          "y": 345.03105090958906,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 381.52060080522506,
+          "y": 354.07106765361306,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 380.1011655826301,
+          "y": 339.0453895973961,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 398.7779676433286,
+          "y": 347.972235835744,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 395.4644888020955,
+          "y": 358.02861898455825,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 377.54613363712474,
+          "y": 353.6807521725336,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 396.48445053641876,
+          "y": 341.27258519901113,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 376.5280880342732,
+          "y": 349.8160347781627,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 370.37063597504033,
+          "y": 301.5327222618808,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 350.86799889933445,
+          "y": 307.48548848479794,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 364.9083477647256,
+          "y": 298.47814383656925,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 357.9487859751905,
+          "y": 295.7088458940645,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 360.56902860237847,
+          "y": 314.44821533505433,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 361.6911709091507,
+          "y": 318.9568110617485,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 359.0350623413875,
+          "y": 310.30171447754293,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 350.4819839796295,
+          "y": 302.5054359667144,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 361.78571420743106,
+          "y": 355.46441914204104,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 359.36356747677405,
+          "y": 335.0596474236349,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 343.8718434854835,
+          "y": 350.6267688896983,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 353.1156570732637,
+          "y": 333.4001560716787,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 362.2063498788296,
+          "y": 337.08624366782175,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 366.62351479650414,
+          "y": 349.12937510559925,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 366.86659902266274,
+          "y": 353.86288019384307,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 355.8259201963807,
+          "y": 357.1825316482637,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 331.4910869347656,
+          "y": 292.8172936823659,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 331.08558722830065,
+          "y": 314.76043006268,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 317.77077540788866,
+          "y": 310.6187384517214,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 311.4807032300317,
+          "y": 302.8588057963913,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 324.1327792237658,
+          "y": 295.59406968925674,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 324.38460237155056,
+          "y": 309.8584912218325,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 329.76148163695154,
+          "y": 315.519303980128,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 331.3157369202698,
+          "y": 306.8669172372291,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 334.18806663527414,
+          "y": 335.64524048205493,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 329.83553678381577,
+          "y": 358.64716486948026,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 319.7925152895166,
+          "y": 334.18906344343134,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 331.74025610594725,
+          "y": 333.8257192057492,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 334.8627179397605,
+          "y": 352.40381589984884,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 329.09472802734746,
+          "y": 358.21043247016456,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 318.1845211131962,
+          "y": 350.4864935668453,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 320.04932541667375,
+          "y": 355.5813275048393,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 281.81640486842343,
+          "y": 322.487113612932,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 280.44791188633326,
+          "y": 322.8641162069137,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 299.2703079560814,
+          "y": 321.69612765942736,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 285.3482012706944,
+          "y": 314.1831560394361,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 289.62392677803973,
+          "y": 320.9672961263715,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 297.9656375512655,
+          "y": 333.15619668547095,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 289.07262306095674,
+          "y": 320.0901988520218,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 280.3539993812414,
+          "y": 319.67562364176104,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 275.73283866007944,
+          "y": 315.9147940671211,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 289.0802456593138,
+          "y": 310.74472187915546,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 275.23758017885103,
+          "y": 331.39976028366016,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 281.33813007872,
+          "y": 328.4258460564544,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 293.98467651255424,
+          "y": 331.0616630876846,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 279.48315668154265,
+          "y": 318.87137421703954,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 281.387132274066,
+          "y": 330.1289988879017,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 286.32007748559477,
+          "y": 312.30791283364965,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 287.48476514498026,
+          "y": 310.6692506629651,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 284.41305238157264,
+          "y": 331.73212799381173,
+          "width": 5,
+          "height": 5,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 293.1395944601387,
+          "y": 331.8665435488426,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "spark",
+          "x": 283.9666790200309,
+          "y": 317.58515797663756,
+          "width": 10,
+          "height": 10,
+          "alpha": 0.5052083333333327
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 420,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 411,
+          "y": 280,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 388,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 379,
+          "y": 280,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 356,
+          "y": 322,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 443,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 420,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 411,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 388,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 379,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 356,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "paint",
+          "id": "crystal",
+          "x": 347,
+          "y": 320,
+          "width": 22,
+          "height": 22,
+          "alpha": 1
+        },
+        {
+          "kind": "paint",
+          "id": "wind",
+          "x": 324,
+          "y": 362,
+          "width": 34,
+          "height": 15,
+          "alpha": 0.3
+        },
+        {
+          "kind": "player"
+        },
+        {
+          "kind": "heroBody",
+          "id": "moon_body_22",
+          "box": {
+            "left": 274.8500134084534,
+            "right": 385.250011119635,
+            "top": 244.70000052452087,
+            "bottom": 355.0999982357025
+          }
+        }
+      ],
+      "checks": [
+        "one colossal background moon",
+        "no foreground moon or explosion",
+        "small enemy marks",
+        "hero drawn after moon, marks and Boss",
+        "hero completely inside the view",
+        "Boss stays grounded"
+      ]
+    }
+  ],
+  "errors": []
+}

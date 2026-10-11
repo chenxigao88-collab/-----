@@ -1,7 +1,7 @@
 {
   "checks": [
     "production startup",
-    "both moon atlases and metadata loaded",
+    "three moon atlases and metadata loaded",
     "Violet selection",
     "Shift+R controls visible",
     "no development hook"
@@ -21,6 +21,14 @@
     },
     {
       "url": "http://127.0.0.1:4173/art/violet-moon-body-v1.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/art/violet-moon-colossus-v2.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/art/violet-moon-colossus-v2.png",
       "status": 200
     }
   ],

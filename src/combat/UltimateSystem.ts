@@ -11,6 +11,7 @@ export {ULTIMATE_DURATION} from '../data/ultimate';
 export class UltimateSystem {
   energy=0;elapsed=0;active=false;casts=0;angle=0;tier:1|2=1;targets:Actor[]=[];
   readonly trails:{pos:Vec2;time:number}[]=[];
+  moonAnchor:Vec2={x:480,y:190};moonFocus:Vec2={x:480,y:270};private moonStaged=false;
   private path:Vec2[]=[];private wounds=new Map<number,AttackContext[]>();private resolvingWounds=false;
   private weapons:WeaponData[]=[];private fired=new Set<number>();private rewarded=new Map<number,number>();private finishers=new Set<number>();private off:(()=>void)[]=[];
   private openingDamage=new Map<number,number>();private startingSlot=0;
@@ -43,7 +44,7 @@ export class UltimateSystem {
     if(!this.targets.length){w.events.emit('message',{text:'前方没有可锁定的敌人'});return false;}
     this.weapons=[w.weapons.slots[w.weapons.active].data,w.weapons.slots[1-w.weapons.active].data];
     this.startingSlot=w.weapons.active;this.openingDamage.clear();
-    this.tier=tier;this.angle=angle;this.energy-=tier*100;this.elapsed=0;this.active=true;this.casts++;this.fired.clear();this.wounds.clear();this.trails.length=0;
+    this.tier=tier;this.angle=angle;this.energy-=tier*100;this.elapsed=0;this.active=true;this.casts++;this.fired.clear();this.wounds.clear();this.trails.length=0;this.moonStaged=false;
     const center=this.targets.reduce((p,t)=>({x:p.x+t.pos.x/this.targets.length,y:p.y+t.pos.y/this.targets.length}),{x:0,y:0}),d=direction(angle),side={x:-d.y,y:d.x};
     this.path=[{...a.pos},{x:center.x-side.x*45-d.x*30,y:center.y-side.y*45-d.y*30},{x:center.x+side.x*45,y:center.y+side.y*45},{x:center.x+d.x*85,y:center.y+d.y*85}].map(p=>({x:clamp(p.x,96,864),y:clamp(p.y,102,440)}));
     w.attacks.cancelPrimary();w.gunfu.cancel();w.melee.cancel(a.id);w.player.dashRemaining=0;a.idleTime=0;a.moving=false;a.facing=angle;
@@ -69,7 +70,7 @@ export class UltimateSystem {
   }
   step(dt:number){
     if(!this.active||dt<=0)return;const w=this.w;
-    this.elapsed=Math.min(this.duration,this.elapsed+dt);if(this.tier===2)this.travel(dt);this.pose();
+    this.elapsed=Math.min(this.duration,this.elapsed+dt);if(this.tier===2){this.travel(dt);if(this.elapsed>=3.2&&!this.moonStaged){const p=w.player.actor.pos;this.moonAnchor={x:clamp(p.x-Math.cos(this.angle)*82,225,735),y:clamp(p.y-148,148,230)};this.moonFocus={x:(this.moonAnchor.x+p.x)/2,y:(this.moonAnchor.y+p.y)/2};this.moonStaged=this.elapsed>=3.8;}}this.pose();
     for(const target of this.targets){if(!target.health.alive)continue;
       if(w.enemies.some(e=>e.actor===target&&e.kind==='boss'))continue;
       if(target.launch.active){target.launch.step(dt);target.hurtbox.lift=target.launch.height;}
