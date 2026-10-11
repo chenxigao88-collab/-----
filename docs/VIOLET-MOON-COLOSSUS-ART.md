@@ -32,6 +32,8 @@ Edit only the layout and padding of this exact transparent atlas. Preserve every
 
 ## 验证
 
+0.11.2补充校正双枪持枪挂点：body_4至body_8的五帧分别记录手部位置，绘制枪械、实际子弹发射与枪口火光共享挂点。四个左右朝向/第一枪第二枪场景实机检查通过，见[预览](../artifacts/moon-gun-grip-preview.png)及[报告](../artifacts/moon-gun-grip-report.json)。
+
 新增5项渲染回归，覆盖5/8目标时均仅一次背景爆发、前景与覆盖层无斩月或爆发、敌人标记不超过48像素、终幕斩月只一次、目标死亡与移走后镜头及月体锚点稳定。全部797项测试、类型检查及正式构建通过。
 
 浏览器实际Shift+R录制完整演出。另在左右朝向、1/8目标、4.3秒斩月与4.7秒崩解的8种组合中，记录真实绘制调用，全部确认只有一处背景巨月、标记不超过48像素、紫鸢在Boss及全部特效之后绘制且完整留在画面内、Boss没有浮空。见[实机预览](../artifacts/moon-colossus-variants.png)与[检查报告](../artifacts/moon-colossus-variants-report.json)。正式构建检查3份图集及各自索引共6个资源加载、紫鸢选择及Shift+R操作提示，全部通过。

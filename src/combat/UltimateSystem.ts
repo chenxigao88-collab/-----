@@ -3,7 +3,7 @@ import type { Actor } from '../actors/Actor';
 import type { WeaponData } from '../data/weapons';
 import { angleTo, clamp, direction, distance, normal, sub, type Vec2 } from '../core/types';
 import type {AttackContext} from './AttackSystem';
-import {MOON_DURATION,MOON_HITS,MOON_STAGES,MOON_FINISHER_RATIO} from '../data/moonUltimate';
+import {MOON_DURATION,MOON_HITS,MOON_STAGES,MOON_FINISHER_RATIO,moonGunHand} from '../data/moonUltimate';
 import { sweptSectorCapsule } from '../world/Collision';
 import { obstacleContact, resolveObstacles } from '../world/Obstacles';
 import {ULTIMATE_DURATION,ULTIMATE_HITS,ULTIMATE_STAGES,ULTIMATE_FINISHER_RATIO} from '../data/ultimate';
@@ -65,7 +65,9 @@ export class UltimateSystem {
   private weaponAim(){
     const a=this.w.player.actor,target=this.targets.filter(t=>t.health.alive).sort((x,y)=>distance(a.pos,x.pos)-distance(a.pos,y.pos)||x.id-y.id)[0];
     if(!target)return this.angle;
-    const center=target.hurtbox.center(target.pos),angle=angleTo({x:a.pos.x,y:a.pos.y-18},center);
+    const center=target.hurtbox.center(target.pos);
+    if(this.tier===2)return angleTo(moonGunHand(a.pos,this.elapsed,angleTo(a.pos,center)),center);
+    const angle=angleTo({x:a.pos.x,y:a.pos.y-18},center);
     return angleTo({x:a.pos.x+Math.cos(angle)*7,y:a.pos.y-18},center);
   }
   step(dt:number){
@@ -98,7 +100,7 @@ export class UltimateSystem {
       if(phase===1){const from=w.weapons.active;w.weapons.active=slot;w.weapons.slots[from].pending=undefined;w.events.emit('weaponSwitched',{from,to:slot});}
       const c=w.attacks.weaponSnapshot(weapon,w.settings,undefined,1.6,slot);w.attacks.applyCharge(c,weapon,weapon.mechanic?.mode==='charge'?1:0);c.weaponId='violet-ultimate';c.equippedWeaponId=weapon.id;c.nativeContinuation=true;c.chargeGranted=true;c.damageScale=w.settings.damageMultiplier*w.player.stats.damageMultiplier;c.knockback=0;c.ultimateCast=this.casts;c.ultimatePhase=phase;c.ultimateTier=2;
       if(phase===0)c.launch={height:24,duration:2.7,distance:0};
-      w.attacks.consumePending(c,slot,1.6);const angle=this.weaponAim();w.attacks.emitWeapon(c,weapon,angle,{x:a.pos.x+Math.cos(angle)*7,y:a.pos.y-18},undefined,1,(weapon.muzzleLength??24)*.68);if(weapon.mechanic)w.feel.weaponShot(a,weapon.mechanic.style,c.chargeLevel,(weapon.muzzleLength??24)*.68);else w.audio.play(weapon.category==='melee'?'slash':'shot');return;
+      w.attacks.consumePending(c,slot,1.6);const angle=this.weaponAim();w.attacks.emitWeapon(c,weapon,angle,moonGunHand(a.pos,this.elapsed,angle),undefined,1,(weapon.muzzleLength??24)*.68);if(weapon.mechanic)w.feel.weaponShot(a,weapon.mechanic.style,c.chargeLevel,(weapon.muzzleLength??24)*.68);else w.audio.play(weapon.category==='melee'?'slash':'shot');return;
     }
     if(phase<5){
       const base=32+.2*(this.weapons[0].damage+this.weapons[1].damage),c=w.attacks.snapshot(a,base*w.settings.damageMultiplier*w.player.stats.damageMultiplier,'violet-ultimate','heavy',false);

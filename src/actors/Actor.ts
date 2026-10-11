@@ -3,6 +3,7 @@ import { HealthComponent, HurtboxComponent, KnockbackComponent, LaunchComponent,
 import { gunfuGrip,type GunfuPose } from '../data/gunfu';
 import heroScale from '../data/hero-scale.json';
 import type { CharacterId } from '../data/characters';
+import {moonGunHand} from '../data/moonUltimate';
 export interface Actor {
   id: number; runId: number; faction: Faction; pos: Vec2; previous: Vec2;
   character:CharacterId;
@@ -19,6 +20,7 @@ export function createActor(id: number, runId: number, faction: Faction, pos: Ve
 }
 export const handPosition = (actor: Actor) => {
   const a=actor.action,p=a?Math.min(1,a.elapsed/a.duration):0;
+  if(a?.ultimateTier===2&&a.ultimateTime!==undefined&&a.ultimateTime>=.8&&a.ultimateTime<1.9)return moonGunHand(actor.pos,a.ultimateTime,a.angle);
   if(a?.gunfu){
     const grip=gunfuGrip(a.kind as GunfuPose,p,actor.character);
     return vec(actor.pos.x+Math.cos(a.angle)*grip.forward,actor.pos.y-grip.height-(a.lift??0));

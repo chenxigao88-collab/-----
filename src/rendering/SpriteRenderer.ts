@@ -100,10 +100,10 @@ export class SpriteRenderer {
   }
   weapon(ctx: CanvasRenderingContext2D, actor: Actor, id: string, angle = actor.aim, scale=1) {
     const frame = this.art.frame(id), hand = handPosition(actor), recoil = actor.recoil * 4;
-    if(actor.action?.ultimateTime!==undefined){hand.y=actor.pos.y-18;hand.x=actor.pos.x+Math.cos(angle)*7;}
+    if(actor.action?.ultimateTime!==undefined&&actor.action.ultimateTier!==2){hand.y=actor.pos.y-18;hand.x=actor.pos.x+Math.cos(angle)*7;}
     const action=actor.action,progress=action?Math.min(1,action.elapsed/action.duration):1;
     const turn=action?.kind==='landspin'?Math.max(0,(progress-.25)/.75)*Math.PI*2:action?.kind==='backflip'?Math.PI*2*progress:action?.gunfu?gunfuGrip(action.kind as GunfuPose,progress,actor.character).turn:action?.kind==='strike'?Math.sin(progress*Math.PI)*.45:action?.kind==='draw'&&progress<.4?-.8*(1-progress/.4):0;
-    ctx.save(); ctx.translate(Math.round(hand.x - Math.cos(angle)*recoil), Math.round(hand.y - Math.sin(angle)*recoil)); ctx.rotate(angle+turn);
+    ctx.save(); ctx.translate(Math.round(hand.x - Math.cos(angle)*recoil), Math.round(hand.y - Math.sin(angle)*recoil)); ctx.rotate(angle+(actor.action?.ultimateTier===2?0:turn));
     if (Math.cos(angle) < 0) ctx.scale(1, -1);
     ctx.scale(scale,scale);
     const [sx,sy,sw,sh] = frame.rect, [w,h] = frame.size, [px,py] = frame.pivot;
