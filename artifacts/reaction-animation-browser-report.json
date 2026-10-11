@@ -1,0 +1,38 @@
+{
+  "checks": [
+    "ten real gameplay reactions",
+    "80 atlas frames loaded and rendered",
+    "three target animated electric chain",
+    "rendering does not repeat damage",
+    "transparent frame corners",
+    "source-dependent persistent statuses",
+    "no browser errors"
+  ],
+  "setup": {
+    "ids": [
+      "thermal",
+      "blast",
+      "burn",
+      "exposure",
+      "fracture",
+      "vortex",
+      "bind",
+      "conduct",
+      "shock",
+      "sand"
+    ],
+    "count": 10,
+    "frames": 80,
+    "lines": 3,
+    "hits": 31
+  },
+  "seen": 80,
+  "mask": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "errors": [],
+  "date": "2026-10-11T04:50:05.423Z"
+}

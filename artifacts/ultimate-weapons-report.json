@@ -1,0 +1,49 @@
+{
+  "initial": "ember_lantern",
+  "damage": [
+    {
+      "phase": 0,
+      "secondary": false,
+      "amount": 12
+    },
+    {
+      "phase": 1,
+      "secondary": false,
+      "amount": 8
+    },
+    {
+      "phase": 2,
+      "weapon": "ember_lantern",
+      "secondary": false,
+      "amount": 10
+    },
+    {
+      "phase": 3,
+      "weapon": "ember_lantern",
+      "secondary": false,
+      "amount": 10
+    },
+    {
+      "phase": 4,
+      "weapon": "frost_string",
+      "secondary": true,
+      "amount": 20
+    },
+    {
+      "phase": 4,
+      "weapon": "frost_string",
+      "secondary": false,
+      "amount": 10
+    },
+    {
+      "phase": 5,
+      "secondary": false,
+      "amount": 49
+    }
+  ],
+  "finalSlot": "frost_string",
+  "opening": 70,
+  "final": 49,
+  "errors": [],
+  "date": "2026-10-06T14:34:49.084Z"
+}

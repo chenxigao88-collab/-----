@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "actual Violet selection",
+    "left melee",
+    "three sequential right-click melee phases",
+    "sword wave",
+    "ultimate spin",
+    "six-frame independent PNG animation"
+  ],
+  "errors": []
+}

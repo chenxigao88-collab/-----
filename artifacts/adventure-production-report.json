@@ -1,0 +1,27 @@
+{
+  "checks": [
+    "production without developer hooks",
+    "persisted character and loadout",
+    "actual keyboard room entry",
+    "manual six-segment combos and clear",
+    "gold pickup",
+    "clutter removed",
+    "run restart",
+    "small viewport",
+    "generated atlas loaded"
+  ],
+  "routines": 7,
+  "inventory": "霜弦、烬灯 · 35金币 · ",
+  "assets": [
+    [
+      "http://127.0.0.1:4173/art/adventure-atlas-v1.json",
+      200
+    ],
+    [
+      "http://127.0.0.1:4173/art/adventure-atlas-v1.png",
+      200
+    ]
+  ],
+  "errors": [],
+  "date": "2026-10-05T14:44:56.435Z"
+}

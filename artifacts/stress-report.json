@@ -1,0 +1,61 @@
+{
+  "durationSeconds": 60.00959999996424,
+  "viewport": "1920x1080",
+  "canvas": "960x540",
+  "dpr": 1,
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0",
+  "samples": 300,
+  "enemyCount": 20,
+  "peakProjectiles": 150,
+  "averageFPS": 59.98811773011421,
+  "frameIntervalP95Ms": 16.80000000000291,
+  "averageRenderMs": 0.7181666665938166,
+  "renderP95Ms": 1.100000023841858,
+  "snapshot": {
+    "runId": 1,
+    "state": "ready",
+    "hp": 100,
+    "pos": {
+      "x": 480,
+      "y": 340
+    },
+    "dash": 0,
+    "enemyCount": 20,
+    "wave": 0,
+    "waveAlive": 0,
+    "pending": 0,
+    "projectiles": 150,
+    "particles": 200,
+    "subscriptions": 12,
+    "meter": 0,
+    "activations": 0,
+    "slow": 1,
+    "hitStop": 0,
+    "hits": 0,
+    "perfectDodges": 0,
+    "peak": 150,
+    "activeWeapon": "ash_needle",
+    "slotCooldowns": [
+      0,
+      0
+    ],
+    "reactions": 0,
+    "reactionCounts": {},
+    "areas": 0,
+    "burns": 0,
+    "gunfu": {
+      "kind": "none",
+      "stage": "ready",
+      "window": 0,
+      "cooldown": 0,
+      "completed": 0,
+      "nextWeapon": "砾钟",
+      "hint": "射击命中 → 贴近／滑步 → 右键连招",
+      "style": 0
+    },
+    "freeze": 0,
+    "freezeCooldown": 0
+  },
+  "browser": "154.0.4258.53",
+  "errors": []
+}

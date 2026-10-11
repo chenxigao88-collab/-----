@@ -1,0 +1,11 @@
+# 紫鸢专属近战特效
+
+使用内置 imagegen 独立绘制紫色透明 PNG：深紫拖尾、亮紫刀光、淡紫白刃口、羽片碎光。四种动作各六帧，共24帧：下劈、上挑、回旋、普通月牙斩。接入紫鸢左键近战、右键三段刀击、剑气和大招刀斩。原角色继续使用原有素材，攻击时点与伤害判定沿用当前规则。
+
+最终素材：public/art/violet-melee-v1.png；索引：public/art/violet-melee-v1.json。播放通过 PNG 裁切与合成完成。索引脚本 scripts/index-violet-melee.cjs 只读取透明度并登记区域，保留生成 PNG 原始像素。
+
+实机验证覆盖真正选择紫鸢后的普通近战、连续三次右键刀击、满剑势剑气与大招回旋阶段。见[六种场景预览](../artifacts/violet-melee-preview.png)。
+
+实际生成提示词：
+
++Use case: stylized-concept. Asset type: transparent PNG animation atlas for a dark fantasy pixel action game. Draw ORIGINAL melee VFX exclusively for heroine Violet. Primary palette deep violet, royal purple, lavender, magenta accents, narrow pale lilac white hot blade edges. Absolutely no green, turquoise, gold, orange. Elegant but powerful heavy sword strokes, violet feather-like shards and broken crescent moon motifs, NO character, NO sword object, NO text. EXACTLY 6 columns by 4 rows, 24 separate drawings in a clean uniform grid. Each cell has a SINGLE centered effect, all artwork fully inside its cell with 20 percent transparent margins, no touching neighboring frames. Genuine transparent RGBA background, no background gradients, checkerboard, frames or grid lines. SIX distinct sequential animation frames per row left to right: tiny starting stroke, gathering slash, forceful bright peak, wider following stroke, breaking feather fragments, very sparse fading wisps. Fixed central pivot, constant cell dimensions. Row 1 DOWNWARD HEAVY CUT: vertical-curved purple slash descending from upper right to lower right, thick weighty falling edge and small violet fractured shards below. Row 2 RISING CUT: upward curling diagonal violet slash on right side, dramatic thin pointed rising tip and trailing violet feathers below. Row 3 FULL SPIN: broad complete swirling purple blade ring around an EMPTY transparent center, sweeping feather shards and lilac edge, not a geometrical perfect circle. Row 4 BASIC SLASH / SWORD WAVE: sharp right-facing purple crescent slash, sweeping layered calligraphic strokes, dark purple tail and violet feather shards. Crisp hand-painted pixel edges, strong silhouette, game readable when scaled down. Effects only, keep interior negative spaces transparent, bright cores confined to strokes, avoid rectangular blooms. Landscape atlas.

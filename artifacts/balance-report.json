@@ -1,0 +1,460 @@
+{
+  "note": "Representative valid level/build combinations, no critical hits. Chaser armour is applied to direct weapon hits; thermal bypasses armour. This is numerical validation, not a human difficulty rating.",
+  "stages": [
+    {
+      "tier": 1,
+      "level": 1,
+      "room": "front",
+      "damage": 0,
+      "gunfu": 0,
+      "element": 0,
+      "health": 0,
+      "weapon": "灰针",
+      "baseDamage": 14,
+      "enemyHP": 74,
+      "enemyArmor": 0,
+      "singleShot": 14,
+      "shotsToKill": 6,
+      "thermal": 46,
+      "maxPlayerHP": 100
+    },
+    {
+      "tier": 2,
+      "level": 6,
+      "room": "forge-3",
+      "damage": 2,
+      "gunfu": 1,
+      "element": 1,
+      "health": 1,
+      "weapon": "穿灰针",
+      "baseDamage": 23,
+      "enemyHP": 131,
+      "enemyArmor": 7,
+      "singleShot": 43,
+      "shotsToKill": 4,
+      "thermal": 156,
+      "maxPlayerHP": 145
+    },
+    {
+      "tier": 3,
+      "level": 12,
+      "room": "inner-6",
+      "damage": 4,
+      "gunfu": 3,
+      "element": 3,
+      "health": 1,
+      "weapon": "雷织灰针",
+      "baseDamage": 34,
+      "enemyHP": 213,
+      "enemyArmor": 16,
+      "singleShot": 103,
+      "shotsToKill": 3,
+      "thermal": 529,
+      "maxPlayerHP": 175
+    }
+  ],
+  "depth": [
+    {
+      "depth": 1,
+      "hp": 1,
+      "damage": 1,
+      "speed": 1,
+      "armor": 0
+    },
+    {
+      "depth": 6,
+      "hp": 1.45,
+      "damage": 1.12,
+      "speed": 1.03,
+      "armor": 4
+    },
+    {
+      "depth": 12,
+      "hp": 2.1,
+      "damage": 1.25,
+      "speed": 1.06,
+      "armor": 10
+    },
+    {
+      "depth": 18,
+      "hp": 2.9,
+      "damage": 1.4,
+      "speed": 1.1,
+      "armor": 16
+    }
+  ],
+  "weapons": [
+    {
+      "id": "ash_needle",
+      "name": "灰针",
+      "tier": 1,
+      "family": "ash_needle",
+      "damage": 14,
+      "rate": 4.5,
+      "count": 1,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": null,
+      "mechanic": "按住连射逐渐加速 · 针弹稳定压制"
+    },
+    {
+      "id": "gravel_bell",
+      "name": "砾钟",
+      "tier": 1,
+      "family": "gravel_bell",
+      "damage": 9,
+      "rate": 1.25,
+      "count": 6,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": null,
+      "mechanic": "扇形岩屑散弹 · 近距重击推退"
+    },
+    {
+      "id": "hush_edge",
+      "name": "缄锋",
+      "tier": 1,
+      "family": "hush_edge",
+      "damage": 34,
+      "rate": 1.8,
+      "count": 0,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": null,
+      "mechanic": "刀尖命中积累剑势 · 三次后下一刀释放穿透剑气"
+    },
+    {
+      "id": "frost_string",
+      "name": "霜弦",
+      "tier": 1,
+      "family": "frost_string",
+      "damage": 26,
+      "rate": 2,
+      "count": 1,
+      "pierce": 1,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": {
+        "slow": 0.15
+      },
+      "mechanic": "按住蓄晶、松开发射 · 满蓄5枚冰晶 · 右键自动满蓄"
+    },
+    {
+      "id": "ember_lantern",
+      "name": "烬灯",
+      "tier": 1,
+      "family": "ember_lantern",
+      "damage": 24,
+      "rate": 2,
+      "count": 1,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": {
+        "splash": 6
+      },
+      "mechanic": "蓄力扩大爆炸范围 · 右键自动满蓄"
+    },
+    {
+      "id": "thunder_branch",
+      "name": "鸣枝",
+      "tier": 1,
+      "family": "thunder_branch",
+      "damage": 8,
+      "rate": 7.5,
+      "count": 1,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": {
+        "chain": 6
+      },
+      "mechanic": "按住持续追踪电弧 · 跳电连接敌群 · 过热短暂停火"
+    },
+    {
+      "id": "ash_needle_mid",
+      "name": "穿灰针",
+      "tier": 2,
+      "family": "ash_needle",
+      "damage": 23,
+      "rate": 4.5,
+      "count": 1,
+      "pierce": 1,
+      "bounce": 0,
+      "armorPierce": 0.15,
+      "effect": null,
+      "mechanic": "按住连射逐渐加速 · 针弹稳定压制"
+    },
+    {
+      "id": "ash_needle_late",
+      "name": "雷织灰针",
+      "tier": 3,
+      "family": "ash_needle",
+      "damage": 34,
+      "rate": 4.8,
+      "count": 1,
+      "pierce": 1,
+      "bounce": 0,
+      "armorPierce": 0.25,
+      "effect": null,
+      "mechanic": "按住连射逐渐加速 · 针弹稳定压制"
+    },
+    {
+      "id": "gravel_bell_mid",
+      "name": "裂岩砾钟",
+      "tier": 2,
+      "family": "gravel_bell",
+      "damage": 15,
+      "rate": 1.25,
+      "count": 6,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0.2,
+      "effect": null,
+      "mechanic": "扇形岩屑散弹 · 近距重击推退"
+    },
+    {
+      "id": "gravel_bell_late",
+      "name": "崩山砾钟",
+      "tier": 3,
+      "family": "gravel_bell",
+      "damage": 22,
+      "rate": 1.3,
+      "count": 7,
+      "pierce": 1,
+      "bounce": 0,
+      "armorPierce": 0.35,
+      "effect": null,
+      "mechanic": "扇形岩屑散弹 · 近距重击推退"
+    },
+    {
+      "id": "hush_edge_mid",
+      "name": "回响缄锋",
+      "tier": 2,
+      "family": "hush_edge",
+      "damage": 56,
+      "rate": 1.8,
+      "count": 0,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": {
+        "pull": 84
+      },
+      "mechanic": "刀尖命中积累剑势 · 三次后下一刀释放穿透剑气"
+    },
+    {
+      "id": "hush_edge_late",
+      "name": "归途缄锋",
+      "tier": 3,
+      "family": "hush_edge",
+      "damage": 84,
+      "rate": 1.9,
+      "count": 0,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0.25,
+      "effect": {
+        "pull": 112
+      },
+      "mechanic": "刀尖命中积累剑势 · 三次后下一刀释放穿透剑气"
+    },
+    {
+      "id": "frost_string_mid",
+      "name": "裂晶霜弦",
+      "tier": 2,
+      "family": "frost_string",
+      "damage": 42,
+      "rate": 2,
+      "count": 1,
+      "pierce": 2,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": {
+        "slow": 0.22
+      },
+      "mechanic": "按住蓄晶、松开发射 · 满蓄5枚冰晶 · 右键自动满蓄"
+    },
+    {
+      "id": "frost_string_late",
+      "name": "极夜霜弦",
+      "tier": 3,
+      "family": "frost_string",
+      "damage": 64,
+      "rate": 2.1,
+      "count": 1,
+      "pierce": 3,
+      "bounce": 0,
+      "armorPierce": 0.3,
+      "effect": {
+        "slow": 0.3
+      },
+      "mechanic": "按住蓄晶、松开发射 · 满蓄7枚冰晶 · 右键自动满蓄"
+    },
+    {
+      "id": "ember_lantern_mid",
+      "name": "熔炉烬灯",
+      "tier": 2,
+      "family": "ember_lantern",
+      "damage": 39,
+      "rate": 2,
+      "count": 1,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": {
+        "splash": 12,
+        "splashRadius": 56,
+        "splashTargets": 4
+      },
+      "mechanic": "蓄力扩大爆炸范围 · 爆炸留下火区 · 右键自动满蓄"
+    },
+    {
+      "id": "ember_lantern_late",
+      "name": "燎原烬灯",
+      "tier": 3,
+      "family": "ember_lantern",
+      "damage": 58,
+      "rate": 2.1,
+      "count": 1,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": {
+        "splash": 22,
+        "splashRadius": 76,
+        "splashTargets": 5
+      },
+      "mechanic": "蓄力扩大爆炸范围 · 爆炸留下火区 · 火区延迟再爆 · 右键自动满蓄"
+    },
+    {
+      "id": "thunder_branch_mid",
+      "name": "雷簇鸣枝",
+      "tier": 2,
+      "family": "thunder_branch",
+      "damage": 13,
+      "rate": 7.5,
+      "count": 1,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": {
+        "chain": 11,
+        "chainRange": 155,
+        "chainTargets": 4
+      },
+      "mechanic": "按住持续追踪电弧 · 跳电连接敌群 · 过热短暂停火"
+    },
+    {
+      "id": "thunder_branch_late",
+      "name": "天裂鸣枝",
+      "tier": 3,
+      "family": "thunder_branch",
+      "damage": 20,
+      "rate": 7.5,
+      "count": 1,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0.2,
+      "effect": {
+        "chain": 20,
+        "chainRange": 180,
+        "chainTargets": 5
+      },
+      "mechanic": "按住持续追踪电弧 · 跳电连接敌群 · 过热短暂停火"
+    },
+    {
+      "id": "wind_burst_mid",
+      "name": "疾风连铳",
+      "tier": 2,
+      "family": "wind_burst",
+      "damage": 10,
+      "rate": 2.9,
+      "count": 3,
+      "pierce": 0,
+      "bounce": 1,
+      "armorPierce": 0,
+      "effect": null,
+      "mechanic": "三发依次连射 · 第三发强化"
+    },
+    {
+      "id": "wind_burst_late",
+      "name": "风暴连铳",
+      "tier": 3,
+      "family": "wind_burst",
+      "damage": 17,
+      "rate": 3,
+      "count": 3,
+      "pierce": 1,
+      "bounce": 1,
+      "armorPierce": 0.15,
+      "effect": null,
+      "mechanic": "三发依次连射 · 第三发强化 · 三发全中追加追击风弹"
+    },
+    {
+      "id": "earth_crossbow_mid",
+      "name": "镇岩重弩",
+      "tier": 2,
+      "family": "earth_crossbow",
+      "damage": 83,
+      "rate": 0.95,
+      "count": 1,
+      "pierce": 1,
+      "bounce": 0,
+      "armorPierce": 0.35,
+      "effect": null,
+      "mechanic": "蓄力重矢 · 满蓄单发220%伤害 · 穿透、35%破甲 · 右键自动满蓄"
+    },
+    {
+      "id": "earth_crossbow_late",
+      "name": "地脉重弩",
+      "tier": 3,
+      "family": "earth_crossbow",
+      "damage": 125,
+      "rate": 0.95,
+      "count": 1,
+      "pierce": 3,
+      "bounce": 0,
+      "armorPierce": 0.65,
+      "effect": null,
+      "mechanic": "蓄力重矢 · 满蓄单发220%伤害 · 穿透、65%破甲 · 右键自动满蓄"
+    },
+    {
+      "id": "wind_ring_mid",
+      "name": "回风环刃",
+      "tier": 2,
+      "family": "wind_ring",
+      "damage": 54,
+      "rate": 1.5,
+      "count": 0,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0,
+      "effect": {
+        "pull": 106,
+        "slow": 0.18
+      },
+      "mechanic": "抛出旋转环刃 · 去程与回程各命中一次 · 移动改变回程"
+    },
+    {
+      "id": "wind_ring_late",
+      "name": "风眼环刃",
+      "tier": 3,
+      "family": "wind_ring",
+      "damage": 86,
+      "rate": 1.6,
+      "count": 0,
+      "pierce": 0,
+      "bounce": 0,
+      "armorPierce": 0.2,
+      "effect": {
+        "pull": 136,
+        "slow": 0.25
+      },
+      "mechanic": "抛出旋转环刃 · 去程与回程各命中一次 · 移动改变回程"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "checks": [
+    "production assets",
+    "no development global",
+    "six-weapon loadout",
+    "element reaction preview",
+    "complete right-click routine in production",
+    "E starts encounter",
+    "shooting",
+    "Q switch",
+    "pause/resume UI",
+    "F2 panel"
+  ],
+  "routineStages": [
+    "拿枪下劈",
+    "再按右键 · 上撩",
+    "上撩",
+    "再按右键 · 横扫",
+    "横扫",
+    "再按右键 · 正踢",
+    "正踢",
+    "后空翻",
+    "空中射击",
+    "再按右键 · 落地旋身",
+    "落地旋身",
+    "落地开枪",
+    "收势",
+    "收势恢复 0.4s",
+    "收势恢复 0.3s",
+    "收势恢复 0.2s",
+    "收势恢复 0.1s",
+    "收势恢复 0.0s",
+    "右键每按一次接一段 · 下劈 → 上撩 → 横扫 → 踢翻射击 → 旋身开枪"
+  ],
+  "errors": [],
+  "browser": "154.0.4258.53",
+  "date": "2026-10-05T12:23:11.149Z"
+}

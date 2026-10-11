@@ -1,0 +1,7 @@
+{
+  "legacy": { "sourceScale": 0.265, "gripScale": 1.1777777778 },
+  "slashes": { "sourceScale": 0.255, "gripScale": 1.243902439 },
+  "sweepKick": { "sourceScale": 0.245, "gripScale": 1.1951219512 },
+  "aerial": { "sourceScale": 0.245, "gripScale": 1.1951219512 },
+  "landing": { "sourceScale": 0.245, "gripScale": 1.1951219512 }
+}

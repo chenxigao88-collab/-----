@@ -1,0 +1,10 @@
+const fs=require('node:fs');
+const {chromium}=require('C:/Users/chenqinghua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const sharp=require('C:/Users/chenqinghua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+(async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});try{
+ const page=await browser.newPage({viewport:{width:960,height:540}}),errors=[];await page.routeWebSocket('**',()=>{});page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:5173/');await page.waitForFunction(()=>window.__ASH__?.app?.renderer);
+ await page.evaluate(()=>{const a=window.__ASH__.app,w=a.world;a.loop.stop();a.settings.mute=true;a.settings.invincible=true;a.settings.hitStrength=0;a.settings.shakeStrength=0;w.selectCharacter('violet');w.state='playing';w.adventure.started=true;w.adventure.currentId='core';w.adventure.memory.cleared=false;w.adventure.memory.visited=true;w.room.configure([]);w.player.actor.pos={x:405,y:340};w.story.seen.add('intro');const b=w.spawn('boss',{x:580,y:300});b.actor.health.hp=3300;b.bossTurns=1;b.enter('Move');b.attackCooldown=0;});
+ const pages=[];
+ for(let n=0;n<40;n++){await page.evaluate(()=>{const a=window.__ASH__.app,w=a.world,input={move:{x:0,y:0},aim:{x:580,y:300},fire:false,skill:false,dash:false,swap:false,interact:false,ultimate:false};for(let i=0;i<12;i++)w.step(1/120,input);a.render(.1);});const png=await page.screenshot();pages.push(await sharp(png).ensureAlpha().raw().toBuffer());if(n===10)fs.writeFileSync('artifacts/chapter-boss-strike.png',png);}
+ await sharp(Buffer.concat(pages),{raw:{width:960,height:540*pages.length,channels:4,pageHeight:540}}).gif({delay:100,loop:0,effort:3}).toFile('artifacts/灰冠骑士-下砸预览.gif');if(errors.length)throw Error(errors.join('\n'));console.log('Boss 40-frame slam preview rendered without browser errors.');
+ }finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

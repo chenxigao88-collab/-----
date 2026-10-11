@@ -1,0 +1,973 @@
+{
+  "checks": [
+    "128 dedicated motion frames loaded",
+    "held right click only executes one segment",
+    "real right click starts full routine",
+    "all nine motion phases including recovery",
+    "true inverted flip and extended kick poses",
+    "exactly one air shot and one ground shot",
+    "final gun and recovery preserved",
+    "four-direction dedicated routine frames",
+    "real short dash cancels with no delayed fire"
+  ],
+  "assets": [
+    {
+      "file": "hero-gunfu-slashes.png",
+      "frames": 32
+    },
+    {
+      "file": "hero-gunfu-sweep-kick.png",
+      "frames": 32
+    },
+    {
+      "file": "hero-gunfu-aerial.png",
+      "frames": 32
+    },
+    {
+      "file": "hero-gunfu-landing.png",
+      "frames": 32
+    }
+  ],
+  "phases": [
+    "downslash",
+    "uppercut",
+    "sweep",
+    "kick",
+    "backflip",
+    "airshot",
+    "landspin",
+    "groundshot",
+    "recover",
+    "ready"
+  ],
+  "shotChanges": [
+    {
+      "time": 1.4666666666666666,
+      "frame": "routine_airshot_right_1",
+      "stage": "airshot",
+      "action": {
+        "kind": "airshot",
+        "elapsed": 0.09500000000000026,
+        "duration": 0.24,
+        "angle": 0.16589545237873898,
+        "gunfu": true,
+        "lift": 24.833333333333325,
+        "airborne": true
+      },
+      "shots": 1,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 2,
+      "frame": "routine_groundshot_right_1",
+      "stage": "groundshot",
+      "action": {
+        "kind": "groundshot",
+        "elapsed": 0.06833333333333373,
+        "duration": 0.24,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 2,
+      "weapon": "gravel_bell",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    }
+  ],
+  "records": [
+    {
+      "time": 0,
+      "frame": "routine_downslash_right_0",
+      "stage": "downslash",
+      "action": {
+        "kind": "downslash",
+        "elapsed": 0.008333333333333333,
+        "duration": 0.26,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.06666666666666667,
+      "frame": "routine_downslash_right_1",
+      "stage": "downslash",
+      "action": {
+        "kind": "downslash",
+        "elapsed": 0.075,
+        "duration": 0.26,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.13333333333333333,
+      "frame": "routine_downslash_right_2",
+      "stage": "downslash",
+      "action": {
+        "kind": "downslash",
+        "elapsed": 0.14166666666666666,
+        "duration": 0.26,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.2,
+      "frame": "routine_downslash_right_3",
+      "stage": "downslash",
+      "action": {
+        "kind": "downslash",
+        "elapsed": 0.20833333333333331,
+        "duration": 0.26,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.26666666666666666,
+      "frame": "routine_uppercut_right_0",
+      "stage": "uppercut",
+      "action": {
+        "kind": "uppercut",
+        "elapsed": 0.014999999999999961,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.3333333333333333,
+      "frame": "routine_uppercut_right_1",
+      "stage": "uppercut",
+      "action": {
+        "kind": "uppercut",
+        "elapsed": 0.08166666666666662,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.4,
+      "frame": "routine_uppercut_right_2",
+      "stage": "uppercut",
+      "action": {
+        "kind": "uppercut",
+        "elapsed": 0.1483333333333333,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.4666666666666667,
+      "frame": "routine_uppercut_right_3",
+      "stage": "uppercut",
+      "action": {
+        "kind": "uppercut",
+        "elapsed": 0.21499999999999994,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.5333333333333333,
+      "frame": "routine_sweep_right_0",
+      "stage": "sweep",
+      "action": {
+        "kind": "sweep",
+        "elapsed": 0.041666666666666664,
+        "duration": 0.28,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.6,
+      "frame": "routine_sweep_right_1",
+      "stage": "sweep",
+      "action": {
+        "kind": "sweep",
+        "elapsed": 0.10833333333333332,
+        "duration": 0.28,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.6666666666666666,
+      "frame": "routine_sweep_right_2",
+      "stage": "sweep",
+      "action": {
+        "kind": "sweep",
+        "elapsed": 0.175,
+        "duration": 0.28,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.7333333333333333,
+      "frame": "routine_sweep_right_3",
+      "stage": "sweep",
+      "action": {
+        "kind": "sweep",
+        "elapsed": 0.24166666666666664,
+        "duration": 0.28,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.8,
+      "frame": "routine_kick_right_0",
+      "stage": "kick",
+      "action": {
+        "kind": "kick",
+        "elapsed": 0.02833333333333333,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.8666666666666667,
+      "frame": "routine_kick_right_1",
+      "stage": "kick",
+      "action": {
+        "kind": "kick",
+        "elapsed": 0.09499999999999999,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 0.9333333333333333,
+      "frame": "routine_kick_right_2",
+      "stage": "kick",
+      "action": {
+        "kind": "kick",
+        "elapsed": 0.16166666666666665,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 1,
+      "frame": "routine_kick_right_3",
+      "stage": "kick",
+      "action": {
+        "kind": "kick",
+        "elapsed": 0.2283333333333333,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 480,
+        "y": 340
+      }
+    },
+    {
+      "time": 1.0666666666666667,
+      "frame": "routine_backflip_right_0",
+      "stage": "backflip",
+      "action": {
+        "kind": "backflip",
+        "elapsed": 0.05499999999999997,
+        "duration": 0.36,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 6.655204985132844,
+        "airborne": false
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 475.15154207936683,
+        "y": 340.6274474956113
+      }
+    },
+    {
+      "time": 1.1333333333333333,
+      "frame": "routine_backflip_right_1",
+      "stage": "backflip",
+      "action": {
+        "kind": "backflip",
+        "elapsed": 0.12166666666666663,
+        "duration": 0.36,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 14.17596985740732,
+        "airborne": true
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 469.27462338769027,
+        "y": 341.3879899145341
+      }
+    },
+    {
+      "time": 1.2,
+      "frame": "routine_backflip_right_2",
+      "stage": "backflip",
+      "action": {
+        "kind": "backflip",
+        "elapsed": 0.1883333333333333,
+        "duration": 0.36,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 20.505655915460572,
+        "airborne": true
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 463.3977046960137,
+        "y": 342.1485323334569
+      }
+    },
+    {
+      "time": 1.2666666666666666,
+      "frame": "routine_backflip_right_2",
+      "stage": "backflip",
+      "action": {
+        "kind": "backflip",
+        "elapsed": 0.25499999999999995,
+        "duration": 0.36,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 25.112436762915273,
+        "airborne": true
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 457.52078600433714,
+        "y": 342.9090747523797
+      }
+    },
+    {
+      "time": 1.3333333333333333,
+      "frame": "routine_backflip_right_3",
+      "stage": "backflip",
+      "action": {
+        "kind": "backflip",
+        "elapsed": 0.3216666666666668,
+        "duration": 0.36,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 27.609246179656935,
+        "airborne": true
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 451.6438673126606,
+        "y": 343.6696171713025
+      }
+    },
+    {
+      "time": 1.4,
+      "frame": "routine_airshot_right_0",
+      "stage": "airshot",
+      "action": {
+        "kind": "airshot",
+        "elapsed": 0.028333333333333606,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 27.055555555555546,
+        "airborne": true
+      },
+      "shots": 0,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 1.4666666666666666,
+      "frame": "routine_airshot_right_1",
+      "stage": "airshot",
+      "action": {
+        "kind": "airshot",
+        "elapsed": 0.09500000000000026,
+        "duration": 0.24,
+        "angle": 0.16589545237873898,
+        "gunfu": true,
+        "lift": 24.833333333333325,
+        "airborne": true
+      },
+      "shots": 1,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 1.5333333333333334,
+      "frame": "routine_airshot_right_2",
+      "stage": "airshot",
+      "action": {
+        "kind": "airshot",
+        "elapsed": 0.16166666666666693,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 22.6111111111111,
+        "airborne": true
+      },
+      "shots": 1,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 1.6,
+      "frame": "routine_airshot_right_3",
+      "stage": "airshot",
+      "action": {
+        "kind": "airshot",
+        "elapsed": 0.22833333333333358,
+        "duration": 0.24,
+        "angle": -0.12869650127801413,
+        "gunfu": true,
+        "lift": 20.38888888888888,
+        "airborne": true
+      },
+      "shots": 1,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 1.6666666666666667,
+      "frame": "routine_landspin_right_0",
+      "stage": "landspin",
+      "action": {
+        "kind": "landspin",
+        "elapsed": 0.05500000000000025,
+        "duration": 0.32,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 6.249999999999938,
+        "airborne": false
+      },
+      "shots": 1,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 1.7333333333333334,
+      "frame": "routine_landspin_down_1",
+      "stage": "landspin",
+      "action": {
+        "kind": "landspin",
+        "elapsed": 0.12166666666666691,
+        "duration": 0.32,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 1,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 1.8,
+      "frame": "routine_landspin_left_2",
+      "stage": "landspin",
+      "action": {
+        "kind": "landspin",
+        "elapsed": 0.18833333333333357,
+        "duration": 0.32,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 1,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 1.8666666666666667,
+      "frame": "routine_landspin_up_3",
+      "stage": "landspin",
+      "action": {
+        "kind": "landspin",
+        "elapsed": 0.2550000000000002,
+        "duration": 0.32,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 1,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 1.9333333333333333,
+      "frame": "routine_groundshot_right_0",
+      "stage": "groundshot",
+      "action": {
+        "kind": "groundshot",
+        "elapsed": 0.0016666666666670677,
+        "duration": 0.24,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 1,
+      "weapon": "ash_needle",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 2,
+      "frame": "routine_groundshot_right_1",
+      "stage": "groundshot",
+      "action": {
+        "kind": "groundshot",
+        "elapsed": 0.06833333333333373,
+        "duration": 0.24,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 2,
+      "weapon": "gravel_bell",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 2.066666666666667,
+      "frame": "routine_groundshot_right_2",
+      "stage": "groundshot",
+      "action": {
+        "kind": "groundshot",
+        "elapsed": 0.1350000000000004,
+        "duration": 0.24,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 2,
+      "weapon": "gravel_bell",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 2.1333333333333333,
+      "frame": "routine_groundshot_right_3",
+      "stage": "groundshot",
+      "action": {
+        "kind": "groundshot",
+        "elapsed": 0.20166666666666705,
+        "duration": 0.24,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 2,
+      "weapon": "gravel_bell",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 2.2,
+      "frame": "routine_groundshot_right_3",
+      "stage": "recover",
+      "action": {
+        "kind": "recover",
+        "elapsed": 0.028333333333333717,
+        "duration": 0.16,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 2,
+      "weapon": "gravel_bell",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 2.2666666666666666,
+      "frame": "routine_groundshot_right_3",
+      "stage": "recover",
+      "action": {
+        "kind": "recover",
+        "elapsed": 0.09500000000000038,
+        "duration": 0.16,
+        "angle": -0.12869650127801274,
+        "gunfu": true,
+        "lift": 0,
+        "airborne": false
+      },
+      "shots": 2,
+      "weapon": "gravel_bell",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    },
+    {
+      "time": 2.3333333333333335,
+      "frame": "idle_right_0",
+      "stage": "ready",
+      "action": null,
+      "shots": 2,
+      "weapon": "gravel_bell",
+      "pos": {
+        "x": 448.26463906494655,
+        "y": 344.1069290621831
+      }
+    }
+  ],
+  "directions": [
+    {
+      "name": "down",
+      "frames": [
+        "routine_downslash_down_0",
+        "routine_downslash_down_1",
+        "routine_downslash_down_2",
+        "routine_downslash_down_3",
+        "routine_uppercut_down_0",
+        "routine_uppercut_down_1",
+        "routine_uppercut_down_2",
+        "routine_uppercut_down_3",
+        "routine_sweep_down_0",
+        "routine_sweep_down_1",
+        "routine_sweep_down_2",
+        "routine_sweep_down_3",
+        "routine_kick_down_0",
+        "routine_kick_down_1",
+        "routine_kick_down_2",
+        "routine_kick_down_3",
+        "routine_backflip_down_0",
+        "routine_backflip_down_1",
+        "routine_backflip_down_2",
+        "routine_backflip_down_3",
+        "routine_airshot_down_0",
+        "routine_airshot_down_1",
+        "routine_airshot_down_2",
+        "routine_airshot_down_3",
+        "routine_landspin_down_0",
+        "routine_landspin_down_1",
+        "routine_landspin_left_1",
+        "routine_landspin_left_2",
+        "routine_landspin_up_2",
+        "routine_landspin_right_2",
+        "routine_landspin_right_3",
+        "routine_landspin_down_3",
+        "routine_groundshot_down_0",
+        "routine_groundshot_down_1",
+        "routine_groundshot_down_2",
+        "routine_groundshot_down_3"
+      ]
+    },
+    {
+      "name": "left",
+      "frames": [
+        "routine_downslash_left_0",
+        "routine_downslash_left_1",
+        "routine_downslash_left_2",
+        "routine_downslash_left_3",
+        "routine_uppercut_left_0",
+        "routine_uppercut_left_1",
+        "routine_uppercut_left_2",
+        "routine_uppercut_left_3",
+        "routine_sweep_left_0",
+        "routine_sweep_left_1",
+        "routine_sweep_left_2",
+        "routine_sweep_left_3",
+        "routine_kick_left_0",
+        "routine_kick_left_1",
+        "routine_kick_left_2",
+        "routine_kick_left_3",
+        "routine_backflip_left_0",
+        "routine_backflip_left_1",
+        "routine_backflip_left_2",
+        "routine_backflip_left_3",
+        "routine_airshot_left_0",
+        "routine_airshot_left_1",
+        "routine_airshot_left_2",
+        "routine_airshot_left_3",
+        "routine_landspin_left_0",
+        "routine_landspin_left_1",
+        "routine_landspin_up_1",
+        "routine_landspin_up_2",
+        "routine_landspin_right_2",
+        "routine_landspin_down_2",
+        "routine_landspin_down_3",
+        "routine_landspin_left_3",
+        "routine_groundshot_left_0",
+        "routine_groundshot_left_1",
+        "routine_groundshot_left_2",
+        "routine_groundshot_left_3"
+      ]
+    },
+    {
+      "name": "right",
+      "frames": [
+        "routine_downslash_right_0",
+        "routine_downslash_right_1",
+        "routine_downslash_right_2",
+        "routine_downslash_right_3",
+        "routine_uppercut_right_0",
+        "routine_uppercut_right_1",
+        "routine_uppercut_right_2",
+        "routine_uppercut_right_3",
+        "routine_sweep_right_0",
+        "routine_sweep_right_1",
+        "routine_sweep_right_2",
+        "routine_sweep_right_3",
+        "routine_kick_right_0",
+        "routine_kick_right_1",
+        "routine_kick_right_2",
+        "routine_kick_right_3",
+        "routine_backflip_right_0",
+        "routine_backflip_right_1",
+        "routine_backflip_right_2",
+        "routine_backflip_right_3",
+        "routine_airshot_right_0",
+        "routine_airshot_right_1",
+        "routine_airshot_right_2",
+        "routine_airshot_right_3",
+        "routine_landspin_right_0",
+        "routine_landspin_right_1",
+        "routine_landspin_down_1",
+        "routine_landspin_down_2",
+        "routine_landspin_left_2",
+        "routine_landspin_up_2",
+        "routine_landspin_up_3",
+        "routine_landspin_right_3",
+        "routine_groundshot_right_0",
+        "routine_groundshot_right_1",
+        "routine_groundshot_right_2",
+        "routine_groundshot_right_3"
+      ]
+    },
+    {
+      "name": "up",
+      "frames": [
+        "routine_downslash_up_0",
+        "routine_downslash_up_1",
+        "routine_downslash_up_2",
+        "routine_downslash_up_3",
+        "routine_uppercut_up_0",
+        "routine_uppercut_up_1",
+        "routine_uppercut_up_2",
+        "routine_uppercut_up_3",
+        "routine_sweep_up_0",
+        "routine_sweep_up_1",
+        "routine_sweep_up_2",
+        "routine_sweep_up_3",
+        "routine_kick_up_0",
+        "routine_kick_up_1",
+        "routine_kick_up_2",
+        "routine_kick_up_3",
+        "routine_backflip_up_0",
+        "routine_backflip_up_1",
+        "routine_backflip_up_2",
+        "routine_backflip_up_3",
+        "routine_airshot_up_0",
+        "routine_airshot_up_1",
+        "routine_airshot_up_2",
+        "routine_airshot_up_3",
+        "routine_landspin_up_0",
+        "routine_landspin_up_1",
+        "routine_landspin_right_1",
+        "routine_landspin_right_2",
+        "routine_landspin_down_2",
+        "routine_landspin_left_2",
+        "routine_landspin_left_3",
+        "routine_landspin_up_3",
+        "routine_groundshot_up_0",
+        "routine_groundshot_up_1",
+        "routine_groundshot_up_2",
+        "routine_groundshot_up_3"
+      ]
+    }
+  ],
+  "interrupt": {
+    "before": 10,
+    "after": 10,
+    "busy": false
+  },
+  "errors": [],
+  "browser": "154.0.4258.53",
+  "date": "2026-10-05T12:23:19.267Z"
+}

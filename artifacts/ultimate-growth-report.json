@@ -1,0 +1,224 @@
+{
+  "casts": [
+    {
+      "preset": "baseline",
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "critical": false,
+          "amount": 12
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "critical": false,
+          "amount": 8
+        },
+        {
+          "phase": 2,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "critical": false,
+          "amount": 10
+        },
+        {
+          "phase": 3,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "critical": false,
+          "amount": 10
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": true,
+          "critical": false,
+          "amount": 20
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": false,
+          "critical": false,
+          "amount": 10
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "critical": false,
+          "amount": 49
+        }
+      ],
+      "opening": 70,
+      "remaining": 4881
+    },
+    {
+      "preset": "growth",
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "critical": false,
+          "amount": 23
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "critical": false,
+          "amount": 15
+        },
+        {
+          "phase": 2,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "critical": false,
+          "amount": 18
+        },
+        {
+          "phase": 3,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "critical": false,
+          "amount": 18
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": true,
+          "critical": false,
+          "amount": 47
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": false,
+          "critical": false,
+          "amount": 20
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "critical": false,
+          "amount": 99
+        }
+      ],
+      "opening": 141,
+      "remaining": 4760
+    },
+    {
+      "preset": "blade",
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "critical": false,
+          "amount": 33
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "critical": false,
+          "amount": 22
+        },
+        {
+          "phase": 2,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "critical": false,
+          "amount": 18
+        },
+        {
+          "phase": 3,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "critical": false,
+          "amount": 18
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": true,
+          "critical": false,
+          "amount": 47
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": false,
+          "critical": false,
+          "amount": 20
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "critical": false,
+          "amount": 111
+        }
+      ],
+      "opening": 158,
+      "remaining": 4731
+    },
+    {
+      "preset": "critical",
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "critical": false,
+          "amount": 23
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "critical": false,
+          "amount": 15
+        },
+        {
+          "phase": 2,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "critical": true,
+          "amount": 36
+        },
+        {
+          "phase": 3,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "critical": true,
+          "amount": 36
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": true,
+          "critical": false,
+          "amount": 47
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": false,
+          "critical": true,
+          "amount": 39
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "critical": false,
+          "amount": 137
+        }
+      ],
+      "opening": 196,
+      "remaining": 4667
+    }
+  ],
+  "errors": [],
+  "choice": {
+    "rank": 1,
+    "pending": 0,
+    "panel": null
+  },
+  "pause": "灰烬外庭 · Lv.2生命 103 / 103通用增伤 +2% · 枪斗／大招 +0%元素亲和 +0% · 巨刃 +15%减伤 0% · 闪避冷却 0.90 秒巨刃专精 1尚未收集记忆遗物",
+  "date": "2026-10-06T15:17:31.596Z"
+}

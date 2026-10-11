@@ -1,0 +1,793 @@
+{
+  "note": "Authored game verification with actual mouse holds/releases and five/six right-click presses. Flight gallery includes a prepared sword-energy state; this does not measure human difficulty or subjective audio feel.",
+  "checks": [
+    {
+      "id": "earth_crossbow_late",
+      "partialRelease": {
+        "shots": 1,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "bolt",
+            "charge": 0.21111111111111103,
+            "delay": 0,
+            "radius": 0,
+            "damage": 156.66666666666666,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "frost_string_late",
+      "partialRelease": {
+        "shots": 2,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "crystal",
+            "charge": 0.24358974358974367,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "ember_lantern_late",
+      "partialRelease": {
+        "shots": 3,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "fireball",
+            "charge": 0.1979166666666666,
+            "delay": 0,
+            "radius": 77.41666666666666,
+            "damage": 58,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "character": "ember",
+      "id": "earth_crossbow_late",
+      "rightClickPresses": 5,
+      "fullBullets": [
+        {
+          "id": 4,
+          "style": "bolt",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 5,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 6,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 7,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 8,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 9,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 10,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 11,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        }
+      ]
+    },
+    {
+      "character": "ember",
+      "id": "frost_string_late",
+      "rightClickPresses": 5,
+      "fullBullets": [
+        {
+          "id": 12,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 13,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 14,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 15,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 16,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 17,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 18,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 19,
+          "style": "bolt",
+          "charge": 1,
+          "phase": "ground"
+        }
+      ]
+    },
+    {
+      "character": "ember",
+      "id": "ember_lantern_late",
+      "rightClickPresses": 5,
+      "fullBullets": [
+        {
+          "id": 20,
+          "style": "fireball",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 21,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 22,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 23,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 24,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 25,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 26,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 27,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        }
+      ]
+    },
+    {
+      "character": "violet",
+      "id": "earth_crossbow_late",
+      "rightClickPresses": 6,
+      "fullBullets": [
+        {
+          "id": 28,
+          "style": "bolt",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 29,
+          "style": "bolt",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 30,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 31,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 32,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 33,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 34,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 35,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 36,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        }
+      ]
+    },
+    {
+      "character": "violet",
+      "id": "frost_string_late",
+      "rightClickPresses": 6,
+      "fullBullets": [
+        {
+          "id": 37,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 38,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 39,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 40,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 41,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 42,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 43,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 44,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 45,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 46,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 47,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 48,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 49,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 50,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 51,
+          "style": "bolt",
+          "charge": 1,
+          "phase": "ground"
+        }
+      ]
+    },
+    {
+      "character": "violet",
+      "id": "ember_lantern_late",
+      "rightClickPresses": 6,
+      "fullBullets": [
+        {
+          "id": 52,
+          "style": "fireball",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 53,
+          "style": "fireball",
+          "charge": 1,
+          "phase": "air"
+        },
+        {
+          "id": 54,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 55,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 56,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 57,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 58,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 59,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        },
+        {
+          "id": 60,
+          "style": "crystal",
+          "charge": 1,
+          "phase": "ground"
+        }
+      ]
+    },
+    {
+      "id": "ash_needle_late",
+      "flight": {
+        "shots": 19,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "needle",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 34,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "gravel_bell_late",
+      "flight": {
+        "shots": 20,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "gravel",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 22,
+            "returning": false
+          },
+          {
+            "style": "gravel",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 22,
+            "returning": false
+          },
+          {
+            "style": "gravel",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 22,
+            "returning": false
+          },
+          {
+            "style": "gravel",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 22,
+            "returning": false
+          },
+          {
+            "style": "gravel",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 22,
+            "returning": false
+          },
+          {
+            "style": "gravel",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 22,
+            "returning": false
+          },
+          {
+            "style": "gravel",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 22,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "frost_string_late",
+      "flight": {
+        "shots": 21,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "ember_lantern_late",
+      "flight": {
+        "shots": 22,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "fireball",
+            "charge": 1,
+            "delay": 0,
+            "radius": 148,
+            "damage": 58,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "thunder_branch_late",
+      "flight": {
+        "shots": 24,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "arc",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 20,
+            "returning": false
+          },
+          {
+            "style": "arc",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 20,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "wind_burst_late",
+      "flight": {
+        "shots": 25,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "wind",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 17,
+            "returning": false
+          },
+          {
+            "style": "wind",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 17,
+            "returning": false
+          },
+          {
+            "style": "wind",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 28.9,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "earth_crossbow_late",
+      "flight": {
+        "shots": 26,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "bolt",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 275,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "wind_ring_late",
+      "flight": {
+        "shots": 27,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "ring",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 86,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "hush_edge_late",
+      "flight": {
+        "shots": 28,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "wave",
+            "charge": 0,
+            "delay": 0,
+            "radius": 0,
+            "damage": 71.39999999999999,
+            "returning": false
+          }
+        ]
+      }
+    },
+    {
+      "resolution": "1920x1080",
+      "flight": {
+        "shots": 29,
+        "charging": false,
+        "charge": 0,
+        "bullets": [
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          },
+          {
+            "style": "crystal",
+            "charge": 1,
+            "delay": 0,
+            "radius": 0,
+            "damage": 64,
+            "returning": false
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "resources": []
+}

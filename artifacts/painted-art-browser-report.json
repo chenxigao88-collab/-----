@@ -1,0 +1,284 @@
+{
+  "gallery": [
+    {
+      "id": "ash_needle",
+      "name": "灰针",
+      "tier": 1,
+      "rect": [
+        0,
+        0,
+        250,
+        143
+      ]
+    },
+    {
+      "id": "gravel_bell",
+      "name": "砾钟",
+      "tier": 1,
+      "rect": [
+        0,
+        0,
+        261,
+        137
+      ]
+    },
+    {
+      "id": "hush_edge",
+      "name": "缄锋",
+      "tier": 1,
+      "rect": [
+        0,
+        0,
+        238,
+        207
+      ]
+    },
+    {
+      "id": "frost_string",
+      "name": "霜弦",
+      "tier": 1,
+      "rect": [
+        0,
+        0,
+        262,
+        157
+      ]
+    },
+    {
+      "id": "ember_lantern",
+      "name": "烬灯",
+      "tier": 1,
+      "rect": [
+        0,
+        0,
+        237,
+        214
+      ]
+    },
+    {
+      "id": "thunder_branch",
+      "name": "鸣枝",
+      "tier": 1,
+      "rect": [
+        0,
+        0,
+        228,
+        186
+      ]
+    },
+    {
+      "id": "ash_needle_mid",
+      "name": "穿灰针",
+      "tier": 2,
+      "rect": [
+        0,
+        0,
+        273,
+        136
+      ]
+    },
+    {
+      "id": "ash_needle_late",
+      "name": "雷织灰针",
+      "tier": 3,
+      "rect": [
+        0,
+        0,
+        306,
+        147
+      ]
+    },
+    {
+      "id": "gravel_bell_mid",
+      "name": "裂岩砾钟",
+      "tier": 2,
+      "rect": [
+        0,
+        0,
+        266,
+        141
+      ]
+    },
+    {
+      "id": "gravel_bell_late",
+      "name": "崩山砾钟",
+      "tier": 3,
+      "rect": [
+        0,
+        0,
+        307,
+        175
+      ]
+    },
+    {
+      "id": "hush_edge_mid",
+      "name": "回响缄锋",
+      "tier": 2,
+      "rect": [
+        0,
+        0,
+        238,
+        207
+      ]
+    },
+    {
+      "id": "hush_edge_late",
+      "name": "归途缄锋",
+      "tier": 3,
+      "rect": [
+        0,
+        0,
+        278,
+        238
+      ]
+    },
+    {
+      "id": "frost_string_mid",
+      "name": "裂晶霜弦",
+      "tier": 2,
+      "rect": [
+        0,
+        0,
+        284,
+        180
+      ]
+    },
+    {
+      "id": "frost_string_late",
+      "name": "极夜霜弦",
+      "tier": 3,
+      "rect": [
+        0,
+        0,
+        281,
+        213
+      ]
+    },
+    {
+      "id": "ember_lantern_mid",
+      "name": "熔炉烬灯",
+      "tier": 2,
+      "rect": [
+        0,
+        0,
+        260,
+        200
+      ]
+    },
+    {
+      "id": "ember_lantern_late",
+      "name": "燎原烬灯",
+      "tier": 3,
+      "rect": [
+        0,
+        0,
+        277,
+        229
+      ]
+    },
+    {
+      "id": "thunder_branch_mid",
+      "name": "雷簇鸣枝",
+      "tier": 2,
+      "rect": [
+        0,
+        0,
+        224,
+        183
+      ]
+    },
+    {
+      "id": "thunder_branch_late",
+      "name": "天裂鸣枝",
+      "tier": 3,
+      "rect": [
+        0,
+        0,
+        238,
+        202
+      ]
+    },
+    {
+      "id": "wind_burst_mid",
+      "name": "疾风连铳",
+      "tier": 2,
+      "rect": [
+        0,
+        0,
+        219,
+        144
+      ]
+    },
+    {
+      "id": "wind_burst_late",
+      "name": "风暴连铳",
+      "tier": 3,
+      "rect": [
+        0,
+        0,
+        305,
+        201
+      ]
+    },
+    {
+      "id": "earth_crossbow_mid",
+      "name": "镇岩重弩",
+      "tier": 2,
+      "rect": [
+        0,
+        0,
+        276,
+        170
+      ]
+    },
+    {
+      "id": "earth_crossbow_late",
+      "name": "地脉重弩",
+      "tier": 3,
+      "rect": [
+        0,
+        0,
+        321,
+        183
+      ]
+    },
+    {
+      "id": "wind_ring_mid",
+      "name": "回风环刃",
+      "tier": 2,
+      "rect": [
+        0,
+        0,
+        225,
+        207
+      ]
+    },
+    {
+      "id": "wind_ring_late",
+      "name": "风眼环刃",
+      "tier": 3,
+      "rect": [
+        0,
+        0,
+        215,
+        212
+      ]
+    }
+  ],
+  "frames": 80,
+  "reactions": [
+    "thermal",
+    "blast",
+    "burn",
+    "exposure",
+    "fracture",
+    "vortex",
+    "bind",
+    "conduct",
+    "shock",
+    "sand"
+  ],
+  "hits": 29,
+  "geometryFree": true,
+  "errors": []
+}

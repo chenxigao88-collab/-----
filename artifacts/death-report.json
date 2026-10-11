@@ -1,0 +1,59 @@
+{
+  "checks": [
+    "death animation/result",
+    "restart from death"
+  ],
+  "reset": {
+    "runId": 2,
+    "state": "ready",
+    "hp": 100,
+    "pos": {
+      "x": 480,
+      "y": 340
+    },
+    "dash": 0,
+    "enemyCount": 0,
+    "wave": 0,
+    "waveAlive": 0,
+    "pending": 0,
+    "projectiles": 0,
+    "particles": 0,
+    "subscriptions": 12,
+    "meter": 0,
+    "activations": 0,
+    "slow": 1,
+    "hitStop": 0,
+    "hits": 0,
+    "perfectDodges": 0,
+    "peak": 0,
+    "activeWeapon": "ash_needle",
+    "slotCooldowns": [
+      0,
+      0
+    ],
+    "reactions": 0,
+    "reactionCounts": {},
+    "areas": 0,
+    "burns": 0,
+    "gunfu": {
+      "kind": "none",
+      "stage": "ready",
+      "window": 0,
+      "cooldown": 0,
+      "completed": 0,
+      "nextWeapon": "砾钟",
+      "hint": "右键每按一次接一段 · 下劈 → 上撩 → 横扫 → 踢翻射击 → 旋身开枪",
+      "style": 0,
+      "phase": -1,
+      "awaiting": false,
+      "queued": false,
+      "character": "ember",
+      "progress": 0,
+      "remaining": 0
+    },
+    "freeze": 0,
+    "freezeCooldown": 0
+  },
+  "errors": [],
+  "date": "2026-10-05T12:23:14.014Z"
+}

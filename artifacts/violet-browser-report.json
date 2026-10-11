@@ -1,0 +1,493 @@
+{
+  "checks": [
+    "real character selection UI",
+    "selection persists",
+    "172 animation frames",
+    "single click executes one segment",
+    "six separate right clicks",
+    "all six poses and recovery",
+    "three grounded auto shots",
+    "weapon changes on third shot",
+    "no original character frames",
+    "four direction combat animations",
+    "menu usable at 1024x768"
+  ],
+  "assets": [
+    {
+      "file": "violet-locomotion.png",
+      "frames": 16
+    },
+    {
+      "file": "violet-run-v2.png",
+      "frames": 12
+    },
+    {
+      "file": "violet-run-profile.png",
+      "frames": 16
+    },
+    {
+      "file": "violet-slash.png",
+      "frames": 16
+    },
+    {
+      "file": "violet-upper.png",
+      "frames": 16
+    },
+    {
+      "file": "violet-spin-kneel.png",
+      "frames": 32
+    },
+    {
+      "file": "violet-kneel-turn.png",
+      "frames": 32
+    },
+    {
+      "file": "violet-utility.png",
+      "frames": 16
+    },
+    {
+      "file": "violet-death.png",
+      "frames": 16
+    }
+  ],
+  "stages": [
+    "greatslash",
+    "greatupper",
+    "greatspin",
+    "kneelshot1",
+    "kneelshot2",
+    "turnshot",
+    "recover",
+    "ready"
+  ],
+  "records": [
+    {
+      "time": 0,
+      "frame": "violet_greatslash_right_0",
+      "stage": "greatslash",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.06666666666666667,
+      "frame": "violet_greatslash_right_0",
+      "stage": "greatslash",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.13333333333333333,
+      "frame": "violet_greatslash_right_1",
+      "stage": "greatslash",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.2,
+      "frame": "violet_greatslash_right_2",
+      "stage": "greatslash",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.26666666666666666,
+      "frame": "violet_greatslash_right_3",
+      "stage": "greatslash",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.3333333333333333,
+      "frame": "violet_greatupper_right_0",
+      "stage": "greatupper",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.4,
+      "frame": "violet_greatupper_right_1",
+      "stage": "greatupper",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.4666666666666667,
+      "frame": "violet_greatupper_right_2",
+      "stage": "greatupper",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.5333333333333333,
+      "frame": "violet_greatupper_right_2",
+      "stage": "greatupper",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.6,
+      "frame": "violet_greatupper_right_3",
+      "stage": "greatupper",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.6666666666666666,
+      "frame": "violet_greatspin_down_0",
+      "stage": "greatspin",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.7333333333333333,
+      "frame": "violet_greatspin_down_1",
+      "stage": "greatspin",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.8,
+      "frame": "violet_greatspin_left_2",
+      "stage": "greatspin",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.8666666666666667,
+      "frame": "violet_greatspin_up_2",
+      "stage": "greatspin",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 0.9333333333333333,
+      "frame": "violet_greatspin_right_3",
+      "stage": "greatspin",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1,
+      "frame": "violet_kneelshot1_right_0",
+      "stage": "kneelshot1",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.0666666666666667,
+      "frame": "violet_kneelshot1_right_1",
+      "stage": "kneelshot1",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.1333333333333333,
+      "frame": "violet_kneelshot1_right_1",
+      "stage": "kneelshot1",
+      "shots": 0,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.2,
+      "frame": "violet_kneelshot2_right_2",
+      "stage": "kneelshot1",
+      "shots": 1,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.2666666666666666,
+      "frame": "violet_kneelshot2_right_3",
+      "stage": "kneelshot1",
+      "shots": 1,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.3333333333333333,
+      "frame": "violet_kneelshot2_right_0",
+      "stage": "kneelshot2",
+      "shots": 1,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.4,
+      "frame": "violet_kneelshot2_right_1",
+      "stage": "kneelshot2",
+      "shots": 1,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.4666666666666666,
+      "frame": "violet_kneelshot2_right_2",
+      "stage": "kneelshot2",
+      "shots": 2,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.5333333333333334,
+      "frame": "violet_kneelshot2_right_3",
+      "stage": "kneelshot2",
+      "shots": 2,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.6,
+      "frame": "violet_turnshot_left_0",
+      "stage": "turnshot",
+      "shots": 2,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.6666666666666667,
+      "frame": "violet_turnshot_down_0",
+      "stage": "turnshot",
+      "shots": 2,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.7333333333333334,
+      "frame": "violet_turnshot_down_1",
+      "stage": "turnshot",
+      "shots": 2,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.8,
+      "frame": "violet_turnshot_right_1",
+      "stage": "turnshot",
+      "shots": 2,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.8666666666666667,
+      "frame": "violet_turnshot_right_2",
+      "stage": "turnshot",
+      "shots": 2,
+      "weapon": "ash_needle",
+      "airborne": false
+    },
+    {
+      "time": 1.9333333333333333,
+      "frame": "violet_turnshot_right_3",
+      "stage": "turnshot",
+      "shots": 3,
+      "weapon": "gravel_bell",
+      "airborne": false
+    },
+    {
+      "time": 2,
+      "frame": "violet_turnshot_right_3",
+      "stage": "turnshot",
+      "shots": 3,
+      "weapon": "gravel_bell",
+      "airborne": false
+    },
+    {
+      "time": 2.066666666666667,
+      "frame": "violet_turnshot_right_3",
+      "stage": "recover",
+      "shots": 3,
+      "weapon": "gravel_bell",
+      "airborne": false
+    },
+    {
+      "time": 2.1333333333333333,
+      "frame": "violet_turnshot_right_3",
+      "stage": "recover",
+      "shots": 3,
+      "weapon": "gravel_bell",
+      "airborne": false
+    },
+    {
+      "time": 2.2,
+      "frame": "violet_idle_right_0",
+      "stage": "ready",
+      "shots": 3,
+      "weapon": "gravel_bell",
+      "airborne": false
+    },
+    {
+      "time": 2.2666666666666666,
+      "frame": "violet_idle_right_0",
+      "stage": "ready",
+      "shots": 3,
+      "weapon": "gravel_bell",
+      "airborne": false
+    },
+    {
+      "time": 2.3333333333333335,
+      "frame": "violet_idle_right_1",
+      "stage": "ready",
+      "shots": 3,
+      "weapon": "gravel_bell",
+      "airborne": false
+    }
+  ],
+  "directions": [
+    {
+      "name": "down",
+      "frames": [
+        "violet_greatslash_down_0",
+        "violet_greatslash_down_1",
+        "violet_greatslash_down_2",
+        "violet_greatslash_down_3",
+        "violet_greatupper_down_0",
+        "violet_greatupper_down_1",
+        "violet_greatupper_down_2",
+        "violet_greatupper_down_3",
+        "violet_greatspin_down_0",
+        "violet_greatspin_left_0",
+        "violet_greatspin_left_1",
+        "violet_greatspin_up_1",
+        "violet_greatspin_up_2",
+        "violet_greatspin_right_2",
+        "violet_greatspin_right_3",
+        "violet_greatspin_down_3",
+        "violet_kneelshot1_down_0",
+        "violet_kneelshot1_down_1",
+        "violet_kneelshot2_down_2",
+        "violet_kneelshot2_down_3",
+        "violet_kneelshot2_down_0",
+        "violet_kneelshot2_down_1",
+        "violet_turnshot_up_0",
+        "violet_turnshot_left_0",
+        "violet_turnshot_left_1",
+        "violet_turnshot_down_1",
+        "violet_turnshot_down_2",
+        "violet_turnshot_down_3",
+        "violet_idle_down_1"
+      ]
+    },
+    {
+      "name": "left",
+      "frames": [
+        "violet_greatslash_left_0",
+        "violet_greatslash_left_1",
+        "violet_greatslash_left_2",
+        "violet_greatslash_left_3",
+        "violet_greatupper_left_0",
+        "violet_greatupper_left_1",
+        "violet_greatupper_left_2",
+        "violet_greatupper_left_3",
+        "violet_greatspin_left_0",
+        "violet_greatspin_up_0",
+        "violet_greatspin_up_1",
+        "violet_greatspin_right_1",
+        "violet_greatspin_right_2",
+        "violet_greatspin_down_2",
+        "violet_greatspin_down_3",
+        "violet_greatspin_left_3",
+        "violet_kneelshot1_left_0",
+        "violet_kneelshot1_left_1",
+        "violet_kneelshot2_left_2",
+        "violet_kneelshot2_left_3",
+        "violet_kneelshot2_left_0",
+        "violet_kneelshot2_left_1",
+        "violet_turnshot_right_0",
+        "violet_turnshot_up_0",
+        "violet_turnshot_up_1",
+        "violet_turnshot_left_1",
+        "violet_turnshot_left_2",
+        "violet_turnshot_left_3",
+        "violet_idle_left_1"
+      ]
+    },
+    {
+      "name": "right",
+      "frames": [
+        "violet_greatslash_right_0",
+        "violet_greatslash_right_1",
+        "violet_greatslash_right_2",
+        "violet_greatslash_right_3",
+        "violet_greatupper_right_0",
+        "violet_greatupper_right_1",
+        "violet_greatupper_right_2",
+        "violet_greatupper_right_3",
+        "violet_greatspin_right_0",
+        "violet_greatspin_down_0",
+        "violet_greatspin_down_1",
+        "violet_greatspin_left_1",
+        "violet_greatspin_left_2",
+        "violet_greatspin_up_2",
+        "violet_greatspin_up_3",
+        "violet_greatspin_right_3",
+        "violet_kneelshot1_right_0",
+        "violet_kneelshot1_right_1",
+        "violet_kneelshot2_right_2",
+        "violet_kneelshot2_right_3",
+        "violet_kneelshot2_right_0",
+        "violet_kneelshot2_right_1",
+        "violet_turnshot_left_0",
+        "violet_turnshot_down_0",
+        "violet_turnshot_down_1",
+        "violet_turnshot_right_1",
+        "violet_turnshot_right_2",
+        "violet_turnshot_right_3",
+        "violet_idle_right_1"
+      ]
+    },
+    {
+      "name": "up",
+      "frames": [
+        "violet_greatslash_up_0",
+        "violet_greatslash_up_1",
+        "violet_greatslash_up_2",
+        "violet_greatslash_up_3",
+        "violet_greatupper_up_0",
+        "violet_greatupper_up_1",
+        "violet_greatupper_up_2",
+        "violet_greatupper_up_3",
+        "violet_greatspin_up_0",
+        "violet_greatspin_right_0",
+        "violet_greatspin_right_1",
+        "violet_greatspin_down_1",
+        "violet_greatspin_down_2",
+        "violet_greatspin_left_2",
+        "violet_greatspin_left_3",
+        "violet_greatspin_up_3",
+        "violet_kneelshot1_up_0",
+        "violet_kneelshot1_up_1",
+        "violet_kneelshot2_up_2",
+        "violet_kneelshot2_up_3",
+        "violet_kneelshot2_up_0",
+        "violet_kneelshot2_up_1",
+        "violet_turnshot_down_0",
+        "violet_turnshot_right_0",
+        "violet_turnshot_right_1",
+        "violet_turnshot_up_1",
+        "violet_turnshot_up_2",
+        "violet_turnshot_up_3",
+        "violet_idle_up_1"
+      ]
+    }
+  ],
+  "errors": [],
+  "date": "2026-10-05T12:49:37.681Z"
+}

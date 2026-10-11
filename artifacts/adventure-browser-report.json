@@ -1,0 +1,87 @@
+{
+  "checks": [
+    "nine connected courts",
+    "E door and chest input",
+    "three-choice rune UI",
+    "actual shop heal and replacement buttons",
+    "safe persistent stocks",
+    "full chapter exit",
+    "uniform eight-frame chest sprites",
+    "no browser errors"
+  ],
+  "snapshot": {
+    "runId": 1,
+    "state": "victory",
+    "hp": 65,
+    "pos": {
+      "x": 480,
+      "y": 200
+    },
+    "dash": 0,
+    "enemyCount": 0,
+    "wave": 2,
+    "waveAlive": 0,
+    "pending": 0,
+    "projectiles": 0,
+    "particles": 0,
+    "subscriptions": 19,
+    "meter": 0,
+    "activations": 0,
+    "slow": 1,
+    "hitStop": 0,
+    "hits": 29,
+    "perfectDodges": 0,
+    "peak": 0,
+    "activeWeapon": "hush_edge",
+    "slotCooldowns": [
+      0,
+      0
+    ],
+    "reactions": 0,
+    "reactionCounts": {},
+    "areas": 0,
+    "burns": 0,
+    "gunfu": {
+      "kind": "none",
+      "stage": "ready",
+      "window": 0,
+      "cooldown": 0,
+      "completed": 0,
+      "nextWeapon": "砾钟",
+      "hint": "右键六段 · 巨刃下劈 → 上挑 → 回旋 → 跪射两枪 → 回身换枪",
+      "style": 0,
+      "phase": -1,
+      "awaiting": false,
+      "queued": false,
+      "character": "violet",
+      "progress": 0,
+      "remaining": 0
+    },
+    "freeze": 0,
+    "freezeCooldown": 0,
+    "adventure": {
+      "room": "core",
+      "gold": 62,
+      "cleared": 5,
+      "visited": [
+        "entry",
+        "front",
+        "gallery",
+        "vault",
+        "shop",
+        "garden",
+        "archive",
+        "forge",
+        "core"
+      ],
+      "runes": [
+        "hunt",
+        "feather"
+      ],
+      "panel": null
+    },
+    "shield": 0
+  },
+  "errors": [],
+  "date": "2026-10-05T14:49:14.422Z"
+}

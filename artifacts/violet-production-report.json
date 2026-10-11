@@ -1,0 +1,33 @@
+{
+  "checks": [
+    "production assets",
+    "no development hook",
+    "character selection",
+    "six explicit right clicks",
+    "all six stages and recovery",
+    "final weapon",
+    "saved selection"
+  ],
+  "stages": [
+    "巨刃下劈",
+    "再按右键 · 巨刃上挑",
+    "巨刃上挑",
+    "再按右键 · 回旋击飞",
+    "回旋击飞",
+    "再按右键 · 单膝跪射 · 第一枪",
+    "单膝跪射 · 第一枪",
+    "再按右键 · 单膝跪射 · 第二枪",
+    "单膝跪射 · 第二枪",
+    "再按右键 · 回身换枪 · 第三枪",
+    "回身换枪 · 第三枪",
+    "收势",
+    "收势恢复 0.4s",
+    "收势恢复 0.3s",
+    "收势恢复 0.2s",
+    "收势恢复 0.1s",
+    "收势恢复 0.0s",
+    "右键六段 · 巨刃下劈 → 上挑 → 回旋 → 跪射两枪 → 回身换枪"
+  ],
+  "errors": [],
+  "date": "2026-10-05T12:53:09.823Z"
+}

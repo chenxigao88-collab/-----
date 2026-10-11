@@ -1,0 +1,322 @@
+[
+  {
+    "id": "fx_thermal_0",
+    "visible": 1090
+  },
+  {
+    "id": "fx_thermal_1",
+    "visible": 6930
+  },
+  {
+    "id": "fx_thermal_2",
+    "visible": 13428
+  },
+  {
+    "id": "fx_thermal_3",
+    "visible": 24941
+  },
+  {
+    "id": "fx_thermal_4",
+    "visible": 12883
+  },
+  {
+    "id": "fx_thermal_5",
+    "visible": 6859
+  },
+  {
+    "id": "fx_thermal_6",
+    "visible": 1738
+  },
+  {
+    "id": "fx_thermal_7",
+    "visible": 275
+  },
+  {
+    "id": "fx_blast_0",
+    "visible": 2011
+  },
+  {
+    "id": "fx_blast_1",
+    "visible": 7831
+  },
+  {
+    "id": "fx_blast_2",
+    "visible": 15666
+  },
+  {
+    "id": "fx_blast_3",
+    "visible": 24075
+  },
+  {
+    "id": "fx_blast_4",
+    "visible": 13553
+  },
+  {
+    "id": "fx_blast_5",
+    "visible": 9539
+  },
+  {
+    "id": "fx_blast_6",
+    "visible": 3368
+  },
+  {
+    "id": "fx_blast_7",
+    "visible": 220
+  },
+  {
+    "id": "fx_burn_0",
+    "visible": 1131
+  },
+  {
+    "id": "fx_burn_1",
+    "visible": 9311
+  },
+  {
+    "id": "fx_burn_2",
+    "visible": 13887
+  },
+  {
+    "id": "fx_burn_3",
+    "visible": 20794
+  },
+  {
+    "id": "fx_burn_4",
+    "visible": 10504
+  },
+  {
+    "id": "fx_burn_5",
+    "visible": 4849
+  },
+  {
+    "id": "fx_burn_6",
+    "visible": 2483
+  },
+  {
+    "id": "fx_burn_7",
+    "visible": 291
+  },
+  {
+    "id": "fx_exposure_0",
+    "visible": 1185
+  },
+  {
+    "id": "fx_exposure_1",
+    "visible": 8581
+  },
+  {
+    "id": "fx_exposure_2",
+    "visible": 14174
+  },
+  {
+    "id": "fx_exposure_3",
+    "visible": 22571
+  },
+  {
+    "id": "fx_exposure_4",
+    "visible": 13106
+  },
+  {
+    "id": "fx_exposure_5",
+    "visible": 8886
+  },
+  {
+    "id": "fx_exposure_6",
+    "visible": 3502
+  },
+  {
+    "id": "fx_exposure_7",
+    "visible": 565
+  },
+  {
+    "id": "fx_fracture_0",
+    "visible": 1930
+  },
+  {
+    "id": "fx_fracture_1",
+    "visible": 8225
+  },
+  {
+    "id": "fx_fracture_2",
+    "visible": 14505
+  },
+  {
+    "id": "fx_fracture_3",
+    "visible": 21002
+  },
+  {
+    "id": "fx_fracture_4",
+    "visible": 8989
+  },
+  {
+    "id": "fx_fracture_5",
+    "visible": 5001
+  },
+  {
+    "id": "fx_fracture_6",
+    "visible": 2054
+  },
+  {
+    "id": "fx_fracture_7",
+    "visible": 364
+  },
+  {
+    "id": "fx_vortex_0",
+    "visible": 1069
+  },
+  {
+    "id": "fx_vortex_1",
+    "visible": 4331
+  },
+  {
+    "id": "fx_vortex_2",
+    "visible": 11329
+  },
+  {
+    "id": "fx_vortex_3",
+    "visible": 25781
+  },
+  {
+    "id": "fx_vortex_4",
+    "visible": 9654
+  },
+  {
+    "id": "fx_vortex_5",
+    "visible": 5634
+  },
+  {
+    "id": "fx_vortex_6",
+    "visible": 3394
+  },
+  {
+    "id": "fx_vortex_7",
+    "visible": 824
+  },
+  {
+    "id": "fx_bind_0",
+    "visible": 1609
+  },
+  {
+    "id": "fx_bind_1",
+    "visible": 8360
+  },
+  {
+    "id": "fx_bind_2",
+    "visible": 13019
+  },
+  {
+    "id": "fx_bind_3",
+    "visible": 23219
+  },
+  {
+    "id": "fx_bind_4",
+    "visible": 10535
+  },
+  {
+    "id": "fx_bind_5",
+    "visible": 7442
+  },
+  {
+    "id": "fx_bind_6",
+    "visible": 2821
+  },
+  {
+    "id": "fx_bind_7",
+    "visible": 559
+  },
+  {
+    "id": "fx_conduct_0",
+    "visible": 799
+  },
+  {
+    "id": "fx_conduct_1",
+    "visible": 5431
+  },
+  {
+    "id": "fx_conduct_2",
+    "visible": 9726
+  },
+  {
+    "id": "fx_conduct_3",
+    "visible": 20513
+  },
+  {
+    "id": "fx_conduct_4",
+    "visible": 6746
+  },
+  {
+    "id": "fx_conduct_5",
+    "visible": 4132
+  },
+  {
+    "id": "fx_conduct_6",
+    "visible": 1679
+  },
+  {
+    "id": "fx_conduct_7",
+    "visible": 325
+  },
+  {
+    "id": "fx_shock_0",
+    "visible": 2203
+  },
+  {
+    "id": "fx_shock_1",
+    "visible": 6509
+  },
+  {
+    "id": "fx_shock_2",
+    "visible": 14926
+  },
+  {
+    "id": "fx_shock_3",
+    "visible": 27296
+  },
+  {
+    "id": "fx_shock_4",
+    "visible": 10038
+  },
+  {
+    "id": "fx_shock_5",
+    "visible": 5272
+  },
+  {
+    "id": "fx_shock_6",
+    "visible": 2769
+  },
+  {
+    "id": "fx_shock_7",
+    "visible": 671
+  },
+  {
+    "id": "fx_sand_0",
+    "visible": 1535
+  },
+  {
+    "id": "fx_sand_1",
+    "visible": 5835
+  },
+  {
+    "id": "fx_sand_2",
+    "visible": 13291
+  },
+  {
+    "id": "fx_sand_3",
+    "visible": 24718
+  },
+  {
+    "id": "fx_sand_4",
+    "visible": 10937
+  },
+  {
+    "id": "fx_sand_5",
+    "visible": 5783
+  },
+  {
+    "id": "fx_sand_6",
+    "visible": 2968
+  },
+  {
+    "id": "fx_sand_7",
+    "visible": 317
+  }
+]

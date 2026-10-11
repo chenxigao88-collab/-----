@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "two production effect atlases",
+    "no development hook",
+    "actual elemental combo triggers animated reaction",
+    "no asset or browser errors"
+  ],
+  "loaded": [
+    "http://127.0.0.1:4173/art/reaction-bursts-a.png",
+    "http://127.0.0.1:4173/art/reaction-bursts-b.png"
+  ],
+  "draws": 25,
+  "errors": [],
+  "date": "2026-10-05T13:20:32.631Z"
+}

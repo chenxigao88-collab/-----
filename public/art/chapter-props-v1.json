@@ -1,0 +1,263 @@
+{
+  "file": "chapter-props-v1.png",
+  "width": 1024,
+  "height": 1024,
+  "frames": {
+    "chapter_prop_lamp_0": {
+      "rect": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_lamp_1": {
+      "rect": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_lamp_2": {
+      "rect": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_lamp_3": {
+      "rect": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_spikes_0": {
+      "rect": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_spikes_1": {
+      "rect": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_spikes_2": {
+      "rect": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_spikes_3": {
+      "rect": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_fire_0": {
+      "rect": [
+        0,
+        512,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_fire_1": {
+      "rect": [
+        256,
+        512,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_fire_2": {
+      "rect": [
+        512,
+        512,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_fire_3": {
+      "rect": [
+        768,
+        512,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_crystal_0": {
+      "rect": [
+        0,
+        768,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_crystal_1": {
+      "rect": [
+        256,
+        768,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_crystal_2": {
+      "rect": [
+        512,
+        768,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    },
+    "chapter_prop_crystal_3": {
+      "rect": [
+        768,
+        768,
+        256,
+        256
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "pivot": [
+        32,
+        59
+      ]
+    }
+  }
+}

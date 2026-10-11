@@ -1,0 +1,1640 @@
+[
+  {
+    "file": "violet-locomotion.png",
+    "frames": 16,
+    "landmarks": [
+      {
+        "id": "violet_idle_down_0",
+        "headWidth": 95,
+        "center": 98.64690431519699,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 53
+      },
+      {
+        "id": "violet_idle_down_1",
+        "headWidth": 94,
+        "center": 290.74827586206897,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 52
+      },
+      {
+        "id": "violet_idle_down_2",
+        "headWidth": 93,
+        "center": 482.83326915671927,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 52
+      },
+      {
+        "id": "violet_idle_down_3",
+        "headWidth": 94,
+        "center": 672.615,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 52
+      },
+      {
+        "id": "violet_idle_left_0",
+        "headWidth": 103,
+        "center": 85.15497076023392,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_idle_left_1",
+        "headWidth": 55,
+        "center": 320.9209265175719,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_idle_left_2",
+        "headWidth": 101,
+        "center": 470.4060807996668,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_idle_left_3",
+        "headWidth": 102,
+        "center": 659.7915951972556,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_idle_right_0",
+        "headWidth": 95,
+        "center": 113.31039229181005,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_idle_right_1",
+        "headWidth": 96,
+        "center": 304.5288203753351,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_idle_right_2",
+        "headWidth": 95,
+        "center": 495.50339673913044,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_idle_right_3",
+        "headWidth": 96,
+        "center": 686.401030927835,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_idle_up_0",
+        "headWidth": 91,
+        "center": 108.99963154016213,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_idle_up_1",
+        "headWidth": 92,
+        "center": 300.17114464482887,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_idle_up_2",
+        "headWidth": 93,
+        "center": 492.27097505668934,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_idle_up_3",
+        "headWidth": 90,
+        "center": 683.1965938541281,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 54
+      }
+    ]
+  },
+  {
+    "file": "violet-run-v2.png",
+    "frames": 12,
+    "landmarks": [
+      {
+        "id": "violet_run_down_0",
+        "headWidth": 98,
+        "center": 115.73333333333333,
+        "faceSum": 57288,
+        "faceCount": 495,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_run_down_1",
+        "headWidth": 102,
+        "center": 375.2669902912621,
+        "faceSum": 154610,
+        "faceCount": 412,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_run_down_2",
+        "headWidth": 96,
+        "center": 638.360594795539,
+        "faceSum": 343438,
+        "faceCount": 538,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_run_down_3",
+        "headWidth": 85,
+        "center": 893.0652173913044,
+        "faceSum": 451891,
+        "faceCount": 506,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_run_down_4",
+        "headWidth": 85,
+        "center": 1152.6588693957115,
+        "faceSum": 591314,
+        "faceCount": 513,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_run_down_5",
+        "headWidth": 97,
+        "center": 1405.7175732217572,
+        "faceSum": 671933,
+        "faceCount": 478,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_run_left_0",
+        "headWidth": 124,
+        "center": 97.2159090909091,
+        "faceSum": 22497,
+        "faceCount": 264,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_run_left_1",
+        "headWidth": 120,
+        "center": 348.2738095238095,
+        "faceSum": 112988,
+        "faceCount": 336,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_run_left_2",
+        "headWidth": 115,
+        "center": 601.515625,
+        "faceSum": 188645,
+        "faceCount": 320,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_run_left_3",
+        "headWidth": 132,
+        "center": 857.5902578796562,
+        "faceSum": 295111,
+        "faceCount": 349,
+        "scale": 0.23,
+        "height": 56
+      },
+      {
+        "id": "violet_run_left_4",
+        "headWidth": 122,
+        "center": 1113.0746268656717,
+        "faceSum": 295088,
+        "faceCount": 268,
+        "scale": 0.23,
+        "height": 56
+      },
+      {
+        "id": "violet_run_left_5",
+        "headWidth": 118,
+        "center": 1370.2528735632184,
+        "faceSum": 472672,
+        "faceCount": 348,
+        "scale": 0.23,
+        "height": 56
+      },
+      {
+        "id": "violet_run_right_0",
+        "headWidth": 105,
+        "center": 156.93798449612405,
+        "faceSum": 65379,
+        "faceCount": 387,
+        "scale": 0.23,
+        "height": 57
+      },
+      {
+        "id": "violet_run_right_1",
+        "headWidth": 106,
+        "center": 418.8484848484849,
+        "faceSum": 156398,
+        "faceCount": 363,
+        "scale": 0.23,
+        "height": 57
+      },
+      {
+        "id": "violet_run_right_2",
+        "headWidth": 93,
+        "center": 674.7598870056497,
+        "faceSum": 243113,
+        "faceCount": 354,
+        "scale": 0.23,
+        "height": 56
+      },
+      {
+        "id": "violet_run_right_3",
+        "headWidth": 106,
+        "center": 925.8631578947368,
+        "faceSum": 356388,
+        "faceCount": 380,
+        "scale": 0.23,
+        "height": 57
+      },
+      {
+        "id": "violet_run_right_4",
+        "headWidth": 107,
+        "center": 1188.6200527704486,
+        "faceSum": 455035,
+        "faceCount": 379,
+        "scale": 0.23,
+        "height": 57
+      },
+      {
+        "id": "violet_run_right_5",
+        "headWidth": 108,
+        "center": 1442.8811594202898,
+        "faceSum": 501934,
+        "faceCount": 345,
+        "scale": 0.23,
+        "height": 57
+      },
+      {
+        "id": "violet_run_up_0",
+        "headWidth": 96,
+        "center": 136.3995915588836,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 59
+      },
+      {
+        "id": "violet_run_up_1",
+        "headWidth": 101,
+        "center": 394.54,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 59
+      },
+      {
+        "id": "violet_run_up_2",
+        "headWidth": 96,
+        "center": 649.7819727891157,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 60
+      },
+      {
+        "id": "violet_run_up_3",
+        "headWidth": 89,
+        "center": 901.479374584165,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 60
+      },
+      {
+        "id": "violet_run_up_4",
+        "headWidth": 90,
+        "center": 1158.948760884126,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 60
+      },
+      {
+        "id": "violet_run_up_5",
+        "headWidth": 104,
+        "center": 1423.353982300885,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 60
+      }
+    ]
+  },
+  {
+    "file": "violet-run-profile.png",
+    "frames": 16,
+    "landmarks": [
+      {
+        "id": "violet_run_right_0",
+        "headWidth": 118,
+        "center": 271.8837412587413,
+        "faceSum": 333915,
+        "faceCount": 1144,
+        "scale": 0.145,
+        "height": 54
+      },
+      {
+        "id": "violet_run_right_1",
+        "headWidth": 123,
+        "center": 647.0019900497513,
+        "faceSum": 670337,
+        "faceCount": 1005,
+        "scale": 0.145,
+        "height": 54
+      },
+      {
+        "id": "violet_run_right_2",
+        "headWidth": 124,
+        "center": 1029.3835732430143,
+        "faceSum": 1239322,
+        "faceCount": 1181,
+        "scale": 0.145,
+        "height": 54
+      },
+      {
+        "id": "violet_run_right_3",
+        "headWidth": 122,
+        "center": 1425.8189550425273,
+        "faceSum": 1189909,
+        "faceCount": 823,
+        "scale": 0.145,
+        "height": 48
+      },
+      {
+        "id": "violet_run_right_4",
+        "headWidth": 122,
+        "center": 282.110101010101,
+        "faceSum": 299089,
+        "faceCount": 990,
+        "scale": 0.145,
+        "height": 54
+      },
+      {
+        "id": "violet_run_right_5",
+        "headWidth": 128,
+        "center": 659.8995073891625,
+        "faceSum": 690098,
+        "faceCount": 1015,
+        "scale": 0.145,
+        "height": 54
+      },
+      {
+        "id": "violet_run_right_6",
+        "headWidth": 126,
+        "center": 1033.2893738140417,
+        "faceSum": 1110167,
+        "faceCount": 1054,
+        "scale": 0.145,
+        "height": 54
+      },
+      {
+        "id": "violet_run_right_7",
+        "headWidth": 128,
+        "center": 1423.244769874477,
+        "faceSum": 1379742,
+        "faceCount": 956,
+        "scale": 0.145,
+        "height": 49
+      }
+    ]
+  },
+  {
+    "file": "violet-slash.png",
+    "frames": 16,
+    "landmarks": [
+      {
+        "id": "violet_greatslash_down_0",
+        "headWidth": 85,
+        "center": 206.23730190979276,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 54
+      },
+      {
+        "id": "violet_greatslash_down_1",
+        "headWidth": 94,
+        "center": 552.7129291453616,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 50
+      },
+      {
+        "id": "violet_greatslash_down_2",
+        "headWidth": 94,
+        "center": 930.3925739005047,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 51
+      },
+      {
+        "id": "violet_greatslash_down_3",
+        "headWidth": 65,
+        "center": 1340.7660472972973,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 45
+      },
+      {
+        "id": "violet_greatslash_left_0",
+        "headWidth": 79,
+        "center": 232.82778969957081,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 53
+      },
+      {
+        "id": "violet_greatslash_left_1",
+        "headWidth": 103,
+        "center": 523.2424857839155,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 48
+      },
+      {
+        "id": "violet_greatslash_left_2",
+        "headWidth": 136,
+        "center": 1041.5810578105782,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 46
+      },
+      {
+        "id": "violet_greatslash_left_3",
+        "headWidth": 138,
+        "center": 1370.3419768934532,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 42
+      },
+      {
+        "id": "violet_greatslash_right_0",
+        "headWidth": 87,
+        "center": 172.4563552833078,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 53
+      },
+      {
+        "id": "violet_greatslash_right_1",
+        "headWidth": 133,
+        "center": 615.4749298034496,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 50
+      },
+      {
+        "id": "violet_greatslash_right_2",
+        "headWidth": 199,
+        "center": 948.8337195828506,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 47
+      },
+      {
+        "id": "violet_greatslash_right_3",
+        "headWidth": 61,
+        "center": 1387.0917159763314,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 45
+      },
+      {
+        "id": "violet_greatslash_up_0",
+        "headWidth": 88,
+        "center": 215.53473990542014,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 51
+      },
+      {
+        "id": "violet_greatslash_up_1",
+        "headWidth": 140,
+        "center": 568.6083302886371,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 50
+      },
+      {
+        "id": "violet_greatslash_up_2",
+        "headWidth": 92,
+        "center": 951.5038307187158,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 48
+      },
+      {
+        "id": "violet_greatslash_up_3",
+        "headWidth": 126,
+        "center": 1361.1271287128714,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 46
+      }
+    ]
+  },
+  {
+    "file": "violet-upper.png",
+    "frames": 16,
+    "landmarks": [
+      {
+        "id": "violet_greatupper_down_0",
+        "headWidth": 93,
+        "center": 257.4740210843373,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 45
+      },
+      {
+        "id": "violet_greatupper_down_1",
+        "headWidth": 86,
+        "center": 654.8967100229534,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 44
+      },
+      {
+        "id": "violet_greatupper_down_2",
+        "headWidth": 94,
+        "center": 1053.6492813141683,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 53
+      },
+      {
+        "id": "violet_greatupper_down_3",
+        "headWidth": 94,
+        "center": 1359.406685236769,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 45
+      },
+      {
+        "id": "violet_greatupper_left_0",
+        "headWidth": 104,
+        "center": 273.729435483871,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 47
+      },
+      {
+        "id": "violet_greatupper_left_1",
+        "headWidth": 104,
+        "center": 670.1320321469575,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 46
+      },
+      {
+        "id": "violet_greatupper_left_2",
+        "headWidth": 90,
+        "center": 985.3012820512821,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 55
+      },
+      {
+        "id": "violet_greatupper_left_3",
+        "headWidth": 84,
+        "center": 1427.006948831333,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 48
+      },
+      {
+        "id": "violet_greatupper_right_0",
+        "headWidth": 105,
+        "center": 290.09642988590355,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 47
+      },
+      {
+        "id": "violet_greatupper_right_1",
+        "headWidth": 92,
+        "center": 639.439891766525,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 47
+      },
+      {
+        "id": "violet_greatupper_right_2",
+        "headWidth": 92,
+        "center": 948.8410728582867,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 51
+      },
+      {
+        "id": "violet_greatupper_right_3",
+        "headWidth": 104,
+        "center": 1357.5275590551182,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 49
+      },
+      {
+        "id": "violet_greatupper_up_0",
+        "headWidth": 92,
+        "center": 259.55339105339107,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 49
+      },
+      {
+        "id": "violet_greatupper_up_1",
+        "headWidth": 101,
+        "center": 656.7641577060932,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 54
+      },
+      {
+        "id": "violet_greatupper_up_2",
+        "headWidth": 98,
+        "center": 971.2926654740609,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 60
+      },
+      {
+        "id": "violet_greatupper_up_3",
+        "headWidth": 94,
+        "center": 1366.64735698769,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.21,
+        "height": 49
+      }
+    ]
+  },
+  {
+    "file": "violet-spin-kneel.png",
+    "frames": 32,
+    "landmarks": [
+      {
+        "id": "violet_greatspin_down_0",
+        "headWidth": 87,
+        "center": 163.3739903069467,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 51
+      },
+      {
+        "id": "violet_greatspin_down_1",
+        "headWidth": 76,
+        "center": 342.74435146443517,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 53
+      },
+      {
+        "id": "violet_greatspin_down_2",
+        "headWidth": 74,
+        "center": 506.5020098258151,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 49
+      },
+      {
+        "id": "violet_greatspin_down_3",
+        "headWidth": 114,
+        "center": 710.7385113268608,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 49
+      },
+      {
+        "id": "violet_kneelshot1_down_0",
+        "headWidth": 88,
+        "center": 921.4026763990267,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 49
+      },
+      {
+        "id": "violet_kneelshot1_down_1",
+        "headWidth": 87,
+        "center": 1090.1328188464663,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 42
+      },
+      {
+        "id": "violet_kneelshot1_down_2",
+        "headWidth": 90,
+        "center": 1261.2997562956946,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 44
+      },
+      {
+        "id": "violet_kneelshot1_down_3",
+        "headWidth": 90,
+        "center": 1440.9156,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 44
+      },
+      {
+        "id": "violet_greatspin_left_0",
+        "headWidth": 81,
+        "center": 196.73380900109768,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 51
+      },
+      {
+        "id": "violet_greatspin_left_1",
+        "headWidth": 91,
+        "center": 318.7085076708508,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 52
+      },
+      {
+        "id": "violet_greatspin_left_2",
+        "headWidth": 135,
+        "center": 527.3305247031789,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 49
+      },
+      {
+        "id": "violet_greatspin_left_3",
+        "headWidth": 124,
+        "center": 784.556718061674,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 51
+      },
+      {
+        "id": "violet_kneelshot1_left_0",
+        "headWidth": 86,
+        "center": 953.5836956521739,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 49
+      },
+      {
+        "id": "violet_kneelshot1_left_1",
+        "headWidth": 98,
+        "center": 1140.704231433506,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 44
+      },
+      {
+        "id": "violet_kneelshot1_left_2",
+        "headWidth": 100,
+        "center": 1317.7594689574385,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 43
+      },
+      {
+        "id": "violet_kneelshot1_left_3",
+        "headWidth": 67,
+        "center": 1432.0363815142575,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 44
+      },
+      {
+        "id": "violet_greatspin_right_0",
+        "headWidth": 103,
+        "center": 157.54950675922544,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 52
+      },
+      {
+        "id": "violet_greatspin_right_1",
+        "headWidth": 93,
+        "center": 363.0596330275229,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 52
+      },
+      {
+        "id": "violet_greatspin_right_2",
+        "headWidth": 90,
+        "center": 548.2567627494457,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 50
+      },
+      {
+        "id": "violet_greatspin_right_3",
+        "headWidth": 97,
+        "center": 747.249487914789,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 50
+      },
+      {
+        "id": "violet_kneelshot1_right_0",
+        "headWidth": 88,
+        "center": 943.5697316322041,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 49
+      },
+      {
+        "id": "violet_kneelshot1_right_1",
+        "headWidth": 97,
+        "center": 1111.885306122449,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 45
+      },
+      {
+        "id": "violet_kneelshot1_right_2",
+        "headWidth": 97,
+        "center": 1289.8900667451903,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 44
+      },
+      {
+        "id": "violet_kneelshot1_right_3",
+        "headWidth": 97,
+        "center": 1467.9861910241657,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 44
+      },
+      {
+        "id": "violet_greatspin_up_0",
+        "headWidth": 79,
+        "center": 128.96820083682007,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 52
+      },
+      {
+        "id": "violet_greatspin_up_1",
+        "headWidth": 89,
+        "center": 314.74040364068065,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 55
+      },
+      {
+        "id": "violet_greatspin_up_2",
+        "headWidth": 90,
+        "center": 509.29194630872485,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 58
+      },
+      {
+        "id": "violet_greatspin_up_3",
+        "headWidth": 90,
+        "center": 735.6562856057728,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 51
+      },
+      {
+        "id": "violet_kneelshot1_up_0",
+        "headWidth": 88,
+        "center": 923.6526643329444,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 53
+      },
+      {
+        "id": "violet_kneelshot1_up_1",
+        "headWidth": 86,
+        "center": 1090.4242072699149,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 46
+      },
+      {
+        "id": "violet_kneelshot1_up_2",
+        "headWidth": 86,
+        "center": 1276.0791821561338,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 48
+      },
+      {
+        "id": "violet_kneelshot1_up_3",
+        "headWidth": 91,
+        "center": 1454.2726924549982,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.235,
+        "height": 47
+      }
+    ]
+  },
+  {
+    "file": "violet-kneel-turn.png",
+    "frames": 32,
+    "landmarks": [
+      {
+        "id": "violet_kneelshot2_down_0",
+        "headWidth": 111,
+        "center": 99.3834985835694,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 48
+      },
+      {
+        "id": "violet_kneelshot2_down_1",
+        "headWidth": 108,
+        "center": 291.3698384201077,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 48
+      },
+      {
+        "id": "violet_kneelshot2_down_2",
+        "headWidth": 99,
+        "center": 483.7371929824561,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 48
+      },
+      {
+        "id": "violet_kneelshot2_down_3",
+        "headWidth": 97,
+        "center": 672.6789681117879,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_turnshot_down_0",
+        "headWidth": 100,
+        "center": 860.9389600602864,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 50
+      },
+      {
+        "id": "violet_turnshot_down_1",
+        "headWidth": 81,
+        "center": 1060.943432042521,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 49
+      },
+      {
+        "id": "violet_turnshot_down_2",
+        "headWidth": 98,
+        "center": 1252.2924393723254,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 48
+      },
+      {
+        "id": "violet_turnshot_down_3",
+        "headWidth": 100,
+        "center": 1443.4242216900445,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 48
+      },
+      {
+        "id": "violet_kneelshot2_left_0",
+        "headWidth": 113,
+        "center": 85.70836363636364,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_kneelshot2_left_1",
+        "headWidth": 115,
+        "center": 284.92451447416636,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_kneelshot2_left_2",
+        "headWidth": 83,
+        "center": 539.830375782881,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 45
+      },
+      {
+        "id": "violet_kneelshot2_left_3",
+        "headWidth": 63,
+        "center": 724.2727844123193,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_turnshot_left_0",
+        "headWidth": 104,
+        "center": 843.7390134529148,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 49
+      },
+      {
+        "id": "violet_turnshot_left_1",
+        "headWidth": 102,
+        "center": 1032.2283224400871,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_turnshot_left_2",
+        "headWidth": 114,
+        "center": 1244.1136276391555,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_turnshot_left_3",
+        "headWidth": 104,
+        "center": 1437.4941305942773,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 45
+      },
+      {
+        "id": "violet_kneelshot2_right_0",
+        "headWidth": 108,
+        "center": 115.88506515202138,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_kneelshot2_right_1",
+        "headWidth": 112,
+        "center": 313.86927266901637,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_kneelshot2_right_2",
+        "headWidth": 67,
+        "center": 511.68947368421055,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_kneelshot2_right_3",
+        "headWidth": 112,
+        "center": 698.8225806451613,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_turnshot_right_0",
+        "headWidth": 111,
+        "center": 891.8670050761422,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 48
+      },
+      {
+        "id": "violet_turnshot_right_1",
+        "headWidth": 93,
+        "center": 1070.5368798955615,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 48
+      },
+      {
+        "id": "violet_turnshot_right_2",
+        "headWidth": 111,
+        "center": 1274.688535031847,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_turnshot_right_3",
+        "headWidth": 111,
+        "center": 1463.3922564265313,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 46
+      },
+      {
+        "id": "violet_kneelshot2_up_0",
+        "headWidth": 101,
+        "center": 101.65451612903226,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 50
+      },
+      {
+        "id": "violet_kneelshot2_up_1",
+        "headWidth": 94,
+        "center": 296.9175122749591,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 50
+      },
+      {
+        "id": "violet_kneelshot2_up_2",
+        "headWidth": 100,
+        "center": 490.7751070135002,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 51
+      },
+      {
+        "id": "violet_kneelshot2_up_3",
+        "headWidth": 108,
+        "center": 682.7967681789931,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 50
+      },
+      {
+        "id": "violet_turnshot_up_0",
+        "headWidth": 98,
+        "center": 870.4623955431755,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 50
+      },
+      {
+        "id": "violet_turnshot_up_1",
+        "headWidth": 103,
+        "center": 1057.8552066115703,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 50
+      },
+      {
+        "id": "violet_turnshot_up_2",
+        "headWidth": 107,
+        "center": 1252.556056701031,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 50
+      },
+      {
+        "id": "violet_turnshot_up_3",
+        "headWidth": 106,
+        "center": 1444.7773176170756,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.205,
+        "height": 50
+      }
+    ]
+  },
+  {
+    "file": "violet-utility.png",
+    "frames": 16,
+    "landmarks": [
+      {
+        "id": "violet_dash_down_0",
+        "headWidth": 93,
+        "center": 98.25550493545937,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 53
+      },
+      {
+        "id": "violet_dash_down_1",
+        "headWidth": 99,
+        "center": 286.44466019417473,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 50
+      },
+      {
+        "id": "violet_dash_down_2",
+        "headWidth": 91,
+        "center": 457.6180746561886,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 46
+      },
+      {
+        "id": "violet_dash_down_3",
+        "headWidth": 94,
+        "center": 675.01329394387,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 53
+      },
+      {
+        "id": "violet_dash_left_0",
+        "headWidth": 76,
+        "center": 76.41436464088397,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_dash_left_1",
+        "headWidth": 79,
+        "center": 254.0213043478261,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 53
+      },
+      {
+        "id": "violet_dash_left_2",
+        "headWidth": 131,
+        "center": 526.0502057613169,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 50
+      },
+      {
+        "id": "violet_dash_left_3",
+        "headWidth": 77,
+        "center": 657.6426654740608,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_dash_right_0",
+        "headWidth": 107,
+        "center": 128.09127864005913,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_dash_right_1",
+        "headWidth": 94,
+        "center": 257.14381914381914,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 54
+      },
+      {
+        "id": "violet_dash_right_2",
+        "headWidth": 122,
+        "center": 437.5720338983051,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 53
+      },
+      {
+        "id": "violet_dash_right_3",
+        "headWidth": 107,
+        "center": 710.9631947000368,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 55
+      },
+      {
+        "id": "violet_dash_up_0",
+        "headWidth": 92,
+        "center": 111.62738367658277,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 56
+      },
+      {
+        "id": "violet_dash_up_1",
+        "headWidth": 93,
+        "center": 303.0434944237918,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 56
+      },
+      {
+        "id": "violet_dash_up_2",
+        "headWidth": 89,
+        "center": 495.6165919282511,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 56
+      },
+      {
+        "id": "violet_dash_up_3",
+        "headWidth": 88,
+        "center": 681.5135035146134,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.23,
+        "height": 56
+      }
+    ]
+  },
+  {
+    "file": "violet-death.png",
+    "frames": 16,
+    "landmarks": [
+      {
+        "id": "violet_death_down_0",
+        "headWidth": 101,
+        "center": 199.98879736408566,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 49
+      },
+      {
+        "id": "violet_death_down_1",
+        "headWidth": 105,
+        "center": 556.8379321281319,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 45
+      },
+      {
+        "id": "violet_death_down_2",
+        "headWidth": 105,
+        "center": 937.0221448908574,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 42
+      },
+      {
+        "id": "violet_death_down_3",
+        "headWidth": 242,
+        "center": 1340.4507019525577,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 32
+      },
+      {
+        "id": "violet_death_left_0",
+        "headWidth": 120,
+        "center": 165.8187689969605,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 44
+      },
+      {
+        "id": "violet_death_left_1",
+        "headWidth": 103,
+        "center": 605.1979785969085,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 43
+      },
+      {
+        "id": "violet_death_left_2",
+        "headWidth": 60,
+        "center": 979.6032786885246,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 40
+      },
+      {
+        "id": "violet_death_left_3",
+        "headWidth": 264,
+        "center": 1339.9147919010124,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 30
+      },
+      {
+        "id": "violet_death_right_0",
+        "headWidth": 122,
+        "center": 241.49550629119233,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 45
+      },
+      {
+        "id": "violet_death_right_1",
+        "headWidth": 123,
+        "center": 625.9638436482085,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 43
+      },
+      {
+        "id": "violet_death_right_2",
+        "headWidth": 124,
+        "center": 983.5055913249746,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 39
+      },
+      {
+        "id": "violet_death_right_3",
+        "headWidth": 271,
+        "center": 1347.7643295121302,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 28
+      },
+      {
+        "id": "violet_death_up_0",
+        "headWidth": 108,
+        "center": 198.5528875379939,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 43
+      },
+      {
+        "id": "violet_death_up_1",
+        "headWidth": 101,
+        "center": 567.2777777777778,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 40
+      },
+      {
+        "id": "violet_death_up_2",
+        "headWidth": 106,
+        "center": 953.3772189349113,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 38
+      },
+      {
+        "id": "violet_death_up_3",
+        "headWidth": 230,
+        "center": 1321.1052558204378,
+        "faceSum": 0,
+        "faceCount": 0,
+        "scale": 0.185,
+        "height": 27
+      }
+    ]
+  }
+]

@@ -1,0 +1,215 @@
+{
+  "note": "Invincible automated combat fixture; selects offensive upgrades, equips actual dropped weapons, skips dialogue and teleports between doors. Timing is a combat floor, not human playtime.",
+  "elapsed": 582.3333333329681,
+  "level": 12,
+  "ranks": {
+    "health": 1,
+    "damage": 4,
+    "gunfu": 3,
+    "blade": 0,
+    "element": 3,
+    "defence": 0,
+    "dodge": 0
+  },
+  "weaponReplacements": 21,
+  "timing": [
+    {
+      "room": "front",
+      "seconds": 28.2,
+      "weapons": [
+        "ash_needle",
+        "gravel_bell"
+      ],
+      "level": 2
+    },
+    {
+      "room": "gallery",
+      "seconds": 23.4,
+      "weapons": [
+        "ash_needle",
+        "ember_lantern"
+      ],
+      "level": 3
+    },
+    {
+      "room": "garden",
+      "seconds": 29.8,
+      "weapons": [
+        "ash_needle",
+        "thunder_branch"
+      ],
+      "level": 4
+    },
+    {
+      "room": "outer-4",
+      "seconds": 35.7,
+      "weapons": [
+        "ash_needle",
+        "thunder_branch"
+      ],
+      "level": 4
+    },
+    {
+      "room": "outer-5",
+      "seconds": 25.3,
+      "weapons": [
+        "ash_needle",
+        "gravel_bell"
+      ],
+      "level": 5
+    },
+    {
+      "room": "outer-6",
+      "seconds": 31.8,
+      "weapons": [
+        "ash_needle",
+        "gravel_bell"
+      ],
+      "level": 6
+    },
+    {
+      "room": "forge",
+      "seconds": 34.8,
+      "weapons": [
+        "ash_needle",
+        "hush_edge"
+      ],
+      "level": 8
+    },
+    {
+      "room": "forge-1",
+      "seconds": 24.4,
+      "weapons": [
+        "ash_needle",
+        "gravel_bell"
+      ],
+      "level": 8
+    },
+    {
+      "room": "forge-2",
+      "seconds": 19.8,
+      "weapons": [
+        "gravel_bell_mid",
+        "hush_edge_mid"
+      ],
+      "level": 9
+    },
+    {
+      "room": "forge-3",
+      "seconds": 31.7,
+      "weapons": [
+        "gravel_bell_mid",
+        "thunder_branch_mid"
+      ],
+      "level": 10
+    },
+    {
+      "room": "forge-4",
+      "seconds": 15.9,
+      "weapons": [
+        "gravel_bell_mid",
+        "thunder_branch_mid"
+      ],
+      "level": 10
+    },
+    {
+      "room": "forge-5",
+      "seconds": 26.5,
+      "weapons": [
+        "gravel_bell_mid",
+        "ash_needle_mid"
+      ],
+      "level": 11
+    },
+    {
+      "room": "forge-6",
+      "seconds": 18.1,
+      "weapons": [
+        "gravel_bell_mid",
+        "ember_lantern_mid"
+      ],
+      "level": 12
+    },
+    {
+      "room": "forge-warden",
+      "seconds": 29,
+      "weapons": [
+        "gravel_bell_mid",
+        "earth_crossbow_mid"
+      ],
+      "level": 12
+    },
+    {
+      "room": "inner-1",
+      "seconds": 28.9,
+      "weapons": [
+        "gravel_bell_mid",
+        "wind_burst_mid"
+      ],
+      "level": 12
+    },
+    {
+      "room": "inner-2",
+      "seconds": 14.1,
+      "weapons": [
+        "ember_lantern_late",
+        "wind_burst_late"
+      ],
+      "level": 12
+    },
+    {
+      "room": "inner-3",
+      "seconds": 26.4,
+      "weapons": [
+        "ember_lantern_late",
+        "earth_crossbow_late"
+      ],
+      "level": 12
+    },
+    {
+      "room": "inner-4",
+      "seconds": 16.4,
+      "weapons": [
+        "ember_lantern_late",
+        "earth_crossbow_late"
+      ],
+      "level": 12
+    },
+    {
+      "room": "inner-5",
+      "seconds": 20.5,
+      "weapons": [
+        "ember_lantern_late",
+        "frost_string_late"
+      ],
+      "level": 12
+    },
+    {
+      "room": "inner-6",
+      "seconds": 17.1,
+      "weapons": [
+        "ember_lantern_late",
+        "frost_string_late"
+      ],
+      "level": 12
+    },
+    {
+      "room": "inner-warden",
+      "seconds": 25.4,
+      "weapons": [
+        "ember_lantern_late",
+        "hush_edge_late"
+      ],
+      "level": 12
+    },
+    {
+      "room": "core",
+      "seconds": 17.6,
+      "weapons": [
+        "ember_lantern_late",
+        "wind_ring_late"
+      ],
+      "level": 12
+    }
+  ]
+}

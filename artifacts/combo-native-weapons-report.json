@@ -1,0 +1,704 @@
+{
+  "ultimate": [
+    {
+      "primary": "ash_needle",
+      "offhand": "gravel_bell",
+      "x": 580,
+      "emitted": [
+        {
+          "weapon": "ash_needle",
+          "speed": 720,
+          "range": 540,
+          "pierce": 0,
+          "angle": -0.0682875340009931
+        }
+      ],
+      "sampled": [
+        {
+          "time": 2.208333333333328,
+          "pose": "kneelshot1",
+          "weapon": "ash_needle",
+          "melee": [],
+          "projectiles": 1
+        },
+        {
+          "time": 2.783333333333326,
+          "pose": "kneelshot2",
+          "weapon": "ash_needle",
+          "melee": [],
+          "projectiles": 0
+        },
+        {
+          "time": 3.2833333333333243,
+          "pose": "turnshot",
+          "weapon": "gravel_bell",
+          "melee": [],
+          "projectiles": 6
+        }
+      ],
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "amount": 12
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 2,
+          "weapon": "ash_needle",
+          "secondary": false,
+          "amount": 6
+        },
+        {
+          "phase": 3,
+          "weapon": "ash_needle",
+          "secondary": false,
+          "amount": 6
+        },
+        {
+          "phase": 4,
+          "weapon": "gravel_bell",
+          "secondary": true,
+          "amount": 10
+        },
+        {
+          "phase": 4,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 4,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 4,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 4,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 4,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 4,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "amount": 46
+        }
+      ],
+      "opening": 66,
+      "remaining": 4888,
+      "held": "gravel_bell"
+    },
+    {
+      "primary": "gravel_bell",
+      "offhand": "frost_string",
+      "x": 580,
+      "emitted": [
+        {
+          "weapon": "gravel_bell",
+          "speed": 600,
+          "range": 260,
+          "pierce": 0,
+          "angle": -0.2782875340009931
+        },
+        {
+          "weapon": "gravel_bell",
+          "speed": 600,
+          "range": 260,
+          "pierce": 0,
+          "angle": -0.1968395809593502
+        },
+        {
+          "weapon": "gravel_bell",
+          "speed": 600,
+          "range": 260,
+          "pierce": 0,
+          "angle": -0.10680294030410084
+        },
+        {
+          "weapon": "gravel_bell",
+          "speed": 600,
+          "range": 260,
+          "pierce": 0,
+          "angle": -0.02751626136776839
+        },
+        {
+          "weapon": "gravel_bell",
+          "speed": 600,
+          "range": 260,
+          "pierce": 0,
+          "angle": 0.05574023742723432
+        },
+        {
+          "weapon": "gravel_bell",
+          "speed": 600,
+          "range": 260,
+          "pierce": 0,
+          "angle": 0.14739698929461803
+        }
+      ],
+      "sampled": [
+        {
+          "time": 2.208333333333328,
+          "pose": "kneelshot1",
+          "weapon": "gravel_bell",
+          "melee": [],
+          "projectiles": 6
+        },
+        {
+          "time": 2.783333333333326,
+          "pose": "kneelshot2",
+          "weapon": "gravel_bell",
+          "melee": [],
+          "projectiles": 6
+        },
+        {
+          "time": 3.2833333333333243,
+          "pose": "turnshot",
+          "weapon": "frost_string",
+          "melee": [],
+          "projectiles": 1
+        }
+      ],
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "amount": 12
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 2,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 2,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 2,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 2,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 2,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 2,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 3,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 3,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 3,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 3,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 3,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 3,
+          "weapon": "gravel_bell",
+          "secondary": false,
+          "amount": 4
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": false,
+          "amount": 10
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "amount": 55
+        }
+      ],
+      "opening": 78,
+      "remaining": 4867,
+      "held": "frost_string"
+    },
+    {
+      "primary": "frost_string",
+      "offhand": "ember_lantern",
+      "x": 580,
+      "emitted": [
+        {
+          "weapon": "frost_string",
+          "speed": 820,
+          "range": 650,
+          "pierce": 1,
+          "angle": -0.0682875340009931
+        }
+      ],
+      "sampled": [
+        {
+          "time": 2.208333333333328,
+          "pose": "kneelshot1",
+          "weapon": "frost_string",
+          "melee": [],
+          "projectiles": 1
+        },
+        {
+          "time": 2.783333333333326,
+          "pose": "kneelshot2",
+          "weapon": "frost_string",
+          "melee": [],
+          "projectiles": 1
+        },
+        {
+          "time": 3.2833333333333243,
+          "pose": "turnshot",
+          "weapon": "ember_lantern",
+          "melee": [],
+          "projectiles": 1
+        }
+      ],
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "amount": 12
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 2,
+          "weapon": "frost_string",
+          "secondary": false,
+          "amount": 10
+        },
+        {
+          "phase": 3,
+          "weapon": "frost_string",
+          "secondary": false,
+          "amount": 10
+        },
+        {
+          "phase": 4,
+          "weapon": "ember_lantern",
+          "secondary": true,
+          "amount": 20
+        },
+        {
+          "phase": 4,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "amount": 10
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "amount": 49
+        }
+      ],
+      "opening": 70,
+      "remaining": 4881,
+      "held": "ember_lantern"
+    },
+    {
+      "primary": "ember_lantern",
+      "offhand": "thunder_branch",
+      "x": 580,
+      "emitted": [
+        {
+          "weapon": "ember_lantern",
+          "speed": 380,
+          "range": 480,
+          "pierce": 0,
+          "angle": -0.0682875340009931
+        }
+      ],
+      "sampled": [
+        {
+          "time": 2.208333333333328,
+          "pose": "kneelshot1",
+          "weapon": "ember_lantern",
+          "melee": [],
+          "projectiles": 1
+        },
+        {
+          "time": 2.783333333333326,
+          "pose": "kneelshot2",
+          "weapon": "ember_lantern",
+          "melee": [],
+          "projectiles": 1
+        },
+        {
+          "time": 3.2833333333333243,
+          "pose": "turnshot",
+          "weapon": "thunder_branch",
+          "melee": [],
+          "projectiles": 0
+        }
+      ],
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "amount": 12
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 2,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "amount": 10
+        },
+        {
+          "phase": 3,
+          "weapon": "ember_lantern",
+          "secondary": false,
+          "amount": 10
+        },
+        {
+          "phase": 4,
+          "weapon": "thunder_branch",
+          "secondary": true,
+          "amount": 15
+        },
+        {
+          "phase": 4,
+          "weapon": "thunder_branch",
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "amount": 44
+        }
+      ],
+      "opening": 63,
+      "remaining": 4893,
+      "held": "thunder_branch"
+    },
+    {
+      "primary": "thunder_branch",
+      "offhand": "ash_needle",
+      "x": 580,
+      "emitted": [
+        {
+          "weapon": "thunder_branch",
+          "speed": 620,
+          "range": 520,
+          "pierce": 0,
+          "angle": -0.0682875340009931
+        }
+      ],
+      "sampled": [
+        {
+          "time": 2.208333333333328,
+          "pose": "kneelshot1",
+          "weapon": "thunder_branch",
+          "melee": [],
+          "projectiles": 1
+        },
+        {
+          "time": 2.783333333333326,
+          "pose": "kneelshot2",
+          "weapon": "thunder_branch",
+          "melee": [],
+          "projectiles": 0
+        },
+        {
+          "time": 3.2833333333333243,
+          "pose": "turnshot",
+          "weapon": "ash_needle",
+          "melee": [],
+          "projectiles": 0
+        }
+      ],
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "amount": 12
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 2,
+          "weapon": "thunder_branch",
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 3,
+          "weapon": "thunder_branch",
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 4,
+          "weapon": "ash_needle",
+          "secondary": false,
+          "amount": 6
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "amount": 29
+        }
+      ],
+      "opening": 42,
+      "remaining": 4929,
+      "held": "ash_needle"
+    },
+    {
+      "primary": "hush_edge",
+      "offhand": "frost_string",
+      "x": 700,
+      "emitted": [
+        {
+          "weapon": "frost_string",
+          "speed": 820,
+          "range": 650,
+          "pierce": 1,
+          "angle": -0.029211205526949113
+        }
+      ],
+      "sampled": [
+        {
+          "time": 2.208333333333328,
+          "pose": "greatspin",
+          "weapon": "hush_edge",
+          "melee": [
+            {
+              "weapon": "hush_edge",
+              "range": 72
+            }
+          ],
+          "projectiles": 0
+        },
+        {
+          "time": 2.783333333333326,
+          "pose": "greatspin",
+          "weapon": "hush_edge",
+          "melee": [
+            {
+              "weapon": "hush_edge",
+              "range": 72
+            }
+          ],
+          "projectiles": 0
+        },
+        {
+          "time": 3.2833333333333243,
+          "pose": "turnshot",
+          "weapon": "frost_string",
+          "melee": [],
+          "projectiles": 1
+        }
+      ],
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "amount": 12
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 4,
+          "weapon": "frost_string",
+          "secondary": false,
+          "amount": 10
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "amount": 21
+        }
+      ],
+      "opening": 30,
+      "remaining": 4949,
+      "held": "frost_string"
+    },
+    {
+      "primary": "frost_string",
+      "offhand": "hush_edge",
+      "x": 700,
+      "emitted": [
+        {
+          "weapon": "frost_string",
+          "speed": 820,
+          "range": 650,
+          "pierce": 1,
+          "angle": -0.03634974484121913
+        }
+      ],
+      "sampled": [
+        {
+          "time": 2.208333333333328,
+          "pose": "kneelshot1",
+          "weapon": "frost_string",
+          "melee": [],
+          "projectiles": 1
+        },
+        {
+          "time": 2.783333333333326,
+          "pose": "kneelshot2",
+          "weapon": "frost_string",
+          "melee": [],
+          "projectiles": 1
+        },
+        {
+          "time": 3.2833333333333243,
+          "pose": "greatspin",
+          "weapon": "hush_edge",
+          "melee": [
+            {
+              "weapon": "hush_edge",
+              "range": 72
+            }
+          ],
+          "projectiles": 0
+        }
+      ],
+      "damage": [
+        {
+          "phase": 0,
+          "secondary": false,
+          "amount": 12
+        },
+        {
+          "phase": 1,
+          "secondary": false,
+          "amount": 8
+        },
+        {
+          "phase": 2,
+          "weapon": "frost_string",
+          "secondary": false,
+          "amount": 10
+        },
+        {
+          "phase": 3,
+          "weapon": "frost_string",
+          "secondary": false,
+          "amount": 10
+        },
+        {
+          "phase": 5,
+          "secondary": false,
+          "amount": 28
+        }
+      ],
+      "opening": 40,
+      "remaining": 4932,
+      "held": "hush_edge"
+    }
+  ],
+  "gunfu": [
+    {
+      "character": "ember",
+      "swordContacts": 0,
+      "nativeBullets": 1,
+      "poses": [
+        "downslash",
+        "uppercut",
+        "sweep",
+        "kick",
+        "backflip",
+        "landspin",
+        "groundshot",
+        "recover"
+      ],
+      "remaining": 4991,
+      "held": "ember_lantern"
+    },
+    {
+      "character": "violet",
+      "swordContacts": 0,
+      "nativeBullets": 1,
+      "poses": [
+        "greatslash",
+        "greatupper",
+        "greatspin",
+        "turnshot",
+        "recover"
+      ],
+      "remaining": 4994,
+      "held": "ember_lantern"
+    }
+  ],
+  "errors": [],
+  "date": "2026-10-06T14:36:56.986Z"
+}

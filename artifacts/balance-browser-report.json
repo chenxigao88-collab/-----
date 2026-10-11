@@ -1,0 +1,61 @@
+{
+  "note": "Constructed late-run scene; actual UI weapon replacement and mouse firing at 960x540 and 1920x1080. Chapter playthrough with real drops is verified separately.",
+  "checks": [
+    {
+      "width": 960,
+      "before": {
+        "level": 12,
+        "cooldown": 2.6
+      },
+      "after": {
+        "weapon": "earth_crossbow_late",
+        "fireCooldown": 0.3,
+        "skillCooldown": 2,
+        "manualCooldown": 2.6,
+        "discard": "ash_needle"
+      },
+      "combat": {
+        "shots": 1,
+        "numbers": [
+          875
+        ],
+        "inventory": "地脉重弩、砾钟 · Q 冷却 1.3秒 · 20金币 · "
+      },
+      "bounds": {
+        "x": 110.015625,
+        "y": 98.515625,
+        "width": 739.96875,
+        "height": 342.953125
+      }
+    },
+    {
+      "width": 1920,
+      "before": {
+        "level": 12,
+        "cooldown": 2.6
+      },
+      "after": {
+        "weapon": "earth_crossbow_late",
+        "fireCooldown": 0.3,
+        "skillCooldown": 2,
+        "manualCooldown": 2.6,
+        "discard": "ash_needle"
+      },
+      "combat": {
+        "shots": 1,
+        "numbers": [
+          875
+        ],
+        "inventory": "地脉重弩、砾钟 · Q 冷却 1.3秒 · 20金币 · "
+      },
+      "bounds": {
+        "x": 435,
+        "y": 218.21875,
+        "width": 1050,
+        "height": 643.5625
+      }
+    }
+  ],
+  "errors": [],
+  "responses": []
+}

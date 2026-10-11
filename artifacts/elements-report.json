@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-05T03:43:43.542Z",
+  "checks": [
+    "six formal weapon cards",
+    "reaction and directional resonance preview",
+    "1280x720 loadout fits",
+    "loadout persists on restart and reload",
+    "element marks, elite badge and lightning warning render",
+    "lightning skill triggers visible reactions",
+    "fire field and burn reaction render",
+    "loadout locked during combat"
+  ],
+  "state": {
+    "runId": 1,
+    "state": "ready",
+    "hp": 100,
+    "pos": {
+      "x": 480,
+      "y": 340
+    },
+    "dash": 0,
+    "enemyCount": 4,
+    "wave": 0,
+    "waveAlive": 0,
+    "pending": 0,
+    "projectiles": 0,
+    "particles": 6,
+    "subscriptions": 11,
+    "meter": 25,
+    "activations": 0,
+    "slow": 1,
+    "hitStop": 0.018,
+    "hits": 2,
+    "perfectDodges": 0,
+    "peak": 0,
+    "activeWeapon": "thunder_branch",
+    "slotCooldowns": [
+      0.4166666666666667,
+      0
+    ],
+    "reactions": 1,
+    "reactionCounts": {
+      "blast": 1
+    },
+    "areas": 1,
+    "burns": 0
+  },
+  "errors": [],
+  "browser": "154.0.4258.53"
+}

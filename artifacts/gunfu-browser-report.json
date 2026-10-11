@@ -1,0 +1,989 @@
+{
+  "checks": [
+    "64 dedicated combat frames load without missing sprites",
+    "six loadout cards and gun-fu/finisher descriptions",
+    "unprimed right click performs body strike; whiff does not fire skill or switch",
+    "16 actual rendered action samples; strike/draw/finish; finisher hit and one style award",
+    "full World update retains switched weapon and attack budget",
+    "real attack precisely dodged; enemy and melee freeze while player moves; no duplicate freeze reward",
+    "counter uses dedicated pose, finishes, and keeps the drawn weapon",
+    "56-pixel short dash with four distinct slide phases; landing opens crossover"
+  ],
+  "assets": {
+    "strikeDraw": 32,
+    "slideCounter": 32,
+    "strikeDrawSize": [
+      1536,
+      1024
+    ],
+    "slideCounterSize": [
+      1536,
+      1024
+    ]
+  },
+  "rightWithoutPrime": {
+    "first": {
+      "time": 0.008333333333333333,
+      "frame": "gunfu_strike_right_0",
+      "action": {
+        "kind": "strike",
+        "elapsed": 0.008333333333333333,
+        "duration": 0.28,
+        "angle": -0.09925780617081072
+      },
+      "gunfu": {
+        "kind": "strike",
+        "stage": "prepare",
+        "window": 0,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "近身打击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 240,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    "end": {
+      "runId": 2,
+      "state": "playing",
+      "hp": 100,
+      "pos": {
+        "x": 460,
+        "y": 330
+      },
+      "dash": 0,
+      "enemyCount": 1,
+      "wave": 0,
+      "waveAlive": 0,
+      "pending": 0,
+      "projectiles": 0,
+      "particles": 0,
+      "subscriptions": 12,
+      "meter": 0,
+      "activations": 0,
+      "slow": 1,
+      "hitStop": 0,
+      "hits": 0,
+      "perfectDodges": 0,
+      "peak": 0,
+      "activeWeapon": "ash_needle",
+      "slotCooldowns": [
+        0,
+        0
+      ],
+      "reactions": 0,
+      "reactionCounts": {},
+      "areas": 0,
+      "burns": 0,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "射击命中 → 贴近／滑步 → 右键连招",
+        "style": 0
+      },
+      "freeze": 0,
+      "freezeCooldown": 0
+    },
+    "shots": 0,
+    "skillCooldowns": [
+      0,
+      0
+    ]
+  },
+  "primed": {
+    "prime": true,
+    "player": {
+      "x": 460,
+      "y": 330
+    },
+    "enemy": {
+      "x": 500,
+      "y": 330
+    },
+    "hp": 239,
+    "gunfu": {
+      "kind": "none",
+      "stage": "ready",
+      "window": 1,
+      "cooldown": 0,
+      "completed": 0,
+      "nextWeapon": "砾钟",
+      "hint": "贴近＋右键 · 压身连击",
+      "style": 0
+    }
+  },
+  "strikeRecords": [
+    {
+      "time": 0.008333333333333333,
+      "frame": "gunfu_strike_right_0",
+      "action": {
+        "kind": "strike",
+        "elapsed": 0.008333333333333333,
+        "duration": 0.28,
+        "angle": -0.5295895987820763
+      },
+      "gunfu": {
+        "kind": "strike",
+        "stage": "prepare",
+        "window": 0.9916666666666667,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "近身打击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 239,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.041666666666666664,
+      "frame": "gunfu_strike_right_0",
+      "action": {
+        "kind": "strike",
+        "elapsed": 0.041666666666666664,
+        "duration": 0.28,
+        "angle": -0.5295895987820763
+      },
+      "gunfu": {
+        "kind": "strike",
+        "stage": "prepare",
+        "window": 0.9583333333333335,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "近身打击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 239,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.075,
+      "frame": "gunfu_strike_right_1",
+      "action": {
+        "kind": "strike",
+        "elapsed": 0.075,
+        "duration": 0.28,
+        "angle": -0.5295895987820763
+      },
+      "gunfu": {
+        "kind": "strike",
+        "stage": "prepare",
+        "window": 0.9250000000000003,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "近身打击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 239,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.10833333333333334,
+      "frame": "gunfu_strike_right_2",
+      "action": {
+        "kind": "strike",
+        "elapsed": 0.10833333333333332,
+        "duration": 0.28,
+        "angle": -0.5295895987820763
+      },
+      "gunfu": {
+        "kind": "strike",
+        "stage": "contact",
+        "window": 0.891666666666667,
+        "cooldown": 1.2,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "近身打击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 231,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.14166666666666666,
+      "frame": "gunfu_strike_right_2",
+      "action": {
+        "kind": "strike",
+        "elapsed": 0.14166666666666666,
+        "duration": 0.28,
+        "angle": -0.5295895987820763
+      },
+      "gunfu": {
+        "kind": "strike",
+        "stage": "contact",
+        "window": 0.8583333333333338,
+        "cooldown": 1.1666666666666667,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "近身打击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 231,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.175,
+      "frame": "gunfu_draw_right_0",
+      "action": {
+        "kind": "draw",
+        "elapsed": 0.016666666666666666,
+        "duration": 0.25,
+        "angle": -0.5295895987820763
+      },
+      "gunfu": {
+        "kind": "draw",
+        "stage": "contact",
+        "window": 0.8250000000000006,
+        "cooldown": 1.1333333333333335,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "拔枪终结",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 231,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.20833333333333334,
+      "frame": "gunfu_draw_right_0",
+      "action": {
+        "kind": "draw",
+        "elapsed": 0.049999999999999996,
+        "duration": 0.25,
+        "angle": -0.5295895987820763
+      },
+      "gunfu": {
+        "kind": "draw",
+        "stage": "contact",
+        "window": 0.7916666666666674,
+        "cooldown": 1.1000000000000003,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "拔枪终结",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 231,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.24166666666666667,
+      "frame": "gunfu_draw_right_1",
+      "action": {
+        "kind": "draw",
+        "elapsed": 0.08333333333333333,
+        "duration": 0.25,
+        "angle": -0.5295895987820763
+      },
+      "gunfu": {
+        "kind": "draw",
+        "stage": "contact",
+        "window": 0.7583333333333342,
+        "cooldown": 1.066666666666667,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "拔枪终结",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 231,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.275,
+      "frame": "gunfu_draw_right_2",
+      "action": {
+        "kind": "draw",
+        "elapsed": 0.11666666666666665,
+        "duration": 0.25,
+        "angle": -0.09725319825156577
+      },
+      "gunfu": {
+        "kind": "draw",
+        "stage": "recover",
+        "window": 0,
+        "cooldown": 1.0333333333333339,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "拔枪终结",
+        "style": 20
+      },
+      "weapon": "gravel_bell",
+      "hp": 179,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.30833333333333335,
+      "frame": "gunfu_draw_right_2",
+      "action": {
+        "kind": "draw",
+        "elapsed": 0.15,
+        "duration": 0.25,
+        "angle": -0.09725319825156577
+      },
+      "gunfu": {
+        "kind": "draw",
+        "stage": "recover",
+        "window": 0,
+        "cooldown": 1.0000000000000007,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "拔枪终结",
+        "style": 20
+      },
+      "weapon": "gravel_bell",
+      "hp": 179,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.3416666666666667,
+      "frame": "gunfu_draw_right_3",
+      "action": {
+        "kind": "draw",
+        "elapsed": 0.18333333333333332,
+        "duration": 0.25,
+        "angle": -0.09725319825156577
+      },
+      "gunfu": {
+        "kind": "draw",
+        "stage": "recover",
+        "window": 0,
+        "cooldown": 0.9666666666666675,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "拔枪终结",
+        "style": 20
+      },
+      "weapon": "gravel_bell",
+      "hp": 179,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.375,
+      "frame": "gunfu_draw_right_3",
+      "action": {
+        "kind": "draw",
+        "elapsed": 0.21666666666666665,
+        "duration": 0.25,
+        "angle": -0.09725319825156577
+      },
+      "gunfu": {
+        "kind": "draw",
+        "stage": "recover",
+        "window": 0,
+        "cooldown": 0.9333333333333342,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "拔枪终结",
+        "style": 20
+      },
+      "weapon": "gravel_bell",
+      "hp": 179,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.4083333333333333,
+      "frame": "gunfu_draw_right_3",
+      "action": {
+        "kind": "draw",
+        "elapsed": 0.24999999999999997,
+        "duration": 0.25,
+        "angle": -0.09725319825156577
+      },
+      "gunfu": {
+        "kind": "draw",
+        "stage": "recover",
+        "window": 0,
+        "cooldown": 0.900000000000001,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "拔枪终结",
+        "style": 20
+      },
+      "weapon": "gravel_bell",
+      "hp": 179,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.44166666666666665,
+      "frame": "idle_right_0",
+      "action": null,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0,
+        "cooldown": 0.8666666666666678,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "连携准备 0.9s",
+        "style": 20
+      },
+      "weapon": "gravel_bell",
+      "hp": 179,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.475,
+      "frame": "idle_right_0",
+      "action": null,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0,
+        "cooldown": 0.8333333333333346,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "连携准备 0.8s",
+        "style": 20
+      },
+      "weapon": "gravel_bell",
+      "hp": 179,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.5083333333333333,
+      "frame": "idle_right_0",
+      "action": null,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0,
+        "cooldown": 0.8000000000000014,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "连携准备 0.8s",
+        "style": 20
+      },
+      "weapon": "gravel_bell",
+      "hp": 179,
+      "pos": {
+        "x": 460,
+        "y": 330
+      }
+    }
+  ],
+  "directFinal": {
+    "runId": 3,
+    "state": "playing",
+    "hp": 100,
+    "pos": {
+      "x": 460,
+      "y": 330
+    },
+    "dash": 0,
+    "enemyCount": 1,
+    "wave": 0,
+    "waveAlive": 0,
+    "pending": 0,
+    "projectiles": 0,
+    "particles": 10,
+    "subscriptions": 12,
+    "meter": 20,
+    "activations": 0,
+    "slow": 1,
+    "hitStop": 0,
+    "hits": 9,
+    "perfectDodges": 0,
+    "peak": 6,
+    "activeWeapon": "gravel_bell",
+    "slotCooldowns": [
+      0,
+      0.5583333333333342
+    ],
+    "reactions": 1,
+    "reactionCounts": {
+      "shock": 1
+    },
+    "areas": 0,
+    "burns": 0,
+    "gunfu": {
+      "kind": "none",
+      "stage": "ready",
+      "window": 0,
+      "cooldown": 0.8000000000000014,
+      "completed": 1,
+      "nextWeapon": "灰针",
+      "hint": "连携准备 0.8s",
+      "style": 20
+    },
+    "freeze": 0,
+    "freezeCooldown": 0
+  },
+  "fullWorld": {
+    "snapshot": {
+      "runId": 4,
+      "state": "playing",
+      "hp": 100,
+      "pos": {
+        "x": 460,
+        "y": 330
+      },
+      "dash": 0,
+      "enemyCount": 1,
+      "wave": 0,
+      "waveAlive": 0,
+      "pending": 0,
+      "projectiles": 0,
+      "particles": 0,
+      "subscriptions": 12,
+      "meter": 20,
+      "activations": 0,
+      "slow": 1,
+      "hitStop": 0,
+      "hits": 9,
+      "perfectDodges": 0,
+      "peak": 6,
+      "activeWeapon": "gravel_bell",
+      "slotCooldowns": [
+        0,
+        0.30833333333333385
+      ],
+      "reactions": 1,
+      "reactionCounts": {
+        "shock": 1
+      },
+      "areas": 0,
+      "burns": 0,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0,
+        "cooldown": 0.5500000000000023,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "连携准备 0.6s",
+        "style": 20
+      },
+      "freeze": 0,
+      "freezeCooldown": 0
+    },
+    "skills": [
+      0,
+      0
+    ],
+    "shots": 1
+  },
+  "freeze": {
+    "hit": {
+      "applied": false,
+      "actualDamage": 0,
+      "killed": false,
+      "blockedBy": "invulnerable"
+    },
+    "before": {
+      "player": {
+        "x": 463.3333333333333,
+        "y": 330
+      },
+      "enemy": {
+        "x": 480,
+        "y": 340
+      },
+      "enemyElapsed": 0.008333333333333333,
+      "freeze": 0.3,
+      "hp": 100,
+      "perfect": 1
+    },
+    "after": {
+      "player": {
+        "x": 483.3333333333332,
+        "y": 330
+      },
+      "enemy": {
+        "x": 480,
+        "y": 340
+      },
+      "enemyElapsed": 0.008333333333333333,
+      "freeze": 0.24999999999999986,
+      "meleeElapsed": 0,
+      "hp": 100
+    },
+    "noStack": {
+      "before": 0.24999999999999986,
+      "after": 0.24999999999999986,
+      "perfect": 1,
+      "style": 20
+    },
+    "presentation": {
+      "player": {
+        "x": 513.333333333333,
+        "y": 330
+      },
+      "enemy": {
+        "x": 480,
+        "y": 340
+      },
+      "freeze": 0.17499999999999988,
+      "hp": 100
+    },
+    "snapshot": {
+      "runId": 5,
+      "state": "playing",
+      "hp": 100,
+      "pos": {
+        "x": 513.333333333333,
+        "y": 330
+      },
+      "dash": 0.7750000000000005,
+      "enemyCount": 1,
+      "wave": 0,
+      "waveAlive": 0,
+      "pending": 0,
+      "projectiles": 0,
+      "particles": 6,
+      "subscriptions": 12,
+      "meter": 20,
+      "activations": 0,
+      "slow": 1,
+      "hitStop": 0,
+      "hits": 0,
+      "perfectDodges": 1,
+      "peak": 0,
+      "activeWeapon": "ash_needle",
+      "slotCooldowns": [
+        0,
+        0
+      ],
+      "reactions": 0,
+      "reactionCounts": {},
+      "areas": 0,
+      "burns": 0,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0.6750000000000005,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "右键 · 破绽反击",
+        "style": 20
+      },
+      "freeze": 0.17499999999999988,
+      "freezeCooldown": 1.8750000000000004
+    }
+  },
+  "counterStart": {
+    "time": 0.067,
+    "frame": "gunfu_counter_left_1",
+    "action": {
+      "kind": "counter",
+      "elapsed": 0.06666666666666667,
+      "duration": 0.3,
+      "angle": -2.761086276477425
+    },
+    "gunfu": {
+      "kind": "counter",
+      "stage": "prepare",
+      "window": 0.6000000000000008,
+      "cooldown": 1.1333333333333335,
+      "completed": 0,
+      "nextWeapon": "砾钟",
+      "hint": "拔枪终结",
+      "style": 20
+    },
+    "weapon": "ash_needle",
+    "hp": 240,
+    "pos": {
+      "x": 515.9999999999997,
+      "y": 330
+    }
+  },
+  "counterFinish": {
+    "runId": 5,
+    "state": "playing",
+    "hp": 100,
+    "pos": {
+      "x": 515.9999999999997,
+      "y": 330
+    },
+    "dash": 0.2833333333333341,
+    "enemyCount": 1,
+    "wave": 0,
+    "waveAlive": 0,
+    "pending": 0,
+    "projectiles": 0,
+    "particles": 0,
+    "subscriptions": 12,
+    "meter": 40,
+    "activations": 0,
+    "slow": 1,
+    "hitStop": 0,
+    "hits": 6,
+    "perfectDodges": 1,
+    "peak": 6,
+    "activeWeapon": "gravel_bell",
+    "slotCooldowns": [
+      0,
+      0.4250000000000009
+    ],
+    "reactions": 0,
+    "reactionCounts": {},
+    "areas": 0,
+    "burns": 0,
+    "gunfu": {
+      "kind": "none",
+      "stage": "ready",
+      "window": 0,
+      "cooldown": 0.7166666666666683,
+      "completed": 1,
+      "nextWeapon": "灰针",
+      "hint": "连携准备 0.7s",
+      "style": 40
+    },
+    "freeze": 0,
+    "freezeCooldown": 1.3833333333333355
+  },
+  "slideRecords": [
+    {
+      "time": 0.008333333333333333,
+      "frame": "gunfu_slide_right_0",
+      "action": null,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0.9916666666666667,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "贴近＋右键 · 压身连击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 239,
+      "pos": {
+        "x": 463.3333333333333,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.042,
+      "frame": "gunfu_slide_right_1",
+      "action": null,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0.9580000000000001,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "贴近＋右键 · 压身连击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 239,
+      "pos": {
+        "x": 476.79999999999995,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.075,
+      "frame": "gunfu_slide_right_2",
+      "action": null,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0.925,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "贴近＋右键 · 压身连击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 239,
+      "pos": {
+        "x": 489.99999999999994,
+        "y": 330
+      }
+    },
+    {
+      "time": 0.11,
+      "frame": "gunfu_slide_right_3",
+      "action": null,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0.89,
+        "cooldown": 0,
+        "completed": 0,
+        "nextWeapon": "砾钟",
+        "hint": "贴近＋右键 · 压身连击",
+        "style": 0
+      },
+      "weapon": "ash_needle",
+      "hp": 239,
+      "pos": {
+        "x": 503.99999999999994,
+        "y": 330
+      }
+    }
+  ],
+  "cross": {
+    "landed": {
+      "pos": {
+        "x": 516,
+        "y": 330
+      },
+      "snapshot": {
+        "runId": 6,
+        "state": "playing",
+        "hp": 100,
+        "pos": {
+          "x": 516,
+          "y": 330
+        },
+        "dash": 0.7583333333333333,
+        "enemyCount": 1,
+        "wave": 0,
+        "waveAlive": 0,
+        "pending": 0,
+        "projectiles": 0,
+        "particles": 4,
+        "subscriptions": 12,
+        "meter": 0,
+        "activations": 0,
+        "slow": 1,
+        "hitStop": 0,
+        "hits": 1,
+        "perfectDodges": 0,
+        "peak": 0,
+        "activeWeapon": "ash_needle",
+        "slotCooldowns": [
+          0,
+          0
+        ],
+        "reactions": 0,
+        "reactionCounts": {},
+        "areas": 0,
+        "burns": 0,
+        "gunfu": {
+          "kind": "none",
+          "stage": "ready",
+          "window": 0.85,
+          "cooldown": 0,
+          "completed": 0,
+          "nextWeapon": "砾钟",
+          "hint": "右键 · 滑步交叉",
+          "style": 0
+        },
+        "freeze": 0,
+        "freezeCooldown": 0
+      }
+    },
+    "started": true,
+    "kind": "cross",
+    "end": {
+      "runId": 6,
+      "state": "playing",
+      "hp": 100,
+      "pos": {
+        "x": 516,
+        "y": 330
+      },
+      "dash": 0.7583333333333333,
+      "enemyCount": 1,
+      "wave": 0,
+      "waveAlive": 0,
+      "pending": 0,
+      "projectiles": 0,
+      "particles": 0,
+      "subscriptions": 12,
+      "meter": 20,
+      "activations": 0,
+      "slow": 1,
+      "hitStop": 0,
+      "hits": 8,
+      "perfectDodges": 0,
+      "peak": 6,
+      "activeWeapon": "gravel_bell",
+      "slotCooldowns": [
+        0,
+        0.241666666666667
+      ],
+      "reactions": 1,
+      "reactionCounts": {
+        "shock": 1
+      },
+      "areas": 0,
+      "burns": 0,
+      "gunfu": {
+        "kind": "none",
+        "stage": "ready",
+        "window": 0,
+        "cooldown": 0.5333333333333357,
+        "completed": 1,
+        "nextWeapon": "灰针",
+        "hint": "连携准备 0.5s",
+        "style": 20
+      },
+      "freeze": 0,
+      "freezeCooldown": 0
+    }
+  },
+  "errors": [],
+  "browser": "154.0.4258.53",
+  "date": "2026-10-05T06:23:18.134Z"
+}

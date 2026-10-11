@@ -1,0 +1,113 @@
+{
+  "checks": [
+    "intro next/skip actual buttons",
+    "first battle and growth choice actual buttons",
+    "four new enemy sprites and forge traps",
+    "boss slam warning, HP and poise HUD",
+    "camp localStorage checkpoint",
+    "reload Continue UI restores HP and sold stock",
+    "pause statistics",
+    "all generated art decoded without browser errors"
+  ],
+  "snapshot": {
+    "runId": 2,
+    "state": "paused",
+    "hp": 75,
+    "pos": {
+      "x": 480,
+      "y": 240
+    },
+    "dash": 0,
+    "enemyCount": 0,
+    "wave": 0,
+    "waveAlive": 0,
+    "pending": 0,
+    "projectiles": 0,
+    "particles": 0,
+    "subscriptions": 27,
+    "meter": 0,
+    "activations": 0,
+    "slow": 1,
+    "hitStop": 0,
+    "hits": 0,
+    "perfectDodges": 0,
+    "peak": 0,
+    "activeWeapon": "ash_needle",
+    "slotCooldowns": [
+      0,
+      0
+    ],
+    "reactions": 0,
+    "reactionCounts": {},
+    "areas": 0,
+    "burns": 0,
+    "gunfu": {
+      "kind": "none",
+      "stage": "ready",
+      "window": 0,
+      "cooldown": 0,
+      "completed": 0,
+      "nextWeapon": "砾钟",
+      "hint": "右键六段 · 巨刃下劈 → 上挑 → 回旋 → 跪射两枪 → 回身换枪",
+      "style": 0,
+      "phase": -1,
+      "awaiting": false,
+      "queued": false,
+      "character": "violet",
+      "progress": 0,
+      "remaining": 0
+    },
+    "ultimate": {
+      "energy": 32,
+      "active": false,
+      "elapsed": 0,
+      "casts": 0,
+      "targets": []
+    },
+    "freeze": 0,
+    "freezeCooldown": 0,
+    "adventure": {
+      "room": "shop",
+      "gold": 55,
+      "cleared": 1,
+      "visited": [
+        "entry",
+        "front",
+        "shop",
+        "forge-2",
+        "core"
+      ],
+      "runes": [],
+      "panel": null
+    },
+    "shield": 0,
+    "progression": {
+      "level": 2,
+      "xp": 8,
+      "earned": 48,
+      "pending": 0,
+      "ranks": {
+        "health": 0,
+        "damage": 0,
+        "gunfu": 1,
+        "element": 0,
+        "defence": 0,
+        "dodge": 0
+      },
+      "offers": []
+    },
+    "story": {
+      "seen": [
+        "intro",
+        "camp-1"
+      ],
+      "queue": [],
+      "line": 0,
+      "relics": [],
+      "valves": []
+    },
+    "boss": null
+  },
+  "errors": [],
+  "date": "2026-10-06T13:19:57.153Z"
+}
