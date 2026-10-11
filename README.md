@@ -2,9 +2,13 @@
 
 **[▶ 点击试玩灰烬回廊](https://chenxigao88-collab.github.io/-----/)**
 
-![灰烬回廊实机画面](artifacts/chapter-production.png)
+**紫鸢 · 枪斗连招**
 
-![紫鸢专属紫色刀光与大招](artifacts/violet-melee-preview.png)
+![紫鸢枪斗连招实机演示](artifacts/violet-combo.gif)
+
+**紫鸢 · 大招「紫夜终幕」**
+
+![紫鸢大招紫夜终幕实机演示](artifacts/紫鸢-紫夜终幕-v3.gif)
 
 原创HTML5俯视动作Roguelite，当前版本 **0.10 · 独立兵装与绘制特效**。35个连通房间、三个区域、局内1–12级三选一成长、六处陷阱房、七种普通近战／辅助敌人，以及三阶段Boss「灰冠骑士」。剧情跟随区域推进，营地支持保存和继续旅程。两名角色的逐段枪斗、五元素十反应、三槽符印、可爱休息动画和紫鸢大招完整保留。
 
