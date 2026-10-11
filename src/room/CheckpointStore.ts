@@ -11,7 +11,7 @@ export function captureCheckpoint(w:World){if(!w.adventure.started||w.adventure.
 export type RunCheckpoint=NonNullable<ReturnType<typeof captureCheckpoint>>;
 const finite=(v:unknown,min=0,max=1e7)=>typeof v==='number'&&Number.isFinite(v)&&v>=min&&v<=max;
 export function parseCheckpoint(raw:string|null):RunCheckpoint|undefined {try{if(!raw||raw.length>250000)return;const d=JSON.parse(raw) as RunCheckpoint;
-  if(d.version!==1||!CHARACTERS.some(c=>c.id===d.character)||!finite(d.hp,1,215)||!finite(d.elapsed)||!finite(d.pos?.x,96,864)||!finite(d.pos?.y,102,440)||!finite(d.seed,0,0xffffffff)||!finite(d.dash,0,1)||!finite(d.meter,0,100)||!finite(d.energy,0,100))return;
+  if(d.version!==1||!CHARACTERS.some(c=>c.id===d.character)||!finite(d.hp,1,215)||!finite(d.elapsed)||!finite(d.pos?.x,96,864)||!finite(d.pos?.y,102,440)||!finite(d.seed,0,0xffffffff)||!finite(d.dash,0,1)||!finite(d.meter,0,100)||!finite(d.energy,0,200))return;
   if(!Array.isArray(d.weapons)||d.weapons.length!==2||d.weapons[0].id===d.weapons[1].id||!d.weapons.every(s=>WEAPONS.some(w=>w.id===s.id)&&finite(s.cooldown,0,30)&&finite(s.skillCooldown,0,30))||(d.active!==0&&d.active!==1))return;
   if(d.manualSwitchCooldown!==undefined&&!finite(d.manualSwitchCooldown,0,3))return;
   const p=d.progression;

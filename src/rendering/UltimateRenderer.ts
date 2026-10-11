@@ -3,7 +3,8 @@ import type {AssetManager} from './AssetManager';
 import {clamp} from '../core/types';
 import {PaintRenderer} from './PaintRenderer';
 import {violetMeleeFrame,type VioletMeleeKind} from '../data/violetMelee';
-import {ULTIMATE_DURATION,ULTIMATE_CUT_START,ULTIMATE_CUT_END,ULTIMATE_FINAL_SPIN_START,ultimateCutFrame} from '../data/ultimate';
+import {ULTIMATE_CUT_START,ULTIMATE_CUT_END,ULTIMATE_FINAL_SPIN_START,ultimateCutFrame} from '../data/ultimate';
+import {moonBodyFrame,moonEffectFrame,MOON_HITS} from '../data/moonUltimate';
 export class UltimateRenderer {
   constructor(private art:AssetManager){}
   camera(c:CanvasRenderingContext2D,w:World){
@@ -11,9 +12,9 @@ export class UltimateRenderer {
     const points=[w.player.actor.pos,...u.targets.filter(a=>a.health.alive).map(a=>a.pos)];
     const xs=points.map(p=>p.x),ys=points.map(p=>p.y),left=Math.min(...xs),right=Math.max(...xs),top=Math.min(...ys)-55,bottom=Math.max(...ys)+25;
     const limit=Math.min(1.6,650/(right-left+140),390/(bottom-top+90));
-    const ramp=Math.min(1,u.elapsed/.55,(ULTIMATE_DURATION-u.elapsed)/.5),zoom=1+(Math.max(1,limit)-1)*Math.max(0,ramp);
+    const ramp=Math.min(1,u.elapsed/.55,(u.duration-u.elapsed)/.5),zoom=1+(Math.max(1,limit)-1)*Math.max(0,ramp);
     let centerX=(left+right)/2;const cutRight=Math.cos(u.angle)<0;
-    if(u.elapsed>=ULTIMATE_CUT_START-.2&&u.elapsed<ULTIMATE_CUT_END+.2){
+    if(u.tier===1&&u.elapsed>=ULTIMATE_CUT_START-.2&&u.elapsed<ULTIMATE_CUT_END+.2){
       const focus=cutRight?Math.max(centerX,w.player.actor.pos.x-40/zoom):Math.min(centerX,w.player.actor.pos.x+40/zoom);
       const blend=Math.max(0,Math.min(1,(u.elapsed-ULTIMATE_CUT_START+.2)/.2,(ULTIMATE_CUT_END+.2-u.elapsed)/.2));centerX+=(focus-centerX)*blend;
     }
@@ -31,6 +32,7 @@ export class UltimateRenderer {
   }
   world(c:CanvasRenderingContext2D,w:World,foreground=true){
     const u=w.ultimate;if(!u.active)return;const t=u.elapsed,a=w.player.actor;
+    if(u.tier===2){this.moonWorld(c,w,foreground);return;}
     if(!foreground){
       this.melee(c,'down',t-.9,.43,a.pos.x+Math.cos(u.angle)*35,a.pos.y-25,150,u.angle);
       this.melee(c,'spin',t-1.25,.62,a.pos.x,a.pos.y-22,178,u.angle);
@@ -51,6 +53,7 @@ export class UltimateRenderer {
   }
   overlay(c:CanvasRenderingContext2D,w:World){
     const u=w.ultimate;if(!u.active)return;const t=u.elapsed;
+    if(u.tier===2){this.moonOverlay(c,w);return;}
     c.save();c.fillStyle='#150d291c';c.fillRect(0,0,960,540);
     if(t>=ULTIMATE_CUT_START&&t<ULTIMATE_CUT_END){
       const elapsed=t-ULTIMATE_CUT_START,duration=ULTIMATE_CUT_END-ULTIMATE_CUT_START,p=elapsed/duration,frame=ultimateCutFrame(t),alpha=Math.min(1,elapsed/.16,(duration-elapsed)/.18);
@@ -63,6 +66,31 @@ export class UltimateRenderer {
       c.fillStyle='#f0d9ff';c.font='bold 22px Microsoft YaHei';c.textAlign=cutRight?'right':'left';c.fillText('紫夜终幕',cutRight?932:28,448);
     }
     if(t>=4.08&&t<4.17&&w.settings.screenFlash){c.globalAlpha=(4.17-t)/.09*.2;c.fillStyle='#f1dcff';c.fillRect(0,0,960,540);}
+    c.restore();
+  }
+  private moonWorld(c:CanvasRenderingContext2D,w:World,foreground:boolean){
+    const u=w.ultimate,t=u.elapsed,a=w.player.actor,paint=new PaintRenderer(this.art);
+    if(!foreground){
+      for(const trail of u.trails){const age=t-trail.time;if(age<0||age>.4)continue;const f=this.art.frame(moonBodyFrame(trail.time),true);c.save();c.globalAlpha=(1-age/.4)*.35;c.translate(trail.pos.x,trail.pos.y);if(Math.cos(u.angle)<0)c.scale(-1,1);c.drawImage(this.art.sheet(moonBodyFrame(trail.time),true),...f.rect,-f.pivot[0],-f.pivot[1],...f.size);c.restore();}
+      if(t<.8)for(const offset of [-18,18])paint.draw(c,moonEffectFrame('seal',Math.min(.6,t/.8)),a.pos.x+offset,a.pos.y-30,72,72,offset/90,.8);
+      if(t>=3.8&&t<4.65)paint.draw(c,moonEffectFrame('wings',(t-3.8)/.85),a.pos.x,a.pos.y-52,290,260,0,Math.min(1,(t-3.8)/.12));
+      return;
+    }
+    for(const target of u.markedTargets){
+      const pos=target.pos;
+      if(t>=1.05&&t<4.55&&target.health.alive)paint.draw(c,moonEffectFrame('seal',Math.min(.6,(t-1.05)/.65)),pos.x,pos.y-32-target.launch.height,86,86,0,.7);
+      if(t>=2.35&&t<4.1){const cuts=u.snapshot().wounds[target.id]??0;if(cuts>0)paint.draw(c,`moon_rift_${Math.min(2,cuts-1)}`,pos.x,pos.y-28,100,100,0,.9);}
+      if(t>=4.1&&t<4.8)paint.draw(c,`moon_rift_${3+Math.min(2,Math.floor((t-4.1)/.7*3))}`,pos.x,pos.y-30,150,150);
+      if(t>=MOON_HITS[5]&&t<5.45)paint.draw(c,moonEffectFrame('burst',(t-MOON_HITS[5])/.9),pos.x,pos.y-30,190,190,0,Math.min(1,(5.45-t)/.2));
+    }
+  }
+  private moonOverlay(c:CanvasRenderingContext2D,w:World){
+    const t=w.ultimate.elapsed,paint=new PaintRenderer(this.art);
+    c.save();c.fillStyle='#100b232e';c.fillRect(0,0,960,540);
+    if(t<.8){const left=Math.cos(w.ultimate.angle)>=0,x=left?132:828;c.globalAlpha=Math.min(1,t/.12,(.8-t)/.16);paint.draw(c,moonBodyFrame(t),x,280,300,300);c.fillStyle='#e9c9ff';c.font='bold 23px Microsoft YaHei';c.textAlign=left?'left':'right';c.fillText('紫鸾 · 断月',left?28:932,438);}
+    c.globalAlpha=1;
+    if(t>=4.1&&t<4.85)paint.draw(c,`moon_rift_${3+Math.min(2,Math.floor((t-4.1)/.75*3))}`,480,245,370,370,0,.5);
+    if(t>=4.55&&t<4.67&&w.settings.screenFlash){c.globalAlpha=(4.67-t)/.12*.18;c.fillStyle='#e8ccff';c.fillRect(0,0,960,540);}
     c.restore();
   }
 }

@@ -50,8 +50,10 @@ export class HUD {
     const style=w.resonance.meter;for(let i=0;i<5;i++){diamond(c,77+i*19,492,6,theme,style>=(i+1)*20);const partial=Math.max(0,Math.min(1,(style-i*20)/20));if(partial>0&&partial<1){c.fillStyle=theme;c.fillRect(73+i*19,496,Math.round(8*partial),1);}}
     if(style>=100){c.fillStyle='#f4ddb2';c.fillRect(69,476,91,1);c.fillRect(69,507,91,1);}
     if(character==='violet'){
-      pixelPanel(c,190,468,192,51,w.ultimate.ready?'#e3bedb':'#8a75ab');c.fillStyle='#20182e';c.fillRect(201,496,167,8);c.fillStyle=w.ultimate.ready?'#e3b7f4':'#997ac6';c.fillRect(202,497,165*w.ultimate.energy/100,6);
-      c.font='12px Microsoft YaHei';c.fillStyle='#ecd9f9';c.fillText('紫夜终幕',202,487);c.font='bold 12px Consolas';c.fillText(w.ultimate.active?'◆':w.ultimate.ready?'R':`${Math.floor(w.ultimate.energy)}%`,337,487);
+      pixelPanel(c,190,468,235,51,w.ultimate.secondReady?'#f0c7ff':w.ultimate.ready?'#e3bedb':'#8a75ab');
+      for(let layer=0;layer<2;layer++){c.fillStyle='#20182e';c.fillRect(201+layer*108,499,102,8);c.fillStyle=layer?'#e3b7f4':'#997ac6';c.fillRect(202+layer*108,500,100*Math.max(0,Math.min(1,(w.ultimate.energy-layer*100)/100)),6);}
+      c.font='11px Microsoft YaHei';c.fillStyle='#ecd9f9';c.fillText(w.ultimate.active&&w.ultimate.tier===2?'紫鸾·断月':'紫夜终幕 / 紫鸾·断月',202,484);
+      c.font='10px Consolas, Microsoft YaHei';c.fillText(w.ultimate.active?'演出中':w.ultimate.secondReady?'R 一层 · Shift+R 断月':w.ultimate.ready?`R 可释放 · 二层 ${Math.floor(w.ultimate.energy-100)}%`:`一层 ${Math.floor(w.ultimate.energy)}% · R`,202,496);
     }
     const swapCooldown=w.weapons.manualSwitchCooldown;
     pixelPanel(c,854,429,80,23,swapCooldown>0?'#6d606f':'#e3bd7d');

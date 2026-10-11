@@ -14,7 +14,7 @@ export class TimeManager {
   get enemyFrozen() { return this.enemyFreezeRemaining > 0; }
   get recovering() { return !this.enemyFrozen && this.enemyRecoveryRemaining > 0; }
   get canRewardPerfect() { return !this.enemyFrozen && !this.recovering && this.freezeRewardCooldown === 0; }
-  requestHitStop(duration: number) { this.hitStop = Math.max(this.hitStop, Math.min(0.07, duration * this.hitStrength)); }
+  requestHitStop(duration: number,maximum=.07) { this.hitStop = Math.max(this.hitStop, Math.min(maximum, duration * this.hitStrength)); }
   requestEnemySlow(scale = 0.3, duration = 0.5) {
     this.slowScale = Math.min(this.slowScale, scale); this.slowRemaining = Math.max(this.slowRemaining, duration);
   }

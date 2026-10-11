@@ -8,6 +8,7 @@ import { gunfuGrip,gunfuBodyScale,type GunfuPose } from '../data/gunfu';
 import { PLAYER_STATS } from '../data/player';
 import { violetRest } from './VioletRest';
 import {ultimateBodyFrame,ULTIMATE_FINAL_SPIN_START,ULTIMATE_CUT_END} from '../data/ultimate';
+import {moonBodyFrame} from '../data/moonUltimate';
 export class SpriteRenderer {
   animator = new SpriteAnimator();
   private masks = new Map<string, HTMLCanvasElement>();
@@ -40,6 +41,13 @@ export class SpriteRenderer {
     // Keep the settle frame visible after travel ends; attacking can interrupt it.
     dashing=dashing||(!actor.action&&dashElapsed<PLAYER_STATS.dashDuration+.08);
     this.shadow(ctx, actor);
+    if(actor.action?.ultimateTier===2){
+      const t=actor.action.ultimateTime!,left=Math.cos(actor.action.angle)<0;
+      ctx.save();if(left){ctx.translate(actor.pos.x*2,0);ctx.scale(-1,1);}
+      this.drawFrame(ctx,moonBodyFrame(t),actor.pos.x,actor.pos.y,true);ctx.restore();
+      if(t>=.8&&t<1.9)this.weapon(ctx,actor,weapon.sprite,actor.action.angle,.68);
+      return;
+    }
     if(actor.character==='violet'&&actor.action?.ultimateTime!==undefined){
       const action=actor.action,t=action.ultimateTime!;
       const spin=t>=1.25&&t<1.85?(t-1.25)/.6*Math.PI*2:t>=ULTIMATE_FINAL_SPIN_START&&t<ULTIMATE_CUT_END?(t-ULTIMATE_FINAL_SPIN_START)/(ULTIMATE_CUT_END-ULTIMATE_FINAL_SPIN_START)*Math.PI*2:0,angle=action.angle+spin;

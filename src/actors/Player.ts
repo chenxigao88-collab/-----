@@ -31,7 +31,7 @@ export class Player {
       : mul(input.move, settings.moveSpeed * dt * movementScale);
     a.pos = constrain(add(add(a.pos, movement), a.knockback.step(dt)), a.hurtbox.radius);
     if (dt > 0) a.moving = length(movement) > 0.001;
-    const active=a.moving||length(input.move)>0||input.fire||input.skill||input.dash||input.interact||input.swap||input.ultimate||a.action||a.flash>0;
+    const active=a.moving||length(input.move)>0||input.fire||input.skill||input.dash||input.interact||input.swap||input.ultimate||input.ultimateSecond||a.action||a.flash>0;
     const previousIdle=a.idleTime;
     a.idleTime=active?0:a.idleTime+dt;
     if(previousIdle<8&&a.idleTime>=8)a.restCount++;

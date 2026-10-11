@@ -1,0 +1,41 @@
+{
+  "checks": [
+    "actual Shift+R input",
+    "two circuits consumed",
+    "native fully charged dual weapons",
+    "Q cooldown bypass",
+    "48 authored frames",
+    "three delayed rifts",
+    "sheath explosion",
+    "Boss not launched",
+    "player control restored"
+  ],
+  "start": {
+    "energy": 0,
+    "charges": 0,
+    "tier": 2,
+    "active": true,
+    "elapsed": 0.008333333333333333,
+    "casts": 1,
+    "targets": [
+      2,
+      5,
+      3,
+      6,
+      4
+    ],
+    "weapons": [
+      "frost_string_late",
+      "ember_lantern_late"
+    ],
+    "openingDamage": {},
+    "wounds": {}
+  },
+  "end": {
+    "active": false,
+    "energy": 0,
+    "slot": 1,
+    "bossLift": 0
+  },
+  "errors": []
+}

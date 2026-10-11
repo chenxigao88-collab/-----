@@ -34,6 +34,7 @@ export interface AttackContext {
   environment?:boolean;
   ultimateCast?:number;
   ultimatePhase?:number;
+  ultimateTier?:1|2;
   equippedWeaponId?:string;
   resolvedDamage?:boolean;
   launch?:{height:number;duration:number;distance:number};

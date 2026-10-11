@@ -11,7 +11,7 @@ export interface Actor {
   status: StatusComponent; invulnerability: InvulnerabilityComponent;
   elemental: ElementalComponent;
   launch:LaunchComponent;
-  action?:{kind:'strike'|'draw'|'counter'|'shoot'|GunfuPose;elapsed:number;duration:number;angle:number;gunfu?:boolean;lift?:number;airborne?:boolean;ultimateTime?:number};
+  action?:{kind:'strike'|'draw'|'counter'|'shoot'|GunfuPose;elapsed:number;duration:number;angle:number;gunfu?:boolean;lift?:number;airborne?:boolean;ultimateTime?:number;ultimateTier?:1|2};
 }
 export function createActor(id: number, runId: number, faction: Faction, pos: Vec2, hp: number, radius: number): Actor {
   return { id, runId, faction, character:'ember', pos: { ...pos }, previous: { ...pos }, aim: 0, facing: Math.PI / 2, moving: false, animation: 0, recoil: 0, flash: 0, idleTime:0, restCount:0,

@@ -42,7 +42,7 @@ export class ProgressionSystem {
   private routineMultiplier(c:AttackContext){return c.gunfu||c.ultimateCast!==undefined?1+this.ranks.gunfu*PROGRESSION_RULES.gunfu:1;}
   private bladeMultiplier(c:AttackContext){
     const melee=(id?:string)=>WEAPONS.some(weapon=>weapon.id===id&&weapon.category==='melee');
-    const blade=this.w.player.actor.character==='violet'&&(melee(c.weaponId)||melee(c.equippedWeaponId)||(c.gunfu==='body'&&c.gunfuPhase!==undefined&&c.gunfuPhase<3)||(c.ultimateCast!==undefined&&c.ultimatePhase!==undefined&&c.ultimatePhase<2));
+    const blade=this.w.player.actor.character==='violet'&&(melee(c.weaponId)||melee(c.equippedWeaponId)||(c.gunfu==='body'&&c.gunfuPhase!==undefined&&c.gunfuPhase<3)||(c.ultimateCast!==undefined&&c.ultimatePhase!==undefined&&(c.ultimateTier===2?c.ultimatePhase>=2&&c.ultimatePhase<5:c.ultimatePhase<2)));
     return blade?1+this.ranks.blade*PROGRESSION_RULES.blade:1;
   }
   multiplier(c:AttackContext,target:Actor){

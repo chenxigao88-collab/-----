@@ -1,6 +1,6 @@
 {
   "note": "Invincible automated combat fixture; selects offensive upgrades, equips actual dropped weapons, skips dialogue and teleports between doors. Timing is a combat floor, not human playtime.",
-  "elapsed": 633.5499999995882,
+  "elapsed": 519.1416666663589,
   "level": 12,
   "ranks": {
     "health": 0,
@@ -15,7 +15,7 @@
   "timing": [
     {
       "room": "front",
-      "seconds": 32.7,
+      "seconds": 33.3,
       "weapons": [
         "ash_needle",
         "gravel_bell"
@@ -24,7 +24,7 @@
     },
     {
       "room": "gallery",
-      "seconds": 23.6,
+      "seconds": 20.4,
       "weapons": [
         "ash_needle",
         "ember_lantern"
@@ -33,7 +33,7 @@
     },
     {
       "room": "garden",
-      "seconds": 24.2,
+      "seconds": 22.5,
       "weapons": [
         "ash_needle",
         "thunder_branch"
@@ -42,7 +42,7 @@
     },
     {
       "room": "outer-4",
-      "seconds": 37.1,
+      "seconds": 27.8,
       "weapons": [
         "ash_needle",
         "thunder_branch"
@@ -51,7 +51,7 @@
     },
     {
       "room": "outer-5",
-      "seconds": 22.8,
+      "seconds": 22.9,
       "weapons": [
         "ash_needle",
         "gravel_bell"
@@ -60,7 +60,7 @@
     },
     {
       "room": "outer-6",
-      "seconds": 32,
+      "seconds": 26.1,
       "weapons": [
         "ash_needle",
         "gravel_bell"
@@ -69,7 +69,7 @@
     },
     {
       "room": "forge",
-      "seconds": 43.2,
+      "seconds": 36.3,
       "weapons": [
         "ash_needle",
         "hush_edge"
@@ -78,7 +78,7 @@
     },
     {
       "room": "forge-1",
-      "seconds": 26.6,
+      "seconds": 20.6,
       "weapons": [
         "ash_needle",
         "gravel_bell"
@@ -87,7 +87,7 @@
     },
     {
       "room": "forge-2",
-      "seconds": 16.7,
+      "seconds": 11.3,
       "weapons": [
         "gravel_bell_mid",
         "hush_edge_mid"
@@ -96,7 +96,7 @@
     },
     {
       "room": "forge-3",
-      "seconds": 32,
+      "seconds": 20.1,
       "weapons": [
         "gravel_bell_mid",
         "thunder_branch_mid"
@@ -105,7 +105,7 @@
     },
     {
       "room": "forge-4",
-      "seconds": 31.7,
+      "seconds": 30.4,
       "weapons": [
         "gravel_bell_mid",
         "thunder_branch_mid"
@@ -114,7 +114,7 @@
     },
     {
       "room": "forge-5",
-      "seconds": 28.8,
+      "seconds": 24.4,
       "weapons": [
         "gravel_bell_mid",
         "ash_needle_mid"
@@ -123,7 +123,7 @@
     },
     {
       "room": "forge-6",
-      "seconds": 19.3,
+      "seconds": 14.4,
       "weapons": [
         "gravel_bell_mid",
         "ember_lantern_mid"
@@ -132,7 +132,7 @@
     },
     {
       "room": "forge-warden",
-      "seconds": 28.4,
+      "seconds": 22.7,
       "weapons": [
         "gravel_bell_mid",
         "earth_crossbow_mid"
@@ -141,7 +141,7 @@
     },
     {
       "room": "inner-1",
-      "seconds": 32.3,
+      "seconds": 27.4,
       "weapons": [
         "gravel_bell_mid",
         "wind_burst_mid"
@@ -150,7 +150,7 @@
     },
     {
       "room": "inner-2",
-      "seconds": 19.3,
+      "seconds": 13.2,
       "weapons": [
         "ember_lantern_late",
         "wind_burst_late"
@@ -159,7 +159,7 @@
     },
     {
       "room": "inner-3",
-      "seconds": 26.5,
+      "seconds": 18.7,
       "weapons": [
         "ember_lantern_late",
         "earth_crossbow_late"
@@ -168,7 +168,7 @@
     },
     {
       "room": "inner-4",
-      "seconds": 19.1,
+      "seconds": 13.1,
       "weapons": [
         "ember_lantern_late",
         "earth_crossbow_late"
@@ -177,7 +177,7 @@
     },
     {
       "room": "inner-5",
-      "seconds": 29.8,
+      "seconds": 18.5,
       "weapons": [
         "ember_lantern_late",
         "frost_string_late"
@@ -186,7 +186,7 @@
     },
     {
       "room": "inner-6",
-      "seconds": 19,
+      "seconds": 13,
       "weapons": [
         "ember_lantern_late",
         "frost_string_late"
@@ -195,7 +195,7 @@
     },
     {
       "room": "inner-warden",
-      "seconds": 37.2,
+      "seconds": 28.5,
       "weapons": [
         "ember_lantern_late",
         "hush_edge_late"
@@ -204,7 +204,7 @@
     },
     {
       "room": "core",
-      "seconds": 11.4,
+      "seconds": 13.1,
       "weapons": [
         "ember_lantern_late",
         "wind_ring_late"

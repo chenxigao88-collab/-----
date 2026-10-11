@@ -16,6 +16,7 @@ export class AudioManager {
       ice:[1400,500,.11,'sine'],fire:[210,45,.13,'sawtooth'],electric:[850,1200,.045,'sawtooth'],wind:[700,300,.07,'triangle'],bolt:[95,24,.16,'square'],ring:[900,420,.15,'sine'],
       hit: [300, 110, .045, 'triangle'], heavy: [120, 35, .09, 'sawtooth'], explosion: [90, 22, .15, 'sawtooth'],
       hurt: [130, 65, .15, 'square'], dodge: [600, 1300, .13, 'sine'], swap: [420, 700, .075, 'triangle'], victory: [440, 880, .3, 'sine']
+      ,moonRise:[180,720,.45,'sine'],moonSlash:[820,110,.16,'triangle'],moonSheath:[1500,700,.035,'square'],moonBreak:[110,24,.42,'sawtooth']
     };
     const [from, to, duration, type] = table[id] ?? table.hit;
     const ctx = this.context, oscillator = ctx.createOscillator(), gain = ctx.createGain(), now = ctx.currentTime;

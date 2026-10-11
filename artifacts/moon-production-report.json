@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "production startup",
+    "both moon atlases and metadata loaded",
+    "Violet selection",
+    "Shift+R controls visible",
+    "no development hook"
+  ],
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4173/art/violet-moon-effects-v1.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/art/violet-moon-effects-v1.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/art/violet-moon-body-v1.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/art/violet-moon-body-v1.png",
+      "status": 200
+    }
+  ],
+  "errors": []
+}

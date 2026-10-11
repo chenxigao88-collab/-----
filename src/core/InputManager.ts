@@ -1,5 +1,5 @@
 import { vec, normal, type Vec2 } from './types';
-export interface InputFrame { move: Vec2; aim: Vec2; fire: boolean; skill: boolean; dash: boolean; swap: boolean; interact: boolean;ultimate:boolean }
+export interface InputFrame { move: Vec2; aim: Vec2; fire: boolean; skill: boolean; dash: boolean; swap: boolean; interact: boolean;ultimate:boolean;ultimateSecond?:boolean }
 export const emptyInput = (): InputFrame => ({ move: vec(), aim: vec(600, 340), fire: false, skill: false, dash: false, swap: false, interact: false,ultimate:false });
 export class InputManager {
   private held = new Set<string>();
@@ -12,7 +12,7 @@ export class InputManager {
       if (event.code === 'Escape' || event.code === 'F2') { event.preventDefault(); if (!event.repeat) command(event.code); return; }
       if (event.target instanceof HTMLElement && (event.target.closest('input,select,textarea,[contenteditable=true]') || (event.target.closest('button') && ['Space','Enter'].includes(event.code)))) return;
       if (['Space','KeyW','KeyA','KeyS','KeyD','KeyQ','KeyE','KeyR'].includes(event.code)) event.preventDefault();
-      if (!this.held.has(event.code) && !event.repeat) this.pressed.add(event.code);
+      if (!this.held.has(event.code) && !event.repeat) {this.pressed.add(event.code);if(event.code==='KeyR'&&event.shiftKey)this.pressed.add('UltimateSecond');}
       this.held.add(event.code); unlock();
     }, options);
     window.addEventListener('keyup', event => this.held.delete(event.code), options);
@@ -34,7 +34,7 @@ export class InputManager {
     const aim = this.mouseKnown ? vec((this.mouse.x - rect.left) / rect.width * 960 - shake.x, (this.mouse.y - rect.top) / rect.height * 540 - shake.y) : vec(600, 340);
     const frame = {
       move: normal(vec(Number(this.held.has('KeyD')) - Number(this.held.has('KeyA')), Number(this.held.has('KeyS')) - Number(this.held.has('KeyW')))),
-      aim, fire: this.held.has('Mouse0'), skill: this.pressed.has('Mouse2'), dash: this.pressed.has('Space'), swap: this.pressed.has('KeyQ'), interact: this.pressed.has('KeyE'),ultimate:this.pressed.has('KeyR')
+      aim, fire: this.held.has('Mouse0'), skill: this.pressed.has('Mouse2'), dash: this.pressed.has('Space'), swap: this.pressed.has('KeyQ'), interact: this.pressed.has('KeyE'),ultimate:this.pressed.has('KeyR')&&!this.pressed.has('UltimateSecond'),ultimateSecond:this.pressed.has('UltimateSecond')
     };
     this.pressed.clear(); return frame;
   }

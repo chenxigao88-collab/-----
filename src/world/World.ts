@@ -133,7 +133,7 @@ export class World {
     this.audio.muted = this.settings.mute; this.time.hitStrength = this.settings.hitStrength;
     if (this.state === 'victory' || this.state === 'dead') { this.resultElapsed += dt; this.feel.step(dt, this.actors);this.elements.presentation(dt); this.toastLife = Math.max(0, this.toastLife - dt); return; }
     const t = this.time.step(dt); this.elapsed += t.player;
-    if(input.ultimate&&t.player>0)this.ultimate.request(input.aim);
+    if((input.ultimate||input.ultimateSecond)&&t.player>0)this.ultimate.request(input.aim,input.ultimateSecond?2:1);
     if(this.ultimate.active){input={...emptyInput(),aim:input.aim};t.enemy=0;this.swapBuffer=0;this.skillBuffer=0;}
     if(this.time.freezeJustEnded)this.player.actor.invulnerability.grant('hurt',PERFECT_DODGE_RULES.recoveryProtection);
     const previousDashes = this.player.dashes;

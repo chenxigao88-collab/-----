@@ -62,6 +62,7 @@ export class LaunchComponent {
 export class InvulnerabilityComponent {
   private sources = new Map<string, number>();
   grant(source: string, duration: number) { this.sources.set(source, Math.max(duration, this.sources.get(source) ?? 0)); }
+  revoke(source:string){this.sources.delete(source);}
   setDebug(enabled: boolean) { if (enabled) this.sources.set('debug', Infinity); else this.sources.delete('debug'); }
   get active() { return this.sources.size > 0; }
   has(source: string) { return this.sources.has(source); }
