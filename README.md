@@ -59,6 +59,10 @@
 
 本轮使用内置图片生成功能新增128帧四方向动作，含真实倒置的后空翻、伸腿踢击和落地旋身。查看[实机动画](artifacts/26-gunfu-routine.gif)、[36帧分解](artifacts/26-gunfu-routine-frames.png)及[原图与实际提示词](docs/GUNFU_ART_0.4.md)。
 
+## 发布在线试玩
+
+已配置 GitHub Pages 自动发布。将项目上传到 GitHub 后，在仓库 **Settings → Pages → Source** 选择 **GitHub Actions**，再推送到 main 或 master 分支，即可生成在线试玩地址。完整步骤见 [GitHub Pages 发布说明](docs/GITHUB-PAGES.md)。
+
 ## 开发
 
 技术：TypeScript strict、Vite、Canvas 2D、HTML/CSS HUD、Vitest，无游戏运行时框架。建议Node版本满足当前lockfile依赖要求。当前实际安装Node24.19.0、Vite8.3.2、TypeScript7.0.2、Vitest5.0.3，版本由pnpm-lock.yaml锁定。
