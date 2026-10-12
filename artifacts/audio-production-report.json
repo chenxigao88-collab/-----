@@ -1,0 +1,111 @@
+{
+  "checks": [
+    "production startup",
+    "audio controls visible",
+    "24 effect assets and camp loop load with relative deployment paths",
+    "no development hook"
+  ],
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-shot.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-shotgun.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-ice.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-slash.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-fire.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-electric.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-wind.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-hit.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-bolt.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-ring.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-heavy.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-explosion.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-hurt.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-dodge.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-swap.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-victory.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-moonRise.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-moonSheath.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-moonSlash.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-moonBreak.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-enemyShot.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-loot.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-reaction.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/music-camp.wav",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/sfx-death.wav",
+      "status": 200
+    }
+  ],
+  "errors": []
+}

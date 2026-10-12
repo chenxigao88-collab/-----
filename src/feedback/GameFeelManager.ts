@@ -26,7 +26,7 @@ export class GameFeelManager {
       const existing = this.numbers.find(n => n.attackId === e.attack.id && n.targetId === e.targetId && n.life > .5);
       if (existing) existing.amount += e.amount;
       else { this.numbers.push({ pos: vec(e.position.x + this.random.range(-7, 7), e.position.y - 44-(target?.launch.height??0)), amount: e.amount, life: .55, critical: e.attack.critical, attackId: e.attack.id, targetId: e.targetId }); if (this.numbers.length > 60) this.numbers.shift(); }
-    }), events.on('perfectDodge', e => { this.play('perfect_dodge', e.position); }),
+    }), events.on('perfectDodge', e => { this.play('perfect_dodge', e.position); }),events.on('elementReaction',()=>this.audio.play('reaction')),
     events.on('actorDied', e => { this.burst(e.position, 9, e.faction === 'player' ? '#91ddd4' : '#b99163'); this.rings.push({ pos: e.position, radius: 21, life: .25, total: .25, color: '#bca27a' }); })];
   }
   play(id: PresetId, pos: Vec2) {
@@ -41,12 +41,12 @@ export class GameFeelManager {
     if (this.particles.length > 400) this.particles.splice(0, this.particles.length - 400);
   }
   shot(actor: Actor, heavy: boolean, melee: boolean,muzzleLength=24) {
-    this.audio.play(actor.faction === 'enemy' ? 'shot' : melee ? 'slash' : heavy ? 'shotgun' : 'shot');
+    this.audio.play(actor.faction === 'enemy' ? 'enemyShot' : melee ? 'slash' : heavy ? 'shotgun' : 'shot');
     if (!melee) { const point = add(handPosition(actor), mul(direction(actor.aim), muzzleLength)); this.burst(point, 2, actor.faction === 'player' ? '#9deae2' : '#f49779'); }
   }
   weaponShot(actor:Actor,style:BulletStyle,charge=0,length=24){
     const sounds:Record<BulletStyle,string>={needle:'shot',gravel:'shotgun',crystal:'ice',fireball:'fire',arc:'electric',wind:'wind',bolt:'bolt',ring:'ring',wave:'slash'};
-    this.audio.play(sounds[style]);actor.recoil=style==='bolt'?1.7:1;
+    this.audio.play(sounds[style]);if(charge>=.99)this.audio.play('heavy');actor.recoil=style==='bolt'?1.7:1;
     const color=style==='fireball'?'#ffb15e':style==='bolt'?'#ffe1a4':style==='crystal'?'#c7ffff':style==='arc'?'#cfb4ff':'#b8ffe4';
     const muzzle=add(handPosition(actor),mul(direction(actor.aim),length));
     this.burst(muzzle,style==='bolt'?8:style==='fireball'?5:2,color);

@@ -1,0 +1,158 @@
+{
+  "sampleRate": 22050,
+  "channels": 2,
+  "encoding": "PCM16",
+  "copyright": "Original Ash Corridor compositions and synthesis; no third-party recordings.",
+  "music": {
+    "camp": {
+      "file": "music-camp.wav",
+      "duration": 25.263,
+      "peak": 0.7748,
+      "bpm": 76,
+      "bars": 8
+    },
+    "explore": {
+      "file": "music-explore.wav",
+      "duration": 22.326,
+      "peak": 0.8702,
+      "bpm": 86,
+      "bars": 8
+    },
+    "battle": {
+      "file": "music-battle.wav",
+      "duration": 17.143,
+      "peak": 0.8647,
+      "bpm": 112,
+      "bars": 8
+    },
+    "boss": {
+      "file": "music-boss.wav",
+      "duration": 14.545,
+      "peak": 0.8815,
+      "bpm": 132,
+      "bars": 8
+    }
+  },
+  "sounds": {
+    "shot": {
+      "file": "sfx-shot.wav",
+      "duration": 0.22,
+      "peak": 0.8541
+    },
+    "shotgun": {
+      "file": "sfx-shotgun.wav",
+      "duration": 0.4,
+      "peak": 0.838
+    },
+    "slash": {
+      "file": "sfx-slash.wav",
+      "duration": 0.38,
+      "peak": 0.8001
+    },
+    "ice": {
+      "file": "sfx-ice.wav",
+      "duration": 0.6,
+      "peak": 0.4285
+    },
+    "fire": {
+      "file": "sfx-fire.wav",
+      "duration": 0.55,
+      "peak": 0.89
+    },
+    "electric": {
+      "file": "sfx-electric.wav",
+      "duration": 0.32,
+      "peak": 0.4127
+    },
+    "wind": {
+      "file": "sfx-wind.wav",
+      "duration": 0.45,
+      "peak": 0.8095
+    },
+    "bolt": {
+      "file": "sfx-bolt.wav",
+      "duration": 0.55,
+      "peak": 0.783
+    },
+    "ring": {
+      "file": "sfx-ring.wav",
+      "duration": 0.75,
+      "peak": 0.3723
+    },
+    "hit": {
+      "file": "sfx-hit.wav",
+      "duration": 0.22,
+      "peak": 0.8605
+    },
+    "heavy": {
+      "file": "sfx-heavy.wav",
+      "duration": 0.42,
+      "peak": 0.89
+    },
+    "explosion": {
+      "file": "sfx-explosion.wav",
+      "duration": 1.05,
+      "peak": 0.89
+    },
+    "hurt": {
+      "file": "sfx-hurt.wav",
+      "duration": 0.42,
+      "peak": 0.8818
+    },
+    "dodge": {
+      "file": "sfx-dodge.wav",
+      "duration": 0.55,
+      "peak": 0.8391
+    },
+    "swap": {
+      "file": "sfx-swap.wav",
+      "duration": 0.25,
+      "peak": 0.4199
+    },
+    "victory": {
+      "file": "sfx-victory.wav",
+      "duration": 2.8,
+      "peak": 0.4915
+    },
+    "moonRise": {
+      "file": "sfx-moonRise.wav",
+      "duration": 1.9,
+      "peak": 0.5468
+    },
+    "moonSlash": {
+      "file": "sfx-moonSlash.wav",
+      "duration": 0.7,
+      "peak": 0.822
+    },
+    "moonSheath": {
+      "file": "sfx-moonSheath.wav",
+      "duration": 0.65,
+      "peak": 0.3736
+    },
+    "moonBreak": {
+      "file": "sfx-moonBreak.wav",
+      "duration": 2.0,
+      "peak": 0.89
+    },
+    "enemyShot": {
+      "file": "sfx-enemyShot.wav",
+      "duration": 0.18,
+      "peak": 0.8233
+    },
+    "death": {
+      "file": "sfx-death.wav",
+      "duration": 0.48,
+      "peak": 0.805
+    },
+    "loot": {
+      "file": "sfx-loot.wav",
+      "duration": 0.8,
+      "peak": 0.4332
+    },
+    "reaction": {
+      "file": "sfx-reaction.wav",
+      "duration": 0.85,
+      "peak": 0.5688
+    }
+  }
+}

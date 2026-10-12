@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "actual Web Audio graph produces music after a user gesture",
+    "music/effect sliders, persisted preferences and live master mute/unmute",
+    "real exploration, encounter and Boss states choose their own score; rapid transitions keep at most two music sources",
+    "pause silences the mix and resume fades it back in",
+    "all 24 sound buffers decode and play; voice limit is enforced",
+    "restart/disposal stops every music and effect source"
+  ],
+  "errors": []
+}

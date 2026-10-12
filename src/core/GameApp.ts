@@ -15,6 +15,7 @@ import { STARTER_WEAPONS } from '../data/weapons';
 import { CHARACTERS,type CharacterId } from '../data/characters';
 import { AdventureUI } from '../ui/AdventureUI';
 import {CheckpointStore,restoreCheckpoint} from '../room/CheckpointStore';
+import {musicScene} from '../feedback/MusicDirector';
 export class GameApp {
   readonly settings=defaultDebug();readonly audio=new AudioManager();readonly art=new AssetManager();
   readonly loop:GameLoop;world:World;private runId=1;
@@ -28,6 +29,7 @@ export class GameApp {
   constructor(private root:HTMLElement){
     root.innerHTML='<div class="shell"><div class="stage"><canvas width="960" height="540" aria-label="灰烬回廊，WASD移动，鼠标瞄准，右键逐段连招，E交互，ESC暂停"></canvas><div class="loading">灰烬回廊<small>正在准备炉室与行者…</small></div></div></div>';
     this.canvas=root.querySelector('canvas')!;this.canvas.tabIndex=0;this.stage=root.querySelector('.stage')!;
+    try{const saved=JSON.parse(localStorage.getItem('ash-corridor.audio.v1')??'null');if(saved){for(const key of ['musicVolume','effectVolume'] as const)if(typeof saved[key]==='number'&&Number.isFinite(saved[key]))this.settings[key]=Math.max(0,Math.min(1,saved[key]));if(typeof saved.mute==='boolean')this.settings.mute=saved.mute;}}catch{/* Audio settings work without storage. */}
     try{const saved=JSON.parse(localStorage.getItem('ash-corridor.loadout.v1')??'null');if(Array.isArray(saved)&&saved.length===2&&saved[0]!==saved[1]&&saved.every(id=>STARTER_WEAPONS.some(w=>w.id===id)))this.loadoutIds=[saved[0],saved[1]];}catch{/* Storage may be unavailable. */}
     this.world=new World(this.runId,this.settings,this.audio,true);this.applyLoadout();
     try{this.checkpoint=new CheckpointStore(localStorage);}catch{/* Storage can be disabled. */}this.world.checkpointAvailable=Boolean(this.checkpoint.read());
@@ -35,9 +37,12 @@ export class GameApp {
     try{const saved=localStorage.getItem('ash-corridor.character.v1');if(CHARACTERS.some(c=>c.id===saved)){this.characterId=saved as CharacterId;this.world.selectCharacter(this.characterId);}}catch{/* Selection remains available without storage. */}
     this.loop=new GameLoop(dt=>this.update(dt),dt=>this.render(dt));
     window.addEventListener('resize',this.resize,{signal:this.controller.signal});this.resize();
+    document.addEventListener('visibilitychange',()=>{this.audio.setScene(musicScene(this.world),document.hidden||this.world.state==='paused');},{signal:this.controller.signal});
+    root.addEventListener('input',e=>{const input=e.target as HTMLInputElement,key=input.dataset.audio;if(key==='musicVolume'||key==='effectVolume'||key==='mute'){this.command({type:'setting',key,value:key==='mute'?input.checked:Number(input.value)});const output=this.overlays.element.querySelector(`[data-audio-output="${key}"]`);if(output)output.textContent=`${Math.round(Number(input.value)*100)}%`;}},{signal:this.controller.signal});
     root.addEventListener('click',e=>{const button=(e.target as HTMLElement).closest<HTMLButtonElement>('[data-command]');if(button){void this.audio.unlock();this.command({type:button.dataset.command} as GameCommand);}},{signal:this.controller.signal});
   }
   async start(){validateData();await this.art.load();if(this.disposed)return;
+    this.audio.preload();
     this.renderer=new Renderer(this.canvas,this.art);this.hud=new HUD(this.renderer.sprites);this.debug=new DebugPanel(command=>this.command(command),this.settings);
     this.loadout=new Loadout(this.renderer.sprites,command=>this.command(command));
     this.adventureUI=new AdventureUI(this.renderer.sprites,command=>this.command(command));this.stage.append(this.adventureUI.element);
@@ -53,7 +58,7 @@ export class GameApp {
     if(camp&&(camp!==this.lastCamp||this.saveClock>=2)){this.saveClock=0;this.lastCamp=camp;this.world.checkpointAvailable=this.checkpoint.write(this.world);}
     if(!camp)this.lastCamp='';
   }
-  private render(dt:number){this.audio.muted=this.settings.mute;this.renderer?.draw(this.world,this.frame.aim,this.loop.fps);this.hud?.render(this.world,dt);this.overlays.render(this.world);this.adventureUI?.render(this.world);this.debug?.render(this.world,this.loop);}
+  private render(dt:number){this.audio.muted=this.settings.mute;this.audio.setVolumes(this.settings.musicVolume,this.settings.effectVolume);this.audio.setScene(musicScene(this.world),this.world.state==='paused'||document.hidden);this.renderer?.draw(this.world,this.frame.aim,this.loop.fps);this.hud?.render(this.world,dt);this.overlays.render(this.world);this.adventureUI?.render(this.world);this.debug?.render(this.world,this.loop);}
   command(command:GameCommand){
     if(this.world.adventure.panel&&(command.type==='pause'||command.type==='resume')){this.world.adventure.back();this.input?.clear();this.loop.resetClock();if(this.world.state!=='paused')this.canvas.focus({preventScroll:true});return;}
     if(this.loadout?.open&&(command.type==='pause'||command.type==='resume')){this.command({type:'loadout-close'});return;}
@@ -84,7 +89,7 @@ export class GameApp {
       case 'resonance-type':this.world.weapons.current.typeOverride=command.value==='default'?undefined:command.value;this.world.resonance.clear();this.debug?.sync(this.world);break;
       case 'fixture':this.world.attacks.fixture(command.mode==='pierce'?{pierce:1}:command.mode==='bounce'?{bounce:1}:command.mode==='homing'?{homing:3}:{explosionRadius:55});break;
       case 'defaults':Object.assign(this.settings,defaultDebug());this.world.weapons.slots.forEach(slot=>slot.typeOverride=undefined);this.world.resonance.clear();this.debug?.resetControls();this.debug?.sync(this.world);break;
-      case 'setting':{const key=command.key;if(typeof this.settings[key]===typeof command.value)Object.assign(this.settings,{[key]:command.value});this.world.player.actor.invulnerability.setDebug(this.settings.invincible);break;}
+      case 'setting':{const key=command.key;if(typeof this.settings[key]===typeof command.value)Object.assign(this.settings,{[key]:command.value});if(['mute','musicVolume','effectVolume'].includes(key)){this.audio.muted=this.settings.mute;this.audio.setVolumes(this.settings.musicVolume,this.settings.effectVolume);try{localStorage.setItem('ash-corridor.audio.v1',JSON.stringify({mute:this.settings.mute,musicVolume:this.settings.musicVolume,effectVolume:this.settings.effectVolume}));}catch{}}this.world.player.actor.invulnerability.setDebug(this.settings.invincible);break;}
     }
     if(['shop-buy','rune-choose','loot-weapon','story-next','story-skip','upgrade-choose'].includes(command.type))this.checkpoint.write(this.world);
     if(['resume','restart','loadout-close','rune-choose','loot-weapon','loot-back','story-next','story-skip','upgrade-choose','continue-run'].includes(command.type)&&this.world.state!=='paused')this.canvas.focus({preventScroll:true});

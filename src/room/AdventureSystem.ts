@@ -137,7 +137,7 @@ export class AdventureSystem {
     if(t.kind==='ground'){const drop=this.memory.drops.find(d=>d.id===t.id)!;this.show({kind:'weapon',source:'ground',sourceId:drop.id,weapon:drop.weapon,pos:drop.pos});return true;}
     const c=this.memory.chests.find(c=>c.id===t.id)!;
     if(c.opened){if(c.kind==='crystal'&&c.age>=.5)this.show({kind:'chest',source:'chest',sourceId:c.id,choices:c.offers});return true;}
-    c.opened=true;c.age=0;this.world.audio.play('swap');
+    c.opened=true;c.age=0;this.world.audio.play('loot');
     if(c.kind==='crystal'){c.offers=this.offers();this.dropGold(c.pos,18);this.dropWeapon({x:c.pos.x+60,y:c.pos.y+48});if(!c.offers.length)c.claimed=true;this.world.events.emit('message',{text:'宝箱获得 · 金币 ×18 · 武器已落地'+(c.offers.length?' · 可选择一枚符印':'')});}
     else {
       c.claimed=true;const coins=this.template.kind==='elite'||this.template.kind==='final'?14:6;this.dropGold(c.pos,coins);
@@ -155,7 +155,7 @@ export class AdventureSystem {
     if(item.id==='weapon'&&item.weapon){this.panel={kind:'weapon',source:'shop',weapon:item.weapon,price:item.price};return true;}
     return false;
   }
-  private pay(item:ShopItem){this.gold-=item.price;this.spent+=item.price;item.sold=true;this.world.audio.play('swap');}
+  private pay(item:ShopItem){this.gold-=item.price;this.spent+=item.price;item.sold=true;this.world.audio.play('loot');}
   chooseRune(id:RuneId,replace?:number){
     const p=this.panel;if(!p||this.world.state!=='paused')return false;
     if(p.kind==='replace'){if(p.rune!==id)return false;return this.finishRune(id,p,replace);}
@@ -189,7 +189,7 @@ export class AdventureSystem {
     if(drop){drop.weapon=old.data.id;drop.origin='discard';}
     else this.memory.drops.push({id:`drop-${this.nextDrop++}`,weapon:old.data.id,pos:{x:530,y:290},origin:'discard'});
     this.world.events.emit('message',{text:`换装 · ${getWeapon(p.weapon).displayName} · 旧武器留在地上`});
-    if(stock)this.pay(stock);this.world.audio.play('swap');this.closePanel();return true;
+    if(stock)this.pay(stock);this.world.audio.play('loot');this.closePanel();return true;
   }
   step(dt:number,enemyDt=dt){
     if(!this.enabled||dt<=0)return;

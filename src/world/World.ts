@@ -175,7 +175,7 @@ export class World {
   private finish(state: 'dead' | 'victory') {
     this.state = state; this.ultimate.cancel();this.projectiles.clear(); this.melee.clear();this.elements.clear();this.abilities.clear();this.gunfu.clear();this.swapBuffer=0;this.skillBuffer=0; this.room.pending = []; this.time.clear(); this.enemies = [];
     this.attacks.clear();
-    if (state === 'victory') this.audio.play('victory');
+    if (state === 'victory') this.audio.play('victory');else this.audio.play('death');
   }
   private explode(context: AttackContext, pos: Vec2, radius: number, excluded?: number) {
     const secondary = this.attacks.secondary(context, context.explosion?.damage ?? 20);
