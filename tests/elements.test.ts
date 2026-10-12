@@ -143,7 +143,7 @@ describe('new weapon traits, skills and loadouts',()=>{
   it('right-click starts a body action without firing an independent weapon skill',()=>{
     const w=make();w.weapons.current.cooldown=.2;const input=emptyInput();input.skill=true;w.step(1/120,input);
     expect(w.gunfu.busy).toBe(true);expect(w.gunfu.kind).toBe('routine');expect(w.attacks.shots).toBe(0);expect(w.weapons.current.skillCooldown).toBe(0);
-    advance(w,.3);expect(w.gunfu.busy).toBe(true);expect(w.gunfu.snapshot().awaiting).toBe(true);expect(w.player.actor.action).toBeUndefined();expect(w.weapons.active).toBe(0);expect(w.attacks.shots).toBe(0);
+    advance(w,.33);expect(w.gunfu.busy).toBe(true);expect(w.gunfu.snapshot().awaiting).toBe(true);expect(w.player.actor.action).toBeUndefined();expect(w.weapons.active).toBe(0);expect(w.attacks.shots).toBe(0);
   });
   it('right-click buffers briefly until an existing melee action finishes recovery',()=>{
     const w=make(),c=w.attacks.snapshot(w.player.actor,1,'fixture','heavy',false);w.melee.spawn(c,w.player.actor,20,1,0,0,.05);

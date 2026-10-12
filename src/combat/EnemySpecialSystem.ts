@@ -4,6 +4,7 @@ import type {Actor} from '../actors/Actor';
 import type {AttackContext} from './AttackSystem';
 import {angleDiff,angleTo,constrain,direction,distance,normal,sub,type Vec2} from '../core/types';
 import {depthScale} from '../data/chapter';
+import {ATTACK_PACING} from '../data/attackPacing';
 export interface Fallen {enemy:Enemy;age:number}
 export interface EmberBlast {pos:Vec2;age:number;context:AttackContext;friendly:AttackContext;hits:Set<number>}
 export class EnemySpecialSystem {
@@ -17,8 +18,8 @@ export class EnemySpecialSystem {
     w.events.on('elementReaction',e=>{const enemy=w.enemies.find(n=>n.actor.id===e.targetId);if(enemy?.kind==='shield')enemy.guardBroken=Math.max(2,enemy.guardBroken);if(enemy?.kind==='boss')this.shave(enemy,14);});
     w.events.on('perfectDodge',()=>{const boss=this.boss;if(boss)this.shave(boss,18);});
     w.events.on('actorDied',e=>{const enemy=w.enemies.find(n=>n.actor.id===e.id);if(!enemy)return;if(this.fallen.length>=18)this.fallen.shift();this.fallen.push({enemy,age:0});
-      if(enemy.kind==='parasite')this.burst(enemy);
-      if(enemy.kind==='boss'){enemy.enter('Dead');w.room.pending=[];for(const add of w.enemies)if(add.kind!=='boss'){add.actor.health.hp=0;w.room.onDeath(add.actor.id,add.encounter);}this.blasts=[];w.hazards.items=[];w.melee.clear();w.projectiles.clear();w.abilities.clear();w.elements.clear();}
+      if(enemy.kind==='parasite'&&!w.defenseMode)this.burst(enemy);
+      if(enemy.kind==='boss'&&!w.defenseMode){enemy.enter('Dead');w.room.pending=[];for(const add of w.enemies)if(add.kind!=='boss'){add.actor.health.hp=0;w.room.onDeath(add.actor.id,add.encounter);}this.blasts=[];w.hazards.items=[];w.melee.clear();w.projectiles.clear();w.abilities.clear();w.elements.clear();}
     });
   }
   get boss(){return this.w.enemies.find(e=>e.kind==='boss'&&e.actor.health.alive);}
@@ -52,12 +53,12 @@ export class EnemySpecialSystem {
       if(d<260&&e.attackCooldown===0){e.bossMove=phase===3&&e.bossTurns%3===2?'combo':e.bossTurns%2?'slam':'slash';e.bossAttackCount=e.bossMove==='combo'?3:phase>=2&&e.bossMove!=='slam'?2:1;e.bossTurns++;e.attackIndex=0;e.enter('Attack');e.lockedAngle=aim;return;}
       const v=normal(sub(target,a.pos)),travel=Math.min(Math.max(0,d-100),e.data.speed*dt*a.elemental.moveScale);a.pos=constrain({x:a.pos.x+v.x*travel,y:a.pos.y+v.y*travel},a.hurtbox.radius);a.moving=travel>0;return;
     }
-    if(e.state==='Attack'){const windup=e.attackIndex?.85:1;if(e.elapsed-dt<windup-.22)e.lockedAngle=angleTo(a.pos,w.player.actor.pos);a.aim=a.facing=e.lockedAngle;
-      if(e.elapsed>=windup){const slam=e.bossMove==='slam';w.attacks.requestEnemy(e,{angle:e.lockedAngle,arc:slam?1.55:2.65,range:slam?148:140,active:slam?.38:.24,damageMultiplier:slam?1.2:e.bossAttackCount===3?.85:1});e.enter('Recover');if(slam)e.lungeRemaining=.35;}return;
+    if(e.state==='Attack'){const windup=e.windup;if(e.elapsed-dt<windup-e.data.lockLead)e.lockedAngle=angleTo(a.pos,w.player.actor.pos);a.aim=a.facing=e.lockedAngle;
+      if(e.elapsed>=windup){const slam=e.bossMove==='slam';w.attacks.requestEnemy(e,{angle:e.lockedAngle,arc:slam?1.55:2.65,range:slam?148:140,active:(slam?.38:.24)*ATTACK_PACING.enemy,damageMultiplier:slam?1.2:e.bossAttackCount===3?.85:1});e.enter('Recover');if(slam)e.lungeRemaining=.35*ATTACK_PACING.enemy;}return;
     }
-    if(e.state==='Recover'){if(e.lungeRemaining>0){const step=Math.min(dt,e.lungeRemaining),v=direction(e.lockedAngle);a.pos=constrain({x:a.pos.x+v.x*160/.35*step,y:a.pos.y+v.y*160/.35*step},a.hurtbox.radius);e.lungeRemaining-=step;a.moving=true;}
-      if(e.attackIndex<e.bossAttackCount-1&&e.elapsed>=.65){e.attackIndex++;e.bossMove='return';e.enter('Attack');e.lockedAngle=angleTo(a.pos,w.player.actor.pos);return;}
-      if(e.elapsed>=1.65){e.enter('Move');e.attackCooldown=.85;}
+    if(e.state==='Recover'){if(e.lungeRemaining>0){const step=Math.min(dt,e.lungeRemaining),v=direction(e.lockedAngle);a.pos=constrain({x:a.pos.x+v.x*160/(.35*ATTACK_PACING.enemy)*step,y:a.pos.y+v.y*160/(.35*ATTACK_PACING.enemy)*step},a.hurtbox.radius);e.lungeRemaining-=step;a.moving=true;}
+      if(e.attackIndex<e.bossAttackCount-1&&e.elapsed>=.65*ATTACK_PACING.enemy){e.attackIndex++;e.bossMove='return';e.enter('Attack');e.lockedAngle=angleTo(a.pos,w.player.actor.pos);return;}
+      if(e.elapsed>=1.65*ATTACK_PACING.enemy){e.enter('Move');e.attackCooldown=.85;}
     }
   }
   reset(){this.fallen=[];this.blasts=[];this.hazardClock=0;}

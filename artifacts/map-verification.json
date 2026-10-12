@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "checks": [
+    "M opens and pauses",
+    "Escape restores ready state",
+    "quest click locates correct room",
+    "unvisited travel blocked",
+    "exact completed valve markers",
+    "safe travel",
+    "E repairs only selected valve",
+    "three regions",
+    "640px layout",
+    "M toggles closed",
+    "prior pause preserved",
+    "production build map"
+  ],
+  "bounds": {
+    "cardOverflow": 0,
+    "boardHeight": 194.4375,
+    "detailBottom": 347.015625,
+    "cardBottom": 353.609375
+  }
+}

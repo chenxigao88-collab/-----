@@ -4,6 +4,7 @@ export function musicScene(world:World):MusicScene{
   if(world.state==='dead'||world.state==='victory')return 'camp';
   if(world.enemies.some(e=>e.kind==='boss'&&e.actor.health.alive))return 'boss';
   if(world.enemies.some(e=>e.actor.health.alive))return 'battle';
+  if(world.defenseMode)return world.defense.phase==='wave'?'battle':'camp';
   if(world.adventureMode){
     if(!world.adventure.started||world.adventure.template.kind==='shop')return 'camp';
     return world.adventure.locked?'battle':'explore';

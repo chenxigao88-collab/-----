@@ -3,6 +3,7 @@ import type { Player } from './Player';
 import { add, sub, mul, normal, direction, distance, angleTo, constrain, length, clamp, type Vec2 } from '../core/types';
 interface EnemyAttackPort { requestEnemy(enemy: Enemy, options?: EnemyAttackOptions): unknown }
 import { ENEMY_PRESSURE } from '../data/enemies';
+import {ATTACK_PACING} from '../data/attackPacing';
 export class EnemyBrain {
   constructor(private player: Player, private attacks: EnemyAttackPort,private navigate?:(from:Vec2,target:Vec2,radius:number)=>Vec2,private pressure=()=>ENEMY_PRESSURE.maxAttackers as number,private specialAttack?:(enemy:Enemy)=>boolean) {}
   step(enemy: Enemy, dt: number, peers: Enemy[]) {
@@ -64,7 +65,7 @@ export class EnemyBrain {
     const a = enemy.actor, target = this.player.actor.pos, d = distance(a.pos, target), data = enemy.data;
     a.aim = angleTo(a.pos, target);
     const occupied = peers.filter(other => other !== enemy && other.holdsAttackSlot).length;
-    const pressure=this.pressure(),lastAttack=peers.some(other=>other!==enemy&&other.state==='Attack'&&other.elapsed<.55);
+    const pressure=this.pressure(),lastAttack=peers.some(other=>other!==enemy&&other.state==='Attack'&&other.elapsed<.55*ATTACK_PACING.enemy);
     if (occupied < pressure && !lastAttack && enemy.attackCooldown<=0 && d <= data.engageRange) { this.beginAttack(enemy); return; }
     let movement: Vec2 = normal(sub(this.navigate?.(a.pos,target,a.hurtbox.radius)??target, a.pos));
     const waiting=occupied>=pressure||enemy.attackCooldown>0;

@@ -19,7 +19,7 @@ export class ProgressionSystem {
   ranks:Record<UpgradeId,number>={health:0,damage:0,gunfu:0,blade:0,element:0,defence:0,dodge:0};
   constructor(private w:World){}
   get threshold(){return 40+(this.level-1)*12;}
-  gain(amount:number){if(!this.w.adventureMode||!this.w.adventure.started||amount<=0)return;this.earned+=amount;if(this.level>=12)return;this.xp+=amount;
+  gain(amount:number){if(((!this.w.adventureMode||!this.w.adventure.started)&&!this.w.defenseMode)||amount<=0)return;this.earned+=amount;if(this.level>=12)return;this.xp+=amount;
     while(this.level<12&&this.xp>=this.threshold){this.xp-=this.threshold;this.level++;this.pending++;const hp=this.w.player.actor.health;hp.maxHP+=PROGRESSION_RULES.levelHP;hp.hp=Math.min(hp.maxHP,hp.hp+PROGRESSION_RULES.levelHP);this.apply();}if(this.level===12)this.xp=0;
   }
   private eligible(id:UpgradeId){const u=UPGRADES[id];return !('character' in u)||u.character===this.w.player.actor.character;}
@@ -46,12 +46,13 @@ export class ProgressionSystem {
     return blade?1+this.ranks.blade*PROGRESSION_RULES.blade:1;
   }
   multiplier(c:AttackContext,target:Actor){
+    if(c.defenseTurret)return 1;
     if(target.faction==='player')return 1-this.ranks.defence*PROGRESSION_RULES.defence;
     // Reactions and echoes are scaled when created; native splash starts from a weapon's base damage.
     return c.secondary&&!c.nativeDamage?1:this.damageMultiplier*this.routineMultiplier(c)*this.bladeMultiplier(c);
   }
   get elementMultiplier(){return 1+this.ranks.element*PROGRESSION_RULES.element;}
-  reactionMultiplier(c:AttackContext){return this.damageMultiplier*this.elementMultiplier*this.routineMultiplier(c);}
+  reactionMultiplier(c:AttackContext){return c.defenseTurret?1:this.damageMultiplier*this.elementMultiplier*this.routineMultiplier(c);}
   restore(data:ReturnType<ProgressionSystem['snapshot']>){this.level=data.level;this.xp=data.xp;this.earned=data.earned;this.pending=data.pending;this.ranks={...data.ranks,blade:data.ranks.blade??0};this.offers=[...data.offers];this.apply();}
   snapshot(){return {level:this.level,xp:this.xp,earned:this.earned,pending:this.pending,ranks:{...this.ranks},offers:[...this.offers]};}
 }

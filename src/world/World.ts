@@ -34,6 +34,8 @@ import {HazardSystem} from '../room/HazardSystem';
 import {EnemySpecialSystem} from '../combat/EnemySpecialSystem';
 import {depthScale} from '../data/chapter';
 import {ELEMENT_RULES} from '../data/elements';
+import {DefenseSystem} from '../room/DefenseSystem';
+import {TravelMapSystem} from '../room/TravelMapSystem';
 export class World {
   readonly events = new EventBus(); readonly time = new TimeManager(); readonly random = new Random();
   readonly player: Player; readonly weapons: WeaponController; readonly resonance: ResonanceSystem;
@@ -44,13 +46,15 @@ export class World {
   readonly ultimate:UltimateSystem;
   readonly adventure:AdventureSystem;readonly runes:RuneSystem;
   readonly progression:ProgressionSystem;readonly story:StorySystem;readonly hazards:HazardSystem;readonly special:EnemySpecialSystem;
+  readonly defense:DefenseSystem;
+  readonly map:TravelMapSystem;
   enemies: Enemy[] = []; private nextEntityId = 2;
   state: RunState = 'ready'; previousState: 'ready' | 'playing' = 'ready'; elapsed = 0; resultElapsed = 0;
   toast = ''; toastLife = 0; peakEntities = 1;
   checkpointAvailable=false;
   private disposed = false;
   private swapBuffer=0;private skillBuffer=0;private skillSlot=0;private skillAim:Vec2={x:600,y:340};
-  constructor(readonly runId: number, readonly settings: DebugSettings, readonly audio: AudioManager,readonly adventureMode=false) {
+  constructor(readonly runId: number, readonly settings: DebugSettings, readonly audio: AudioManager,readonly adventureMode=false,readonly defenseMode=false) {
     this.player = new Player(runId); this.weapons = new WeaponController(this.events);
     this.damage = new DamageSystem(this.player, this.events, id => this.enemies.find(e => e.actor.id === id)?.encounter ?? -1,()=>this.time.canRewardPerfect&&!this.ultimate?.active);
     this.projectiles = new ProjectileSystem(() => this.actors, this.damage, (context, pos, radius, excluded) => this.explode(context, pos, radius, excluded));
@@ -72,6 +76,8 @@ export class World {
     this.runes=new RuneSystem(this);this.adventure=new AdventureSystem(this,adventureMode);
     this.ultimate=new UltimateSystem(this);
     this.progression=new ProgressionSystem(this);this.story=new StorySystem(this);this.hazards=new HazardSystem(this);this.special=new EnemySpecialSystem(this);
+    this.defense=new DefenseSystem(this,defenseMode);if(defenseMode){this.room.configure([]);this.player.actor.pos={x:480,y:380};this.player.actor.previous={...this.player.actor.pos};}
+    this.map=new TravelMapSystem(this);
     const runeModifier=this.damage.modifier;
     this.damage.modifier=(attack,target)=>{
       const enemy=this.enemies.find(e=>e.actor===target);
@@ -81,9 +87,10 @@ export class World {
     };
     this.damage.absorb=(target,amount)=>this.special.absorb(target,amount);
     this.elements.reactionMultiplier=attack=>this.progression.reactionMultiplier(attack);
-    this.projectiles.obstacleContact=(from,to,radius)=>adventureMode?obstacleContact(from,to,radius,this.adventure.template.obstacles):null;
+    this.projectiles.obstacleContact=(from,to,radius,c)=>defenseMode?this.defense.contact(from,to,radius,c?.defenseTurret?c.sourceId:undefined):adventureMode?obstacleContact(from,to,radius,this.adventure.template.obstacles):null;
     this.damage.validContact=(c,target)=>{
       const sword=WEAPONS.find(w=>w.id===(c.equippedWeaponId??c.weaponId))?.category==='melee';
+      if(defenseMode){const source=this.actors.find(a=>a.id===c.sourceId);if(!source||c.secondary||(c.faction==='player'&&!sword&&c.gunfu!=='body'))return true;return !this.defense.contact(source.pos,target.pos,0);}
       if(!adventureMode||c.secondary||(c.gunfu==='finisher'&&!sword)||(c.faction==='player'&&c.gunfu!=='body'&&!sword))return true;
       const source=this.actors.find(a=>a.id===c.sourceId);if(!source)return true;
       return !obstacleContact(source.faction==='player'?handPosition(source):source.hurtbox.center(source.pos),target.hurtbox.center(target.pos),0,this.adventure.template.obstacles);
@@ -91,7 +98,7 @@ export class World {
     this.events.on('perfectDodge',e=>{if(e.runId===this.runId&&this.time.requestEnemyFreeze())this.gunfu.perfect();});
     this.events.on('damageApplied', e => {
       const contact=this.actors.find(a=>a.id===e.targetId);if(contact&&e.attack.faction==='player'&&e.amount>0)this.attacks.contact(e.attack,contact);
-      if (e.attack.faction === 'player' && !e.attack.secondary && !e.killed&&e.amount>0) {
+      if (e.attack.faction === 'player' && !e.attack.secondary && !e.attack.defenseTurret && !e.killed&&e.amount>0) {
         const enemy = this.enemies.find(enemy => enemy.actor.id === e.targetId);
         if(enemy?.kind!=='boss'){
         const duration = e.attack.gunfu === 'body' ? (e.attack.heavy ? .45 : .34)
@@ -115,13 +122,14 @@ export class World {
   }
   get actors() { return [this.player.actor, ...this.enemies.map(e => e.actor)]; }
   spawn(kind: EnemyKind, pos: Vec2, encounter = -1,elite=false) {
-    const scale=this.adventureMode&&kind!=='boss'?depthScale(this.adventure.template.depth??1):{hp:1,damage:1,speed:1};
+    const scale=this.adventureMode&&kind!=='boss'?depthScale(this.adventure.template.depth??1):this.defenseMode?{hp:1,damage:1+Math.max(0,this.defense.wave-1)*.12,speed:1,armor:Math.max(0,this.defense.wave-1)*5}:{hp:1,damage:1,speed:1};
     if(this.adventureMode&&kind!=='boss')scale.hp*=1.15;
     const enemy = new Enemy(this.nextEntityId++, this.runId, kind, constrain(pos, ENEMIES[kind].radius), encounter,elite,scale,this.adventureMode?720:240); this.enemies.push(enemy);
     this.peakEntities = Math.max(this.peakEntities, this.enemies.length + this.projectiles.projectiles.length + 1); return enemy;
   }
   startTrial() {
     if (this.state !== 'ready') return false;
+    if(this.defenseMode)return this.defense.startWave();
     if(this.adventureMode)return this.adventure.start();
     if (this.room.start()) { this.state = 'playing'; this.events.emit('message', { text: '第一波 · 余烬苏醒' }); return true; }
     return false;
@@ -133,14 +141,20 @@ export class World {
     this.audio.muted = this.settings.mute; this.time.hitStrength = this.settings.hitStrength;
     if (this.state === 'victory' || this.state === 'dead') { this.resultElapsed += dt; this.feel.step(dt, this.actors);this.elements.presentation(dt); this.toastLife = Math.max(0, this.toastLife - dt); return; }
     const t = this.time.step(dt); this.elapsed += t.player;
+    if(this.defenseMode){
+      if(input.build)this.defense.toggle();
+      if(this.defense.buildOpen&&this.defense.canBuild){if(input.rotate)this.defense.rotation=!this.defense.rotation;if(input.place)this.defense.place(input.aim);if(input.skill)this.defense.toggle();input={...input,fire:false,skill:false,ultimate:false,ultimateSecond:false};}
+      if(input.interact&&!this.defense.buildOpen&&['preparation','intermission'].includes(this.defense.phase))this.defense.startWave();
+    }
     if((input.ultimate||input.ultimateSecond)&&t.player>0)this.ultimate.request(input.aim,input.ultimateSecond?2:1);
     if(this.ultimate.active){input={...emptyInput(),aim:input.aim};t.enemy=0;this.swapBuffer=0;this.skillBuffer=0;}
     if(this.time.freezeJustEnded)this.player.actor.invulnerability.grant('hurt',PERFECT_DODGE_RULES.recoveryProtection);
     const previousDashes = this.player.dashes;
     this.player.step(t.player, input, this.settings,this.ultimate.active?0:this.gunfu.movementScale*(this.adventureMode?this.hazards.moveScale:1)); this.weapons.step(t.player);
     if(this.adventureMode)this.player.actor.pos=resolveObstacles(this.player.actor.pos,this.player.actor.previous,this.player.actor.hurtbox.radius,this.adventure.template.obstacles);
+    if(this.defenseMode)this.player.actor.pos=this.defense.resolve(this.player.actor.pos,this.player.actor.previous,this.player.actor.hurtbox.radius);
     if (this.player.dashes !== previousDashes){this.melee.cancel(this.player.actor.id);this.gunfu.dashStarted();this.attacks.cancelPrimary();}
-    if(input.interact){if(this.adventureMode){this.adventure.interact();if((this.state as RunState)==='paused'||(this.state as RunState)==='victory')return;}else if(distance(this.player.actor.pos,{x:480,y:375})<=42)this.startTrial();}
+    if(input.interact&&!this.defenseMode){if(this.adventureMode){this.adventure.interact();if((this.state as RunState)==='paused'||(this.state as RunState)==='victory')return;}else if(distance(this.player.actor.pos,{x:480,y:375})<=42)this.startTrial();}
     if(input.swap)this.swapBuffer=.1;
     if(this.swapBuffer>0&&this.weapons.trySwitch(this.player.dashing||this.attacks.busy||this.gunfu.busy)){this.swapBuffer=0;this.attacks.cancelPrimary();}
     if(input.skill){this.skillBuffer=.1;this.skillSlot=this.weapons.active;this.skillAim={...input.aim};}
@@ -151,17 +165,19 @@ export class World {
     if(this.ultimate.active)this.ultimate.step(t.player);else this.gunfu.step(t.player,this.settings,input.aim);
     this.elements.step(t.player,t.enemy);
     for(const enemy of this.enemies)enemy.actor.previous={...enemy.actor.pos};
-    for (const enemy of this.enemies) {const airborne=enemy.actor.launch.active;this.brain.step(enemy, t.enemy, this.enemies);if(airborne&&!enemy.actor.launch.active&&enemy.actor.health.alive){this.feel.burst(enemy.actor.pos,5,'#c7b7e7');this.feel.rings.push({pos:{...enemy.actor.pos},radius:19,life:.18,total:.18,color:'#baa5d8'});}}
+    for (const enemy of this.enemies) {const airborne=enemy.actor.launch.active;if(this.defenseMode)this.defense.brain.step(enemy,t.enemy);else this.brain.step(enemy, t.enemy, this.enemies);if(airborne&&!enemy.actor.launch.active&&enemy.actor.health.alive){this.feel.burst(enemy.actor.pos,5,'#c7b7e7');this.feel.rings.push({pos:{...enemy.actor.pos},radius:19,life:.18,total:.18,color:'#baa5d8'});}}
     if(this.adventureMode)for(const enemy of this.enemies)enemy.actor.pos=resolveObstacles(enemy.actor.pos,enemy.actor.previous,enemy.actor.hurtbox.radius,this.adventure.template.obstacles);
-    this.special.step(t.enemy);if(this.adventureMode)this.hazards.step(t.enemy);
+    if(!this.defenseMode)this.special.step(t.enemy);if(this.adventureMode)this.hazards.step(t.enemy);
     this.abilities.step(t.player);this.projectiles.step(t.player, t.enemy); this.melee.step(t.player, t.enemy);
     this.runes.step(t.player);
     this.player.actor.invulnerability.step(t.player);
     if (this.player.dashing) this.feel.dashGhost(this.player.actor, t.player,this.player.dashElapsed);
     this.feel.step(t.presentation, this.actors);this.elements.presentation(t.presentation);this.abilities.presentation(t.presentation); this.toastLife = Math.max(0, this.toastLife - t.presentation);
+    if(this.defenseMode)this.defense.step(t.player,t.enemy);
     this.enemies = this.enemies.filter(enemy => enemy.actor.health.alive);
     // Outcome is resolved after all hits in a step; player death wins simultaneous final kills.
-    if (!this.player.actor.health.alive) this.finish('dead');
+    if (!this.player.actor.health.alive||(this.defenseMode&&this.defense.core.hp<=0)) {if(this.defenseMode){this.defense.failure=this.player.actor.health.alive?'核心被摧毁':'行者倒下';this.defense.phase='lost';}this.finish('dead');}
+    else if(this.defenseMode){if(this.defense.phase==='won')this.finish('victory');}
     else {
       const before = this.room.wave;
       this.room.step(this.ultimate.active?0:t.enemy);
@@ -175,6 +191,7 @@ export class World {
   private finish(state: 'dead' | 'victory') {
     this.state = state; this.ultimate.cancel();this.projectiles.clear(); this.melee.clear();this.elements.clear();this.abilities.clear();this.gunfu.clear();this.swapBuffer=0;this.skillBuffer=0; this.room.pending = []; this.time.clear(); this.enemies = [];
     this.attacks.clear();
+    if(this.defenseMode){this.defense.pending=[];this.defense.shells=[];this.defense.buildOpen=false;}
     if (state === 'victory') this.audio.play('victory');else this.audio.play('death');
   }
   private explode(context: AttackContext, pos: Vec2, radius: number, excluded?: number) {
@@ -205,14 +222,14 @@ export class World {
   }
   dispose() {
     if (this.disposed) return;
-    this.disposed = true;this.ultimate.dispose();this.adventure.dispose();this.runes.dispose(); this.gunfu.dispose();this.resonance.dispose();this.elements.dispose();this.abilities.dispose(); this.feel.dispose(); this.projectiles.clear(); this.melee.clear(); this.room.clear(); this.enemies = []; this.events.clear(); this.time.clear(); this.audio.clear();
+    this.disposed = true;this.defense.dispose();this.ultimate.dispose();this.adventure.dispose();this.runes.dispose(); this.gunfu.dispose();this.resonance.dispose();this.elements.dispose();this.abilities.dispose(); this.feel.dispose(); this.projectiles.clear(); this.melee.clear(); this.room.clear(); this.enemies = []; this.events.clear(); this.time.clear(); this.audio.clear();
   }
   snapshot() {
     return { runId: this.runId, state: this.state, hp: this.player.actor.health.hp, pos: { ...this.player.actor.pos }, dash: this.player.dashCooldown,
-      enemyCount: this.enemies.length, wave: this.room.wave, waveAlive: this.room.aliveIds.size, pending: this.room.pending.length,
+      enemyCount: this.enemies.length, wave: this.defenseMode?this.defense.wave:this.room.wave, waveAlive: this.defenseMode?this.defense.alive.length:this.room.aliveIds.size, pending: this.defenseMode?this.defense.pending.length:this.room.pending.length,
       projectiles: this.projectiles.projectiles.length, particles: this.feel.particles.length, subscriptions: this.events.count,
       meter: this.resonance.meter, activations: this.resonance.activations, slow: this.time.slowScale, hitStop: this.time.hitStop,
       hits: this.damage.hits, perfectDodges: this.damage.perfectDodges, peak: this.projectiles.peak,
-      activeWeapon: this.weapons.current.data.id, slotCooldowns: this.weapons.slots.map(s => s.cooldown),reactions:this.elements.activations,reactionCounts:{...this.elements.counts},areas:this.abilities.areas.length,burns:this.elements.burnCount,gunfu:this.gunfu.snapshot(),ultimate:this.ultimate.snapshot(),freeze:this.time.enemyFreezeRemaining,freezeCooldown:this.time.freezeRewardCooldown,adventure:this.adventureMode?this.adventure.snapshot():null,shield:this.damage.shield,progression:this.progression.snapshot(),story:this.story.snapshot(),boss:this.special.boss?{hp:this.special.boss.actor.health.hp,phase:this.special.boss.bossPhase,poise:this.special.boss.poise}:null };
+      activeWeapon: this.weapons.current.data.id, slotCooldowns: this.weapons.slots.map(s => s.cooldown),reactions:this.elements.activations,reactionCounts:{...this.elements.counts},areas:this.abilities.areas.length,burns:this.elements.burnCount,gunfu:this.gunfu.snapshot(),ultimate:this.ultimate.snapshot(),freeze:this.time.enemyFreezeRemaining,freezeCooldown:this.time.freezeRewardCooldown,adventure:this.adventureMode?this.adventure.snapshot():null,defense:this.defenseMode?this.defense.snapshot():null,shield:this.damage.shield,progression:this.progression.snapshot(),story:this.story.snapshot(),boss:this.special.boss?{hp:this.special.boss.actor.health.hp,phase:this.special.boss.bossPhase,poise:this.special.boss.poise}:null };
   }
 }

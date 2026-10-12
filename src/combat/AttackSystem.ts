@@ -11,6 +11,7 @@ import type { MeleeSystem } from './MeleeSystem';
 import type { DebugSettings } from '../data/player';
 import type { EventBus } from '../core/EventBus';
 import type { AttackElement, ReactionId } from '../data/elements';
+import {ATTACK_PACING} from '../data/attackPacing';
 export interface AreaRequest { context:AttackContext; pos:Vec2; mode:'zone'|'strike'; radius:number; duration:number; delay:number }
 export interface NativeEffect { splash?:number; splashRadius?:number; splashTargets?:number; chain?:number; chainRange?:number; chainTargets?:number; slow?:{ strength:number; duration:number }; pull?:number }
 export interface AttackContext {
@@ -32,6 +33,7 @@ export interface AttackContext {
   nativeDamage?:boolean;
   nativeContinuation?:boolean;
   environment?:boolean;
+  defenseTurret?:boolean;
   ultimateCast?:number;
   ultimatePhase?:number;
   ultimateTier?:1|2;
@@ -81,9 +83,14 @@ export class AttackSystem {
     const skillData=finisher&&weapon.mechanic?.mode==='charge'&&baseSkill?.mode?{...baseSkill,mode:undefined,damage:1.4}:baseSkill;
     const q=finisher&&weapon.mechanic?.mode==='charge'?1:charge,profile=shotProfile(weapon,q),projectile=weapon.category!=='melee'||weapon.family==='wind_ring';
     if (projectile && !skillData?.mode && !this.projectiles.canAdd(profile.count)) { this.rejected++; this.events.emit('message', { text: '弹体达到安全上限' }); return false; }
-    if(!finisher)actor.action={kind:weapon.category==='melee'?'strike':'shoot',elapsed:0,duration:weapon.category==='melee'?.35:.16,angle:actor.aim};
-    if(aim){actor.aim=angleTo(handPosition(actor),aim);if(actor.action)actor.action.angle=actor.aim;}
     const speed = clamp(this.player.stats.attackSpeedMultiplier * actor.status.multiplier(`speed:${this.weapons.active}`)*(weapon.mechanic?.mode==='ramp'&&!finisher?1+this.ramp*.85:1), .1, 3);
+    if(!finisher){
+      const kind=weapon.category==='melee'?'strike':'shoot',m=weapon.melee;
+      const duration=kind==='strike'&&m?((skillData?.windup??m.windup)+(skillData?.active??m.active)+(skillData?.recover??m.recover))*ATTACK_PACING.player/speed:.16*ATTACK_PACING.player;
+      // Rapid fire updates aim, but lets the current recoil/settle cycle finish.
+      if(kind!=='shoot'||actor.action?.kind!=='shoot'||actor.action.elapsed>=actor.action.duration)actor.action={kind,elapsed:0,duration,angle:actor.aim,windup:kind==='strike'&&weapon.family!=='wind_ring'?(skillData?.windup??m!.windup)*ATTACK_PACING.player/speed:undefined,active:kind==='strike'&&weapon.family!=='wind_ring'?(skillData?.active??m!.active)*ATTACK_PACING.player/speed:undefined};
+    }
+    if(aim){actor.aim=angleTo(handPosition(actor),aim);if(actor.action)actor.action.angle=actor.aim;}
     const context=this.weaponSnapshot(weapon,settings,skillData,finisher?.multiplier??1);
     this.applyCharge(context,weapon,q);
     if(skillData?.mode)context.explosion=undefined;
@@ -99,7 +106,7 @@ export class AttackSystem {
     } else {
       this.emitWeapon(context,weapon,actor.aim,handPosition(actor),skillData,speed);
       if(weapon.family==='hush_edge'&&!finisher&&!skill&&this.blade[this.weapons.active]>=3){this.blade[this.weapons.active]=0;const wave=this.secondary(context,context.damage*.85);wave.nativeDamage=true;this.projectiles.spawn(wave,handPosition(actor),actor.aim,{speed:640,range:weapon.range+220,radius:12,pierce:2,style:'wave'});}
-      if(weapon.category==='melee'&&weapon.family!=='wind_ring'){const m=weapon.melee!;slot.cooldown=Math.max(slot.cooldown,((skillData?.windup??m.windup)+(skillData?.active??m.active)+(skillData?.recover??m.recover))/speed);}
+      if(weapon.category==='melee'&&weapon.family!=='wind_ring'){const m=weapon.melee!;slot.cooldown=Math.max(slot.cooldown,((skillData?.windup??m.windup)+(skillData?.active??m.active)+(skillData?.recover??m.recover))*ATTACK_PACING.player/speed);}
     }
     actor.recoil = 1;this.shots++; this.shotEffect(actor, context.heavy, weapon.category === 'melee',weapon.muzzleLength,weapon.mechanic?.style,q); return true;
   }
@@ -129,7 +136,7 @@ export class AttackSystem {
   }
   emitWeapon(context:AttackContext,weapon:WeaponData,angle:number,hand=handPosition(this.player.actor),skill?:SkillData,speed=1,muzzleLength=weapon.muzzleLength??24){
     const actor=this.player.actor;
-    if(weapon.category==='melee'&&weapon.family!=='wind_ring'){const m=weapon.melee!;this.melee.spawn(context,actor,skill?.range??weapon.range,skill?.arc??m.arc,(skill?.windup??m.windup)/speed,(skill?.active??m.active)/speed,(skill?.recover??m.recover)/speed,angle);return true;}
+    if(weapon.category==='melee'&&weapon.family!=='wind_ring'){const m=weapon.melee!,pace=context.ultimateCast===undefined?ATTACK_PACING.player:1;this.melee.spawn(context,actor,skill?.range??weapon.range,skill?.arc??m.arc,(skill?.windup??m.windup)*pace/speed,(skill?.active??m.active)*pace/speed,(skill?.recover??m.recover)*pace/speed,angle);return true;}
     const profile=context.shotProfile??shotProfile(weapon),count=profile.count,burst=weapon.mechanic?.mode==='burst';
     if(!this.projectiles.canAdd(count))return false;
     const origin=constrain(add(hand,mul(direction(angle),muzzleLength)),3),spread=burst?.025:skill?.spread??profile.spread;

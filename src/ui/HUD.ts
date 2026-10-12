@@ -16,6 +16,8 @@ export class HUD {
     this.element=document.createElement('div');this.element.className='hud pixel-hud';
     this.element.innerHTML='<canvas class="hud-canvas" width="960" height="540" aria-hidden="true"></canvas><button class="pixel-pause" data-command="pause" aria-label="暂停" title="暂停 · ESC">Ⅱ</button><button class="pixel-loadout" data-command="loadout">角色与武器</button><div class="prompt" data-ui="prompt" hidden></div><div class="toast" data-ui="toast" hidden></div><span class="sr-only" data-ui="hp"></span><span class="sr-only" data-ui="room" aria-live="polite"></span><span class="sr-only" data-ui="inventory"></span><div class="flash" data-ui="flash"></div>';
     const continueButton=document.createElement('button');continueButton.className='pixel-continue';continueButton.dataset.command='continue-run';continueButton.textContent='继续上次旅程';continueButton.hidden=true;this.element.append(continueButton);
+    const defenseButton=document.createElement('button');defenseButton.className='pixel-defense';defenseButton.dataset.command='defense-enter';defenseButton.textContent='余烬炉心 · 防守关';this.element.append(defenseButton);
+    const mapButton=document.createElement('button');mapButton.className='pixel-map';mapButton.dataset.command='map';mapButton.textContent='地图 · M';mapButton.title='查看任务位置与传送';mapButton.setAttribute('aria-label','打开地图，快捷键 M');this.element.append(mapButton);
     this.canvas=this.element.querySelector('canvas')!;this.ctx=this.canvas.getContext('2d')!;
   }
   private icon(id:string){let icon=this.icons.get(id);if(!icon){icon=this.sprites.weaponIcon(id);this.icons.set(id,icon);}return icon;}
@@ -73,22 +75,27 @@ export class HUD {
       if(seq.awaiting){const width=(steps-1)*26+14;c.fillStyle='#dfc495';c.fillRect(start-7,468,width,2);c.fillStyle='#181a28';c.fillRect(start-7+width*seq.window/.45,468,width*(1-seq.window/.45),2);}
     }
     const prompt=this.element.querySelector<HTMLElement>('[data-ui="prompt"]')!;
-    const text=w.adventureMode?w.adventure.prompt():w.state==='ready'&&distance(w.player.actor.pos,{x:480,y:375})<=42?'E · 开始试炼':'';
+    const text=w.defenseMode?'':w.adventureMode?w.adventure.prompt():w.state==='ready'&&distance(w.player.actor.pos,{x:480,y:375})<=42?'E · 开始试炼':'';
     prompt.textContent=text;prompt.hidden=!text||!['ready','playing'].includes(w.state);
     this.element.querySelector<HTMLElement>('[data-command="loadout"]')!.hidden=w.state!=='ready';
-    this.element.querySelector<HTMLElement>('[data-command="continue-run"]')!.hidden=w.state!=='ready'||!w.checkpointAvailable;
+    this.element.querySelector<HTMLElement>('[data-command="continue-run"]')!.hidden=w.state!=='ready'||!w.checkpointAvailable||w.defenseMode;
+    this.element.querySelector<HTMLElement>('[data-command="defense-enter"]')!.hidden=w.state!=='ready'||w.defenseMode;
+    this.element.querySelector<HTMLElement>('[data-command="map"]')!.hidden=!w.adventureMode||w.ultimate.active||w.map.open||Boolean(w.adventure.panel)||!['ready','playing','paused'].includes(w.state);
     const toast=this.element.querySelector<HTMLElement>('[data-ui="toast"]')!;toast.textContent=w.toast;toast.hidden=w.toastLife<=0;
     this.element.querySelector<HTMLElement>('[data-ui="hp"]')!.textContent=`生命 ${hp.hp} / ${hp.maxHP}`;
-    this.element.querySelector<HTMLElement>('[data-ui="room"]')!.textContent=w.adventureMode?`${w.adventure.template.name} · ${w.adventure.locked?'战斗中':'可通行'}`:'余烬试炼';
-    this.element.querySelector<HTMLElement>('[data-ui="inventory"]')!.textContent=`${w.weapons.slots.map(s=>s.data.displayName).join('、')} · Q ${swapCooldown>0?`冷却 ${swapCooldown.toFixed(1)}秒`:'可切换'} · ${w.adventureMode?w.adventure.gold:0}金币 · ${w.runes.owned.map(id=>RUNE_BY_ID.get(id)!.name).join('、')}`;
+    this.element.querySelector<HTMLElement>('[data-ui="room"]')!.textContent=w.defenseMode?`余烬炉心 · 第${w.defense.wave}波 · 核心${w.defense.core.hp}`:w.adventureMode?`${w.adventure.template.name} · ${w.adventure.locked?'战斗中':'可通行'}`:'余烬试炼';
+    this.element.querySelector<HTMLElement>('[data-ui="inventory"]')!.textContent=`${w.weapons.slots.map(s=>s.data.displayName).join('、')} · Q ${swapCooldown>0?`冷却 ${swapCooldown.toFixed(1)}秒`:'可切换'} · ${w.defenseMode?w.defense.gold:w.adventureMode?w.adventure.gold:0}金币 · ${w.runes.owned.map(id=>RUNE_BY_ID.get(id)!.name).join('、')}`;
     this.element.querySelector<HTMLElement>('[data-ui="flash"]')!.style.opacity=String(w.settings.screenFlash?w.feel.hurtFlash/.12:0);
   }
   private map(c:CanvasRenderingContext2D,w:World){
-    pixelPanel(c,798,52,126,96,'#6b6075');const region=w.adventure.template.region??1,rooms=CHAPTER_ROOMS.filter(r=>r.region===region),seen=new Set<string>();for(const [id,m]of w.adventure.rooms)if(m.visited){seen.add(id);for(const target of Object.values(CHAPTER_ROOMS.find(r=>r.id===id)!.doors))seen.add(target!);}
+    pixelPanel(c,798,52,126,116,'#8b7a8e');const region=w.adventure.template.region??1,rooms=CHAPTER_ROOMS.filter(r=>r.region===region),seen=new Set<string>();for(const [id,m]of w.adventure.rooms)if(m.visited){seen.add(id);for(const target of Object.values(CHAPTER_ROOMS.find(r=>r.id===id)!.doors))seen.add(target!);}for(const r of rooms)if(r.valve)seen.add(r.id);
     const point=(id:string)=>{const r=CHAPTER_ROOMS.find(r=>r.id===id)!;return {x:825+r.grid.x*19,y:79+(r.grid.y-(region-1)*4)*17};};
     c.font='9px Microsoft YaHei';c.fillStyle='#c5b4c8';c.fillText(REGIONS[region-1],805,65);
     c.strokeStyle='#62566b';c.lineWidth=1;for(const r of rooms)if(w.adventure.rooms.get(r.id)!.visited)for(const id of Object.values(r.doors)){if(!rooms.some(r=>r.id===id))continue;const a=point(r.id),b=point(id!);c.beginPath();c.moveTo(a.x,a.y);c.lineTo(b.x,a.y);c.lineTo(b.x,b.y);c.stroke();}
-    for(const r of rooms)if(seen.has(r.id)){const p=point(r.id),m=w.adventure.rooms.get(r.id)!;c.fillStyle=m.visited?(r.kind==='shop'?'#ccae6b':r.kind==='treasure'?'#ae91d0':r.kind==='event'?'#80bdca':m.cleared?'#7caa96':'#bc7776'):'#3a364b';c.fillRect(p.x-3,p.y-3,7,7);if(r.id===w.adventure.currentId){c.strokeStyle='#f3dcac';c.strokeRect(p.x-5,p.y-5,11,11);}if(r.kind==='treasure'&&m.chests.some(ch=>ch.claimed)){c.fillStyle='#272736';c.fillRect(p.x-1,p.y-1,3,3);}}
-    c.font='9px Consolas';c.fillStyle='#b1a4bd';c.fillText(`DEPTH ${w.adventure.template.depth??1} / 18`,805,139);
+    for(const r of rooms)if(seen.has(r.id)){const p=point(r.id),m=w.adventure.rooms.get(r.id)!;c.fillStyle=m.visited?(r.kind==='shop'?'#ccae6b':r.kind==='treasure'?'#ae91d0':r.kind==='event'?'#80bdca':m.cleared?'#7caa96':'#bc7776'):'#3a364b';c.fillRect(p.x-4,p.y-4,9,9);
+      if(r.valve){const done=w.story.valves.has(r.id);c.strokeStyle=done?'#96dcc1':'#ffb572';c.lineWidth=1.5;c.beginPath();c.arc(p.x,p.y,4,0,Math.PI*2);c.stroke();c.beginPath();if(done){c.moveTo(p.x-2,p.y);c.lineTo(p.x,p.y+2);c.lineTo(p.x+3,p.y-2);}else{c.moveTo(p.x-3,p.y);c.lineTo(p.x+3,p.y);c.moveTo(p.x,p.y-3);c.lineTo(p.x,p.y+3);}c.stroke();c.lineWidth=1;}
+      else if(['shop','treasure','event','elite','final'].includes(r.kind)){c.font='bold 7px Consolas';c.textAlign='center';c.fillStyle='#181b29';c.fillText(r.kind==='shop'?'$':r.kind==='treasure'?'◆':r.kind==='event'?'!':'B',p.x,p.y+3);c.textAlign='left';}
+      if(r.id===w.adventure.currentId){c.strokeStyle='#ffe2a2';c.lineWidth=2;c.strokeRect(p.x-6,p.y-6,13,13);c.lineWidth=1;}}
+    c.font='9px Microsoft YaHei';c.fillStyle=region===2?'#ffbd82':'#b7ccbe';const remaining=rooms.filter(r=>r.kind==='battle'&&!w.adventure.rooms.get(r.id)!.cleared).length;c.fillText(region===2?`泄压阀 ${w.map.valves.filter(v=>v.done).length}/3 · 橙=待修`:`待清场 ${remaining} · 深度 ${w.adventure.template.depth??1}`,805,140);
   }
 }

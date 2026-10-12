@@ -16,6 +16,9 @@ import { CHARACTERS,type CharacterId } from '../data/characters';
 import { AdventureUI } from '../ui/AdventureUI';
 import {CheckpointStore,restoreCheckpoint} from '../room/CheckpointStore';
 import {musicScene} from '../feedback/MusicDirector';
+import {DefenseUI} from '../ui/DefenseUI';
+import {MapUI} from '../ui/MapUI';
+import {CHAPTER_ROOMS} from '../data/adventure';
 export class GameApp {
   readonly settings=defaultDebug();readonly audio=new AudioManager();readonly art=new AssetManager();
   readonly loop:GameLoop;world:World;private runId=1;
@@ -25,9 +28,11 @@ export class GameApp {
   private loadout?:Loadout;private loadoutIds:[string,string]=['ash_needle','gravel_bell'];
   private characterId:CharacterId='ember';
   private adventureUI?:AdventureUI;
+  private defenseUI?:DefenseUI;
+  private mapUI?:MapUI;
   private checkpoint=new CheckpointStore();private saveClock=0;private lastCamp='';
   constructor(private root:HTMLElement){
-    root.innerHTML='<div class="shell"><div class="stage"><canvas width="960" height="540" aria-label="灰烬回廊，WASD移动，鼠标瞄准，右键逐段连招，E交互，ESC暂停"></canvas><div class="loading">灰烬回廊<small>正在准备炉室与行者…</small></div></div></div>';
+    root.innerHTML='<div class="shell"><div class="stage"><canvas width="960" height="540" aria-label="灰烬回廊，WASD移动，鼠标瞄准，右键逐段连招，E交互，M地图与传送，ESC暂停"></canvas><div class="loading">灰烬回廊<small>正在准备炉室与行者…</small></div></div></div>';
     this.canvas=root.querySelector('canvas')!;this.canvas.tabIndex=0;this.stage=root.querySelector('.stage')!;
     try{const saved=JSON.parse(localStorage.getItem('ash-corridor.audio.v1')??'null');if(saved){for(const key of ['musicVolume','effectVolume'] as const)if(typeof saved[key]==='number'&&Number.isFinite(saved[key]))this.settings[key]=Math.max(0,Math.min(1,saved[key]));if(typeof saved.mute==='boolean')this.settings.mute=saved.mute;}}catch{/* Audio settings work without storage. */}
     try{const saved=JSON.parse(localStorage.getItem('ash-corridor.loadout.v1')??'null');if(Array.isArray(saved)&&saved.length===2&&saved[0]!==saved[1]&&saved.every(id=>STARTER_WEAPONS.some(w=>w.id===id)))this.loadoutIds=[saved[0],saved[1]];}catch{/* Storage may be unavailable. */}
@@ -46,29 +51,47 @@ export class GameApp {
     this.renderer=new Renderer(this.canvas,this.art);this.hud=new HUD(this.renderer.sprites);this.debug=new DebugPanel(command=>this.command(command),this.settings);
     this.loadout=new Loadout(this.renderer.sprites,command=>this.command(command));
     this.adventureUI=new AdventureUI(this.renderer.sprites,command=>this.command(command));this.stage.append(this.adventureUI.element);
+    this.defenseUI=new DefenseUI(this.renderer.sprites,command=>this.command(command));this.stage.append(this.defenseUI.element);
+    this.mapUI=new MapUI(command=>this.command(command));this.stage.append(this.mapUI.element);
     this.stage.querySelector('.loading')?.remove();this.stage.append(this.hud.element,this.overlays.element,this.loadout.element);this.root.append(this.debug.element);this.debug.sync(this.world);
-    this.input=new InputManager(this.canvas,()=>this.world.feel.offset,key=>this.command({type:key==='F2'?'debug':'pause'}),()=>{this.world.pause();this.loop.resetClock();},()=>{void this.audio.unlock();});
+    this.input=new InputManager(this.canvas,()=>this.world.feel.offset,key=>this.command({type:key==='F2'?'debug':key==='KeyM'?'map':'pause'}),()=>{this.world.pause();this.loop.resetClock();},()=>{void this.audio.unlock();});
     this.loop.start();
     if(import.meta.env.DEV)Object.assign(window,{__ASH__:{app:this,snapshot:()=>this.world.snapshot(),command:(c:GameCommand)=>this.command(c)}});
   }
   private resize=()=>{const available=Math.min(window.innerWidth/960,window.innerHeight/540);const scale=available>=1?Math.floor(available):available;this.stage.style.width=`${960*scale}px`;this.stage.style.height=`${540*scale}px`;};
   private update(dt:number){if(!this.input)return;this.frame=this.input.take();this.world.step(dt,this.frame);this.saveClock+=dt;
+    if(this.world.defenseMode)return;
     if(this.world.state==='dead'||this.world.state==='victory'){this.checkpoint.clear();this.world.checkpointAvailable=false;return;}
     const camp=this.world.adventure.started&&this.world.adventure.template.kind==='shop'?this.world.adventure.currentId:'';
     if(camp&&(camp!==this.lastCamp||this.saveClock>=2)){this.saveClock=0;this.lastCamp=camp;this.world.checkpointAvailable=this.checkpoint.write(this.world);}
     if(!camp)this.lastCamp='';
   }
-  private render(dt:number){this.audio.muted=this.settings.mute;this.audio.setVolumes(this.settings.musicVolume,this.settings.effectVolume);this.audio.setScene(musicScene(this.world),this.world.state==='paused'||document.hidden);this.renderer?.draw(this.world,this.frame.aim,this.loop.fps);this.hud?.render(this.world,dt);this.overlays.render(this.world);this.adventureUI?.render(this.world);this.debug?.render(this.world,this.loop);}
+  private render(dt:number){this.audio.muted=this.settings.mute;this.audio.setVolumes(this.settings.musicVolume,this.settings.effectVolume);this.audio.setScene(musicScene(this.world),this.world.state==='paused'||document.hidden);this.renderer?.draw(this.world,this.frame.aim,this.loop.fps);this.hud?.render(this.world,dt);this.overlays.render(this.world);this.adventureUI?.render(this.world);this.defenseUI?.render(this.world);this.mapUI?.render(this.world);this.debug?.render(this.world,this.loop);}
   command(command:GameCommand){
+    if(this.world.map.open&&(command.type==='pause'||command.type==='resume')){this.command({type:'map-close'});return;}
     if(this.world.adventure.panel&&(command.type==='pause'||command.type==='resume')){this.world.adventure.back();this.input?.clear();this.loop.resetClock();if(this.world.state!=='paused')this.canvas.focus({preventScroll:true});return;}
     if(this.loadout?.open&&(command.type==='pause'||command.type==='resume')){this.command({type:'loadout-close'});return;}
     switch(command.type){
+      case 'map':if(!this.loadout?.open){this.world.map.toggle();this.input?.clear();this.frame=emptyInput();this.loop.resetClock();if(!this.world.map.open&&this.world.state!=='paused')this.canvas.focus({preventScroll:true});}break;
+      case 'map-close':this.world.map.close();this.input?.clear();this.frame=emptyInput();this.loop.resetClock();this.canvas.focus({preventScroll:true});break;
+      case 'map-select':if(this.world.map.open)this.world.map.select(command.id);break;
+      case 'map-region':if(this.world.map.open&&[1,2,3].includes(command.region)){const r=[...this.world.adventure.rooms.keys()].find(id=>this.world.adventure.rooms.get(id)!.visited&&CHAPTER_ROOMS.find(r=>r.id===id)?.region===command.region)??CHAPTER_ROOMS.find(r=>r.region===command.region)!.id;this.world.map.select(r);}break;
+      case 'map-travel':if(this.world.map.travel(command.id)){this.input?.clear();this.frame=emptyInput();this.loop.resetClock();this.checkpoint.write(this.world);if(this.world.state!=='paused')this.canvas.focus({preventScroll:true});}break;
+      case 'defense-enter':if(this.world.state==='ready'&&!this.world.defenseMode){this.openLevel(true);}break;
+      case 'adventure-entry':if(this.world.defenseMode&&this.world.defense.phase!=='wave'){this.openLevel(false);}break;
+      case 'defense-toggle':this.world.defense.toggle();this.input?.clear();break;
+      case 'defense-start':this.world.defense.startWave();this.input?.clear();this.canvas.focus({preventScroll:true});break;
+      case 'defense-tool':this.world.defense.selectTool(command.kind);this.input?.clear();this.canvas.focus({preventScroll:true});break;
+      case 'defense-repair':this.world.defense.repair();this.input?.clear();break;
+      case 'defense-upgrade':this.world.defense.upgrade();this.input?.clear();break;
+      case 'defense-sell':this.world.defense.sell();this.input?.clear();break;
+      case 'defense-weapon':this.world.defense.claimWeapon(command.id,command.slot);this.input?.clear();break;
       case 'upgrade-choose':this.world.progression.choose(command.id);this.input?.clear();this.loop.resetClock();break;
       case 'story-next':case 'story-skip':this.world.story.next(command.type==='story-skip');this.input?.clear();this.loop.resetClock();break;
       case 'continue-run':{const saved=this.checkpoint.read();if(this.world.state!=='ready'||!saved)break;this.world.dispose();this.world=new World(++this.runId,this.settings,this.audio,true);restoreCheckpoint(this.world,saved);this.world.checkpointAvailable=true;this.lastCamp='';this.input?.clear();this.loop.resetClock();this.debug?.sync(this.world);break;}
       case 'pause': if(this.world.state==='paused')this.world.resume();else this.world.pause();this.input?.clear();this.loop.resetClock();break;
       case 'resume':this.world.resume();this.input?.clear();this.loop.resetClock();break;
-      case 'restart':this.checkpoint.clear();this.lastCamp='';this.loadout?.hide();this.world.dispose();this.world=new World(++this.runId,this.settings,this.audio,true);this.applyLoadout();this.renderer?.sprites.animator.clear();this.input?.clear();this.loop.resetClock();this.debug?.sync(this.world);break;
+      case 'restart':{const defense=this.world.defenseMode;if(!defense)this.checkpoint.clear();this.openLevel(defense);break;}
       case 'shop-buy':this.world.adventure.buy(command.id);this.input?.clear();break;
       case 'rune-choose':this.world.adventure.chooseRune(command.id,command.slot);this.input?.clear();this.loop.resetClock();break;
       case 'loot-weapon':this.world.adventure.chooseWeapon(command.slot);this.input?.clear();this.loop.resetClock();break;
@@ -95,5 +118,6 @@ export class GameApp {
     if(['resume','restart','loadout-close','rune-choose','loot-weapon','loot-back','story-next','story-skip','upgrade-choose','continue-run'].includes(command.type)&&this.world.state!=='paused')this.canvas.focus({preventScroll:true});
   }
   private applyLoadout(){this.loadoutIds.forEach((id,slot)=>this.world.weapons.replace(slot,id));this.world.selectCharacter(this.characterId);}
-  dispose(){this.disposed=true;this.loop.stop();this.input?.dispose();this.debug?.dispose();this.loadout?.dispose();this.adventureUI?.dispose();this.world.dispose();this.audio.dispose();this.controller.abort();this.root.replaceChildren();if(import.meta.env.DEV)delete (window as Window&{__ASH__?:unknown}).__ASH__;}
+  private openLevel(defense:boolean){this.lastCamp='';this.loadout?.hide();this.world.dispose();this.world=new World(++this.runId,this.settings,this.audio,!defense,defense);this.applyLoadout();this.world.checkpointAvailable=!defense&&Boolean(this.checkpoint.read());this.renderer?.sprites.animator.clear();this.input?.clear();this.frame=emptyInput();this.loop.resetClock();this.debug?.sync(this.world);this.canvas.focus({preventScroll:true});}
+  dispose(){this.disposed=true;this.loop.stop();this.input?.dispose();this.debug?.dispose();this.loadout?.dispose();this.adventureUI?.dispose();this.defenseUI?.dispose();this.mapUI?.dispose();this.world.dispose();this.audio.dispose();this.controller.abort();this.root.replaceChildren();if(import.meta.env.DEV)delete (window as Window&{__ASH__?:unknown}).__ASH__;}
 }

@@ -1,3 +1,4 @@
+import {ATTACK_PACING} from '../src/data/attackPacing';
 import {afterEach,describe,expect,it} from 'vitest';
 import {World} from '../src/world/World';
 import {AudioManager} from '../src/feedback/AudioManager';
@@ -15,18 +16,18 @@ describe('Grey-Crown Knight encounter',()=>{
   });
   it('finishes the announced attack count before adopting a new phase',()=>{
     const w=make(),b=w.spawn('boss',vec(550,340));b.enter('Move');b.attackCooldown=0;w.special.step(.01);expect(b.attackCount).toBe(1);
-    b.actor.health.hp=6000;advance(w,1.7);expect(b.state).toBe('Recover');expect(b.attackIndex).toBe(0);expect(b.attackCount).toBe(1);
-    advance(w,2);expect(b.bossMove).toBe('slam');expect(b.attackCount).toBe(1);
+    b.actor.health.hp=6000;advance(w,1.7*ATTACK_PACING.enemy);expect(b.state).toBe('Recover');expect(b.attackIndex).toBe(0);expect(b.attackCount).toBe(1);
+    advance(w,2*ATTACK_PACING.enemy);expect(b.bossMove).toBe('slam');expect(b.attackCount).toBe(1);
   });
   it('adds a second slash in phase two and three slashes in phase three',()=>{
     const w=make(),b=w.spawn('boss',vec(550,340));b.actor.health.hp=6000;b.enter('Move');b.attackCooldown=0;w.special.step(.01);
-    expect(b.attackCount).toBe(2);advance(w,1.7);expect(b.state).toBe('Attack');expect(b.bossMove).toBe('return');expect(b.attackIndex).toBe(1);
+    expect(b.attackCount).toBe(2);advance(w,1.7*ATTACK_PACING.enemy);expect(b.state).toBe('Attack');expect(b.bossMove).toBe('return');expect(b.attackIndex).toBe(1);
     b.actor.health.hp=2400;b.enter('Move');b.bossTurns=2;b.attackCooldown=0;w.special.step(.01);expect(b.attackCount).toBe(3);
-    advance(w,3.2);expect(b.state).toBe('Attack');expect(b.attackIndex).toBe(2);advance(w,.9);expect(b.state).toBe('Recover');
+    advance(w,3.2*ATTACK_PACING.enemy);expect(b.state).toBe('Attack');expect(b.attackIndex).toBe(2);advance(w,.9*ATTACK_PACING.enemy);expect(b.state).toBe('Recover');
   });
-  it('locks the direction for the final .22 seconds of an attack',()=>{
-    const w=make(),b=w.spawn('boss',vec(550,340));b.enter('Move');b.attackCooldown=0;w.special.step(.01);advance(w,.8);const angle=b.lockedAngle;
-    w.player.actor.pos=vec(800,340);advance(w,.15);expect(b.lockedAngle).toBe(angle);advance(w,.1);
+  it('locks the direction for the announced lock lead of an attack',()=>{
+    const w=make(),b=w.spawn('boss',vec(550,340));b.enter('Move');b.attackCooldown=0;w.special.step(.01);advance(w,.8*ATTACK_PACING.enemy);const angle=b.lockedAngle;
+    w.player.actor.pos=vec(800,340);advance(w,.15*ATTACK_PACING.enemy);expect(b.lockedAngle).toBe(angle);advance(w,.1*ATTACK_PACING.enemy);
     expect(w.melee.attacks.find(a=>a.context.sourceId===b.actor.id)?.angle).toBe(angle);
   });
   it('starts the seven-second fire timer on phase two, freezes it with enemy time and summons only once',()=>{

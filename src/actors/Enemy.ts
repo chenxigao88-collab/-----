@@ -24,7 +24,7 @@ export class Enemy {
     return true;
   }
   get attackCount() { return this.kind==='boss'?this.bossAttackCount:this.kind==='dancer'?2:this.elite && this.kind === 'shooter' ? 2 : 1; }
-  get windup() { return this.kind==='boss'?(this.attackIndex?.85:1):this.attackIndex === 1 && this.attackCount === 2 ? ENEMY_PRESSURE.eliteSecondWindup : this.data.windup; }
+  get windup() { return this.kind==='boss'?this.data.windup*(this.attackIndex?.85:1):this.attackIndex === 1 && this.attackCount === 2 ? ENEMY_PRESSURE.eliteSecondWindup : this.data.windup; }
   get attackRange() { return this.kind==='boss'?(this.bossMove==='slam'?148:140):this.data.attackRange; }
   get attackArc() { return this.kind==='boss'?(this.bossMove==='slam'?1.55:2.65):this.data.arc; }
   get holdsAttackSlot() {

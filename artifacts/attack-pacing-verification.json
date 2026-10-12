@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "sword": [
+    "violet_greatslash_right_0",
+    "violet_greatslash_right_1",
+    "violet_greatslash_right_2",
+    "violet_greatslash_right_3"
+  ],
+  "gun": {
+    "frames": [
+      "violet_turnshot_right_2",
+      "violet_turnshot_right_3"
+    ],
+    "shots": 12
+  },
+  "combo": {
+    "busy": false,
+    "shots": 3,
+    "slot": 1
+  },
+  "enemy": {
+    "early": {
+      "state": "Attack",
+      "attacks": 0
+    },
+    "late": {
+      "state": "Recover",
+      "attacks": 1,
+      "active": 0.144
+    },
+    "hp": 91
+  },
+  "checks": [
+    "painted primary sword four phases",
+    "continuous firing reaches recovery frame",
+    "slower six-segment violet combo completes and swaps",
+    "enemy anticipates longer and damages once",
+    "production build loads"
+  ]
+}

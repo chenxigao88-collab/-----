@@ -39,7 +39,7 @@ export class UltimateSystem {
     if(a.character!=='violet'||w.state!=='playing'||!a.health.alive||this.active||this.energy<tier*100||w.player.dashing||w.adventure.panel||w.adventure.transitionRemaining>0)return false;
     const angle=angleTo(a.pos,aim);
     this.targets=w.enemies.filter(e=>e.actor.health.alive&&sweptSectorCapsule(a.pos,e.actor.hurtbox.capsule(e.actor.pos),tier===2?360:240,angle-Math.PI*.6,angle+Math.PI*.6)&&
-      (!w.adventureMode||!obstacleContact(a.hurtbox.center(a.pos),e.actor.hurtbox.center(e.actor.pos),0,w.adventure.template.obstacles)))
+      (w.defenseMode?!w.defense.contact(a.pos,e.actor.pos,0):!w.adventureMode||!obstacleContact(a.hurtbox.center(a.pos),e.actor.hurtbox.center(e.actor.pos),0,w.adventure.template.obstacles)))
       .sort((x,y)=>distance(a.pos,x.actor.pos)-distance(a.pos,y.actor.pos)).slice(0,tier===2?8:5).map(e=>e.actor);
     if(!this.targets.length){w.events.emit('message',{text:'前方没有可锁定的敌人'});return false;}
     this.weapons=[w.weapons.slots[w.weapons.active].data,w.weapons.slots[1-w.weapons.active].data];
@@ -77,7 +77,7 @@ export class UltimateSystem {
       if(w.enemies.some(e=>e.actor===target&&e.kind==='boss'))continue;
       if(target.launch.active){target.launch.step(dt);target.hurtbox.lift=target.launch.height;}
       if(this.tier===1&&this.elapsed>=1.25&&this.elapsed<1.85){const d=direction(this.angle),goal={x:w.player.actor.pos.x+d.x*94,y:w.player.actor.pos.y+d.y*94},delta=normal(sub(goal,target.pos)),travel=Math.min(distance(goal,target.pos),dt*80),previous={...target.pos};
-        target.pos={x:target.pos.x+delta.x*travel,y:target.pos.y+delta.y*travel};if(w.adventureMode)target.pos=resolveObstacles(target.pos,previous,target.hurtbox.radius,w.adventure.template.obstacles);
+        target.pos={x:target.pos.x+delta.x*travel,y:target.pos.y+delta.y*travel};if(w.adventureMode)target.pos=resolveObstacles(target.pos,previous,target.hurtbox.radius,w.adventure.template.obstacles);if(w.defenseMode)target.pos=w.defense.resolve(target.pos,previous,target.hurtbox.radius);
       }
     }
     const hits=this.tier===2?MOON_HITS:ULTIMATE_HITS;
@@ -89,6 +89,7 @@ export class UltimateSystem {
     const segment=Math.min(2,Math.floor((t-2)/.6)),progress=clamp((t-2-segment*.6)/.6,0,1),from=this.path[segment],to=this.path[segment+1],ease=progress*progress*(3-2*progress),previous={...a.pos};
     let goal={x:from.x+(to.x-from.x)*ease,y:from.y+(to.y-from.y)*ease};
     if(this.w.adventureMode){const obstacles=this.w.adventure.template.obstacles,contact=obstacleContact(previous,goal,a.hurtbox.radius,obstacles);if(contact){const fraction=Math.max(0,contact.t-.01);goal={x:previous.x+(goal.x-previous.x)*fraction,y:previous.y+(goal.y-previous.y)*fraction};}goal=resolveObstacles(goal,previous,a.hurtbox.radius,obstacles);}
+    if(this.w.defenseMode)goal=this.w.defense.resolve(goal,previous,a.hurtbox.radius);
     a.pos=goal;
     if(!this.trails.length||t-this.trails.at(-1)!.time>=.08)this.trails.push({pos:previous,time:t-dt});
     while(this.trails.length&&t-this.trails[0].time>.4)this.trails.shift();
@@ -105,7 +106,11 @@ export class UltimateSystem {
     if(phase<5){
       const base=32+.2*(this.weapons[0].damage+this.weapons[1].damage),c=w.attacks.snapshot(a,base*w.settings.damageMultiplier*w.player.stats.damageMultiplier,'violet-ultimate','heavy',false);
       c.nativeContinuation=true;c.chargeGranted=true;c.knockback=0;c.ultimateCast=this.casts;c.ultimatePhase=phase;c.ultimateTier=2;
-      for(const target of this.targets){if(!target.health.alive||w.adventureMode&&obstacleContact(a.hurtbox.center(a.pos),target.hurtbox.center(target.pos),0,w.adventure.template.obstacles))continue;const cuts=this.wounds.get(target.id)??[];cuts.push(c);this.wounds.set(target.id,cuts);}
+      // Visibility is checked when locking; blocked cinematic travel must not discard a locked blade wound.
+      for(const target of this.targets){
+        if(!target.health.alive)continue;
+        const cuts=this.wounds.get(target.id)??[];cuts.push(c);this.wounds.set(target.id,cuts);
+      }
       w.audio.play('moonSlash');return;
     }
     this.resolvingWounds=true;

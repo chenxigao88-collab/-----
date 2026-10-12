@@ -29,7 +29,8 @@ server.on('error', async error => {
   if (error.code === 'EADDRINUSE') {
     try {
       const response = await fetch(url, { signal: AbortSignal.timeout(2000) });
-      if (response.ok && (await response.text()).includes('<title>灰烬回廊 · Ash Corridor</title>')) {
+      const html=await response.text();
+      if (response.ok && (html.includes('<title>灰烬回廊</title>')||html.includes('<title>灰烬回廊 · Ash Corridor</title>'))) {
         console.log(`Ash Corridor is already running: ${url}`); openBrowser(); return;
       }
     } catch { /* Another service owns the port. */ }

@@ -1,3 +1,4 @@
+import {ATTACK_PACING} from '../src/data/attackPacing';
 import {shotProfile} from '../src/data/weaponMechanics';
 import {afterEach,describe,expect,it} from 'vitest';
 import {World} from '../src/world/World';
@@ -29,7 +30,7 @@ describe('native weapons during choreographed attacks',()=>{
   it.each(['ember','violet'] as const)('%s gun-fu keeps melee weapon phases in range instead of firing a substitute pistol',character=>{
     const w=make();w.selectCharacter(character);w.debugWeapon(0,'hush_edge');const e=target(w,670),contacts:number[]=[];
     w.events.on('damageApplied',hit=>{if(hit.attack.weaponId==='hush_edge'&&hit.attack.gunfu==='finisher')contacts.push(hit.amount);});
-    expect(w.gunfu.request(vec(800,340))).toBe(true);routine(w,character==='violet'?1.25:1.55);
+    expect(w.gunfu.request(vec(800,340))).toBe(true);routine(w,(character==='violet'?1.25:1.55)*ATTACK_PACING.player);
     expect(w.player.actor.action?.kind).toBe(character==='violet'?'greatspin':'sweep');
     expect(w.melee.attacks.some(a=>a.context.weaponId==='hush_edge')).toBe(true);
     expect(w.projectiles.projectiles.filter(p=>p.context.element==='wind')).toHaveLength(0);

@@ -75,8 +75,16 @@ export class AdventureSystem {
     const fromId=this.currentId,target=this.layouts.get(targetId)!;
     if(target.kind==='elite'&&!this.rooms.get(target.id)!.cleared){const remaining=CHAPTER_ROOMS.filter(r=>r.region===target.region&&r.kind==='battle'&&!this.rooms.get(r.id)!.cleared).length;if(remaining){this.world.events.emit('message',{text:`炉门封印 · 还需清理${remaining}处战场`});return false;}
       if(target.region===2&&this.world.story.valves.size<3){this.world.events.emit('message',{text:`炉门封印 · 还需修复${3-this.world.story.valves.size}处泄压阀`});return false;}}
-    this.currentId=targetId;const entry=(Object.entries(target.doors) as [DoorSide,string][]).find(([,id])=>id===fromId)?.[0];
-    if(!entry){this.currentId=fromId;return false;}
+    const entry=(Object.entries(target.doors) as [DoorSide,string][]).find(([,id])=>id===fromId)?.[0];
+    if(!entry)return false;
+    return this.arrive(targetId,entry);
+  }
+  teleport(targetId:string){
+    if(this.world.map.reason(targetId))return false;
+    return this.arrive(targetId,'south');
+  }
+  private arrive(targetId:string,entry:DoorSide){
+    const fromId=this.currentId,target=this.layouts.get(targetId)!;this.currentId=targetId;
     this.world.prepareRoomTransition();
     this.world.player.actor.pos={...ENTRY_POSITIONS[entry]};this.world.player.actor.previous={...this.world.player.actor.pos};
     this.world.player.actor.facing=entry==='north'?Math.PI/2:entry==='south'?-Math.PI/2:entry==='west'?0:Math.PI;

@@ -21,7 +21,7 @@ export class AssetManager {
     this.metadata = await response.json() as ArtMetadata;
     const [room, hero, actions, objects] = await Promise.all([this.image(`${base}room.png`), this.image(`${base}${this.metadata.hero.file}`), this.image(`${base}${this.metadata.actions.file}`), this.image(`${base}${this.metadata.objects.file}`)]);
     this.room = room; this.hero = hero; this.actions = actions; this.objects = objects;
-    for(const file of ['weapon-paint-v1.json','combat-paint-v1.json','violet-melee-v1.json','violet-moon-effects-v1.json','violet-moon-body-v1.json','violet-moon-colossus-v2.json']){
+    for(const file of ['weapon-paint-v1.json','combat-paint-v1.json','violet-melee-v1.json','violet-moon-effects-v1.json','violet-moon-body-v1.json','violet-moon-colossus-v2.json','defense-v1.json']){
       const response=await fetch(`${base}${file}`);if(!response.ok)throw new Error(`绘制素材索引加载失败: ${file}`);
       const atlas=await response.json() as Atlas,image=await this.image(`${base}${atlas.file}`);this.validate(atlas,image);
       for(const [id,frame]of Object.entries(atlas.frames)){

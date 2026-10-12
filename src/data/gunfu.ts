@@ -1,8 +1,11 @@
 import heroScale from './hero-scale.json';
 import type { CharacterId } from './characters';
+import {ATTACK_PACING} from './attackPacing';
 export type GunfuPose = 'downslash' | 'uppercut' | 'sweep' | 'kick' | 'backflip' | 'airshot' | 'landspin' | 'groundshot' | 'recover' | 'greatslash' | 'greatupper' | 'greatspin' | 'kneelshot1' | 'kneelshot2' | 'turnshot';
 export function gunfuBodyScale(pose:GunfuPose){return (pose==='downslash'||pose==='uppercut'?heroScale.slashes:pose==='sweep'||pose==='kick'?heroScale.sweepKick:pose==='backflip'||pose==='airshot'?heroScale.aerial:heroScale.landing).gripScale;}
-export const GUNFU_BEATS: readonly { pose: GunfuPose; label: string; duration: number; contact?: number; damage?: number; range?: number; arc?: number; knockback?: number; shot?: 'air' | 'ground' }[] = [
+interface GunfuBeat { pose: GunfuPose; label: string; duration: number; contact?: number; damage?: number; range?: number; arc?: number; knockback?: number; shot?: 'air' | 'ground' }
+function paceBeats(beats:readonly GunfuBeat[]){return beats.map(b=>({...b,duration:b.duration*ATTACK_PACING.player,contact:b.contact===undefined?undefined:b.contact*ATTACK_PACING.player}));}
+export const GUNFU_BEATS: readonly GunfuBeat[] = paceBeats([
   { pose: 'downslash', label: '拿枪下劈', duration: .26, contact: .13, damage: 8, range: 54, arc: 1.05, knockback: 8 },
   { pose: 'uppercut', label: '上撩', duration: .24, contact: .12, damage: 10, range: 54, arc: 1.15, knockback: 8 },
   { pose: 'sweep', label: '横扫', duration: .28, contact: .14, damage: 12, range: 58, arc: 2.6, knockback: 14 },
@@ -12,9 +15,9 @@ export const GUNFU_BEATS: readonly { pose: GunfuPose; label: string; duration: n
   { pose: 'landspin', label: '落地旋身', duration: .32 },
   { pose: 'groundshot', label: '落地开枪', duration: .24, contact: .06, shot: 'ground' },
   { pose: 'recover', label: '收势', duration: .16 },
-];
+]);
 export const GUNFU_DURATION = GUNFU_BEATS.reduce((sum, beat) => sum + beat.duration, 0);
-export const VIOLET_BEATS:typeof GUNFU_BEATS=[
+export const VIOLET_BEATS:typeof GUNFU_BEATS=paceBeats([
   {pose:'greatslash',label:'巨刃下劈',duration:.32,contact:.16,damage:10,range:68,arc:1.25,knockback:10},
   {pose:'greatupper',label:'巨刃上挑',duration:.30,contact:.15,damage:12,range:68,arc:1.4,knockback:12},
   {pose:'greatspin',label:'回旋击飞',duration:.36,contact:.18,damage:20,range:76,arc:Math.PI*2,knockback:70},
@@ -22,7 +25,7 @@ export const VIOLET_BEATS:typeof GUNFU_BEATS=[
   {pose:'kneelshot2',label:'单膝跪射 · 第二枪',duration:.26,contact:.10,shot:'air'},
   {pose:'turnshot',label:'回身换枪 · 第三枪',duration:.46,contact:.34,shot:'ground'},
   {pose:'recover',label:'收势',duration:.16},
-];
+]);
 // The atlas has discrete poses: the gun grip must follow the hands in the same frame.
 const GRIPS: Record<GunfuPose, {height:number[];forward:number[];turn:number[]}> = {
   downslash:{height:[48,46,12,7],forward:[1,2,8,7],turn:[-1.35,-1.2,.9,.8]},

@@ -88,10 +88,10 @@ describe('chapter enemies and meaningful combo hits',()=>{
     const w=make(false,character),enemy=w.spawn('shooter',vec(520,340),-1,true),hits:number[]=[];
     enemy.actor.health.hp=enemy.actor.health.maxHP=5000;
     w.events.on('damageApplied',event=>{if(event.attack.gunfu==='body')hits.push(event.amount);});
-    expect(w.gunfu.request(enemy.actor.hurtbox.center(enemy.actor.pos))).toBe(true);w.gunfu.step(.18,w.settings);
+    expect(w.gunfu.request(enemy.actor.hurtbox.center(enemy.actor.pos))).toBe(true);w.gunfu.step(.22,w.settings);
     expect(hits).toEqual([character==='ember'?8:10]);
     w.gunfu.cancel();w.gunfu.cooldown=0;w.progression.level=12;w.progression.ranks.damage=4;w.progression.ranks.gunfu=3;w.progression.ranks.blade=3;w.progression.apply();
-    expect(w.gunfu.request(enemy.actor.hurtbox.center(enemy.actor.pos))).toBe(true);w.gunfu.step(.18,w.settings);
+    expect(w.gunfu.request(enemy.actor.hurtbox.center(enemy.actor.pos))).toBe(true);w.gunfu.step(.22,w.settings);
     expect(hits[1]).toBe(character==='ember'?47:104);
   });
   it.each(['ember','violet'] as const)('keeps %s finishing shots close to normal weapon power',character=>{

@@ -6,6 +6,12 @@ import type { EnemyKind, ResonanceType } from '../core/types';
 import type { CharacterId } from '../data/characters';
 import type { RuneId } from '../data/adventure';
 export type GameCommand =
+  | {type:'map'|'map-close'}
+  | {type:'map-select'|'map-travel';id:string}
+  | {type:'map-region';region:number}
+  | {type:'defense-enter'|'adventure-entry'|'defense-toggle'|'defense-start'|'defense-repair'|'defense-upgrade'|'defense-sell'}
+  | {type:'defense-tool';kind:import('../room/DefenseSystem').BuildTool}
+  | {type:'defense-weapon';id:string;slot:number}
   | {type:'upgrade-choose';id:import('../room/ProgressionSystem').UpgradeId}
   | {type:'story-next'|'story-skip'|'continue-run'}
   | {type:'shop-buy';id:string}

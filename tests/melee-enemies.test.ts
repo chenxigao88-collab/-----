@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Enemy, type EnemyAttackOptions } from '../src/actors/Enemy';
 import { EnemyBrain } from '../src/actors/EnemyBrain';
 import { Player } from '../src/actors/Player';
-import { ENEMIES } from '../src/data/enemies';
+import { ENEMIES, ENEMY_PRESSURE } from '../src/data/enemies';
 import { WAVES } from '../src/data/waves';
 import { vec, type EnemyKind } from '../src/core/types';
 import { World } from '../src/world/World';
@@ -37,9 +37,9 @@ describe('melee enemy attack patterns', () => {
     player.actor.pos={...enemy.actor.pos,x:enemy.actor.pos.x+30};brain.step(enemy,.02,peers);expect(enemy.state).toBe('Attack');
   });
   it('an elite abandons its follow-up when the player retreats out of range',()=>{
-    const {enemy,player,brain,peers,requestEnemy}=setup('shooter',true);enemy.enter('Attack');brain.step(enemy,.751,peers);
-    player.actor.pos=vec(600,300);brain.step(enemy,.46,peers);expect(enemy.state).toBe('Recover');
-    brain.step(enemy,1,peers);expect(enemy.state).toBe('Move');expect(requestEnemy).toHaveBeenCalledTimes(1);
+    const {enemy,player,brain,peers,requestEnemy}=setup('shooter',true);enemy.enter('Attack');brain.step(enemy,enemy.windup+.001,peers);
+    player.actor.pos=vec(600,300);brain.step(enemy,ENEMY_PRESSURE.eliteSecondGap+.01,peers);expect(enemy.state).toBe('Recover');
+    brain.step(enemy,enemy.data.recover,peers);expect(enemy.state).toBe('Move');expect(requestEnemy).toHaveBeenCalledTimes(1);
   });
   it.each([30,60,144])('sustained nearby aggression stays bounded at %s Hz',fps=>{
     const {enemy,player,brain,peers,requestEnemy}=setup('chaser');
@@ -80,30 +80,30 @@ describe('melee enemy attack patterns', () => {
     expect(enemy.state).toBe('Recover');
   });
 
-  it.each(['chaser', 'shooter'] as const)('%s stops tracking during the last .12 seconds', kind => {
+  it.each(['chaser', 'shooter'] as const)('%s stops tracking during the announced lock lead', kind => {
     const { enemy, player, brain, peers, requestEnemy } = setup(kind);
     enemy.enter('Attack'); enemy.lockedAngle = 0;
-    brain.step(enemy, enemy.windup - .12 + .001, peers);
+    brain.step(enemy, enemy.windup - enemy.data.lockLead + .001, peers);
     player.actor.pos = vec(300, 340); brain.step(enemy, .02, peers); expect(enemy.lockedAngle).toBe(0);
-    brain.step(enemy, .12, peers); expect(requestEnemy.mock.calls[0][1]?.angle).toBe(0);
+    brain.step(enemy, enemy.data.lockLead, peers); expect(requestEnemy.mock.calls[0][1]?.angle).toBe(0);
   });
 
-  it('the lunge locks .18 seconds early and covers 116 pixels without chasing', () => {
+  it('the lunge locks before impact and covers 116 pixels without chasing', () => {
     const { enemy, player, brain, peers, requestEnemy, advance } = setup('sniper');
     player.actor.pos = vec(440, 300); enemy.enter('Attack'); enemy.lockedAngle = 0;
-    brain.step(enemy, .371, peers); player.actor.pos = vec(300, 420);
-    brain.step(enemy, .18, peers); expect(requestEnemy.mock.calls[0][1]?.angle).toBe(0);
-    const start = { ...enemy.actor.pos }; advance(.22);
+    brain.step(enemy, enemy.windup-enemy.data.lockLead+.001, peers); player.actor.pos = vec(300, 420);
+    brain.step(enemy, enemy.data.lockLead, peers); expect(requestEnemy.mock.calls[0][1]?.angle).toBe(0);
+    const start = { ...enemy.actor.pos }; advance(enemy.data.lunge!.duration);
     expect(enemy.actor.pos.x - start.x).toBeCloseTo(116, 6); expect(enemy.actor.pos.y).toBe(start.y);
     expect(enemy.lungeRemaining).toBeCloseTo(0, 6); expect(requestEnemy).toHaveBeenCalledTimes(1);
   });
 
   it('peer separation cannot bend a committed lunge', () => {
     const { enemy, player, brain, peers } = setup('sniper');
-    player.actor.pos = vec(440, 300); enemy.enter('Attack'); brain.step(enemy, .551, peers);
+    player.actor.pos = vec(440, 300); enemy.enter('Attack'); brain.step(enemy, enemy.windup+.001, peers);
     const blocker = new Enemy(3, 1, 'chaser', vec(315, 305)); peers.push(blocker);
     brain.step(enemy, .1, peers);
-    expect(enemy.actor.pos.y).toBe(300); expect(enemy.actor.pos.x).toBeCloseTo(300 + 116 / .22 * .1);
+    expect(enemy.actor.pos.y).toBe(300); expect(enemy.actor.pos.x).toBeCloseTo(300 + 116 / enemy.data.lunge!.duration * .1);
   });
 
   it('zero enemy time freezes every AI, motion and presentation field', () => {
@@ -121,13 +121,13 @@ describe('melee enemy attack patterns', () => {
     const { enemy, brain, peers, requestEnemy } = setup('shooter');
     enemy.actor.elemental.control('root', .6); enemy.enter('Move'); const position = { ...enemy.actor.pos };
     brain.step(enemy, .01, peers); expect(enemy.state).toBe('Attack'); expect(enemy.actor.pos).toEqual(position);
-    brain.step(enemy, .76, peers); expect(requestEnemy).toHaveBeenCalledTimes(1);
+    brain.step(enemy, enemy.windup+.001, peers); expect(requestEnemy).toHaveBeenCalledTimes(1);
   });
 
   it('root prevents approach and lunge displacement without canceling a close hit', () => {
     const { enemy, player, brain, peers, requestEnemy } = setup('sniper');
     player.actor.pos = vec(450, 300); enemy.actor.elemental.control('root', 1); enemy.enter('Move');
-    brain.step(enemy, .01, peers); expect(enemy.state).toBe('Attack'); brain.step(enemy, .56, peers);
+    brain.step(enemy, .01, peers); expect(enemy.state).toBe('Attack'); brain.step(enemy, enemy.windup+.001, peers);
     const position = { ...enemy.actor.pos }; brain.step(enemy, .22, peers);
     expect(enemy.actor.pos).toEqual(position); expect(requestEnemy).toHaveBeenCalledTimes(1);
   });
@@ -136,7 +136,7 @@ describe('melee enemy attack patterns', () => {
     const { enemy, player, brain, peers, requestEnemy } = setup('chaser');
     player.actor.pos = vec(600, 300); enemy.enter('Move'); enemy.actor.elemental.slow(.25, 4);
     brain.step(enemy, .1, peers); expect(enemy.actor.pos.x).toBeCloseTo(310.5);
-    enemy.enter('Attack'); brain.step(enemy, .419, peers); expect(requestEnemy).not.toHaveBeenCalled();
+    enemy.enter('Attack'); brain.step(enemy, enemy.windup-.001, peers); expect(requestEnemy).not.toHaveBeenCalled();
     brain.step(enemy, .002, peers); expect(requestEnemy).toHaveBeenCalledTimes(1);
   });
 
@@ -160,8 +160,8 @@ describe('melee enemy attack patterns', () => {
 
   it('counts live attack frames in recovery and frees the slot afterward', () => {
     const { enemy, brain, peers } = setup('chaser');
-    enemy.enter('Attack'); brain.step(enemy, .421, peers); expect(enemy.holdsAttackSlot).toBe(true);
-    brain.step(enemy, .13, peers); expect(enemy.holdsAttackSlot).toBe(true);
+    enemy.enter('Attack'); brain.step(enemy, enemy.windup+.001, peers); expect(enemy.holdsAttackSlot).toBe(true);
+    brain.step(enemy, enemy.data.active+.001, peers); expect(enemy.holdsAttackSlot).toBe(true);
     brain.step(enemy,.3,peers);expect(enemy.holdsAttackSlot).toBe(false); expect(enemy.state).toBe('Recover');
   });
 
@@ -172,25 +172,25 @@ describe('melee enemy attack patterns', () => {
   it('reinforced furnace performs two separately aimed and telegraphed slams', () => {
     const { enemy, player, brain, peers, requestEnemy } = setup('shooter', true);
     expect(enemy.actor.health.maxHP).toBe(240); enemy.enter('Attack'); enemy.lockedAngle = 0;
-    brain.step(enemy, .751, peers); expect(requestEnemy).toHaveBeenCalledTimes(1); expect(enemy.holdsAttackSlot).toBe(true);
-    player.actor.pos = vec(300, 340); brain.step(enemy, .2, peers);expect(enemy.state).toBe('Recover');brain.step(enemy,.25,peers);
-    expect(enemy.state).toBe('Attack'); expect(enemy.attackIndex).toBe(1); expect(enemy.windup).toBe(.65); expect(enemy.lockedAngle).toBeCloseTo(Math.PI / 2);
-    brain.step(enemy, .531, peers); player.actor.pos = vec(260, 300); brain.step(enemy, .12, peers);
+    brain.step(enemy, enemy.windup+.001, peers); expect(requestEnemy).toHaveBeenCalledTimes(1); expect(enemy.holdsAttackSlot).toBe(true);
+    player.actor.pos = vec(300, 340); brain.step(enemy, .2, peers);expect(enemy.state).toBe('Recover');brain.step(enemy,ENEMY_PRESSURE.eliteSecondGap-.2+.001,peers);
+    expect(enemy.state).toBe('Attack'); expect(enemy.attackIndex).toBe(1); expect(enemy.windup).toBe(ENEMY_PRESSURE.eliteSecondWindup); expect(enemy.lockedAngle).toBeCloseTo(Math.PI / 2);
+    brain.step(enemy, enemy.windup-enemy.data.lockLead+.001, peers); player.actor.pos = vec(260, 300); brain.step(enemy, enemy.data.lockLead, peers);
     expect(requestEnemy).toHaveBeenCalledTimes(2); expect(requestEnemy.mock.calls[1][1]?.angle).toBeCloseTo(Math.PI / 2);
-    brain.step(enemy, 1.36, peers); expect(enemy.state).toBe('Move'); expect(enemy.attackIndex).toBe(0);
+    brain.step(enemy, enemy.data.recover+.001, peers); expect(enemy.state).toBe('Move'); expect(enemy.attackIndex).toBe(0);
   });
 
   it('stun between elite slams cancels only the future slam', () => {
     const { enemy, brain, peers, requestEnemy } = setup('shooter', true);
-    enemy.enter('Attack'); brain.step(enemy, .751, peers); expect(requestEnemy).toHaveBeenCalledTimes(1);
+    enemy.enter('Attack'); brain.step(enemy, enemy.windup+.001, peers); expect(requestEnemy).toHaveBeenCalledTimes(1);
     enemy.actor.elemental.control('stun', .2); enemy.stun(); brain.step(enemy, .3, peers);
     expect(requestEnemy).toHaveBeenCalledTimes(1); expect(enemy.attackIndex).toBe(0); expect(enemy.state).toBe('Stunned');
   });
 
   it('an ordinary furnace never schedules the reinforced second slam', () => {
     const { enemy, brain, peers, requestEnemy } = setup('shooter'); enemy.enter('Attack');
-    brain.step(enemy, .751, peers); brain.step(enemy, .2, peers); expect(enemy.state).toBe('Recover'); expect(enemy.attackCount).toBe(1);
-    brain.step(enemy, 1.16, peers); expect(enemy.state).toBe('Move'); expect(requestEnemy).toHaveBeenCalledTimes(1);
+    brain.step(enemy, enemy.windup+.001, peers); brain.step(enemy, .2, peers); expect(enemy.state).toBe('Recover'); expect(enemy.attackCount).toBe(1);
+    brain.step(enemy, enemy.data.recover-.2+.01, peers); expect(enemy.state).toBe('Move'); expect(requestEnemy).toHaveBeenCalledTimes(1);
   });
 
   it.each(['chaser', 'shooter', 'sniper'] as const)('%s uses real melee hitboxes and never produces a hostile projectile', kind => {
@@ -208,8 +208,8 @@ describe('melee enemy attack patterns', () => {
     const world = new World(1, defaultDebug(), new AudioManager()); world.settings.hitStrength = 0;
     try {
       world.player.actor.pos = vec(450, 300); const enemy = world.spawn('sniper', vec(300, 300));
-      enemy.enter('Attack'); enemy.lockedAngle = 0; world.brain.step(enemy, .551, world.enemies);
-      for (let n = 0; n < 27; n++) { world.brain.step(enemy, 1 / 120, world.enemies); world.melee.step(1 / 120, 1 / 120); }
+      enemy.enter('Attack'); enemy.lockedAngle = 0; world.brain.step(enemy, enemy.windup+.001, world.enemies);
+      for (let n = 0; n < Math.ceil(enemy.data.lunge!.duration*120)+1; n++) { world.brain.step(enemy, 1 / 120, world.enemies); world.melee.step(1 / 120, 1 / 120); }
       expect(enemy.actor.pos.x).toBeCloseTo(416, 6); expect(world.player.actor.health.hp).toBe(90);
     } finally { world.dispose(); }
   });

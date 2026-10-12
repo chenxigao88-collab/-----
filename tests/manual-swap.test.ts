@@ -1,3 +1,4 @@
+import {GUNFU_BEATS,VIOLET_BEATS} from '../src/data/gunfu';
 import {afterEach,describe,expect,it} from 'vitest';
 import {World} from '../src/world/World';
 import {AudioManager} from '../src/feedback/AudioManager';
@@ -29,7 +30,7 @@ describe('Q has its own three-second cooldown',()=>{
     expect(w.weapons.manualSwitchCooldown).toBe(remaining);w.resume();tick(w,remaining+.01);expect(w.weapons.trySwitch()).toBe(true);
   });
   it.each(['ember','violet'] as const)('allows the complete %s combo and its automatic swap during Q cooldown',character=>{
-    const w=make(character);w.weapons.trySwitch();tick(w,.17);expect(w.gunfu.request(vec(700,340))).toBe(true);tick(w,2.5,true);
+    const w=make(character);w.weapons.trySwitch();tick(w,.17);expect(w.gunfu.request(vec(700,340))).toBe(true);tick(w,(character==='violet'?VIOLET_BEATS:GUNFU_BEATS).reduce((sum,b)=>sum+b.duration,0)+.01,true);
     expect(w.gunfu.busy).toBe(false);expect(w.attacks.shots).toBe(character==='violet'?3:2);expect(w.weapons.active).toBe(0);expect(w.weapons.manualSwitchCooldown).toBeGreaterThan(0);
     expect(w.weapons.manualSwitchCooldown).toBeLessThan(.4);expect(w.weapons.trySwitch()).toBe(false);
   });

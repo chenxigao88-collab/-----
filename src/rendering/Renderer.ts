@@ -7,19 +7,21 @@ import { ElementRenderer } from './ElementRenderer';
 import { AdventureRenderer } from './AdventureRenderer';
 import { UltimateRenderer } from './UltimateRenderer';
 import {ChapterRenderer} from './ChapterRenderer';
+import {DefenseRenderer} from './DefenseRenderer';
 export class Renderer {
   readonly sprites: SpriteRenderer; private effects = new EffectRenderer();
   private ctx: CanvasRenderingContext2D;
   private elemental:ElementRenderer;
   private ultimate:UltimateRenderer;
   private chapter:ChapterRenderer;
+  private defense:DefenseRenderer;
   readonly adventure=new AdventureRenderer();
-  constructor(readonly canvas: HTMLCanvasElement, readonly art: AssetManager) { this.ctx = canvas.getContext('2d', { alpha: false })!; this.ctx.imageSmoothingEnabled = false; this.sprites = new SpriteRenderer(art);this.elemental=new ElementRenderer(art);this.ultimate=new UltimateRenderer(art);this.chapter=new ChapterRenderer(art,this.sprites);this.adventure.art.useAtlas(art.adventure,art.adventureMetadata); }
+  constructor(readonly canvas: HTMLCanvasElement, readonly art: AssetManager) { this.ctx = canvas.getContext('2d', { alpha: false })!; this.ctx.imageSmoothingEnabled = false; this.sprites = new SpriteRenderer(art);this.elemental=new ElementRenderer(art);this.ultimate=new UltimateRenderer(art);this.chapter=new ChapterRenderer(art,this.sprites);this.defense=new DefenseRenderer(art,this.sprites);this.adventure.art.useAtlas(art.adventure,art.adventureMetadata); }
   draw(world: World, aim: Vec2, fps = 60) {
     const ctx = this.ctx; ctx.setTransform(1,0,0,1,0,0); ctx.imageSmoothingEnabled = false;
     ctx.fillStyle = '#0a1018'; ctx.fillRect(0,0,960,540);
     ctx.save(); ctx.translate(world.feel.offset.x,world.feel.offset.y);this.ultimate.camera(ctx,world);ctx.filter=world.time.enemyFrozen||world.ultimate.active?'saturate(.4) brightness(.88)':'none'; ctx.drawImage(world.adventureMode?this.art.chapterRooms[(world.adventure.template.region??1)-1]:this.art.room,0,0,960,540);ctx.filter='none';
-    this.adventure.ground(ctx,world);
+    this.adventure.ground(ctx,world);this.defense.ground(ctx,world);
     this.chapter.ground(ctx,world);this.chapter.corpses(ctx,world);
     this.telegraphs(ctx, world);
     this.elemental.ground(ctx,world);
@@ -29,19 +31,19 @@ export class Renderer {
     const bladeAngle = melee ? melee.angle - melee.hitbox.arc/2 + melee.hitbox.arc*melee.progress : undefined;
     const foregroundPlayer=world.ultimate.active&&world.ultimate.tier===2;
     const playerItem = { y: player.pos.y, draw: () => { if (player.health.alive) this.sprites.player(ctx,player,world.ultimate.active?world.ultimate.shotWeapon(world.ultimate.elapsed<(world.ultimate.tier===2?1.3:2.95)?0:2):world.weapons.current.data,bladeAngle,world.player.dashing,world.player.dashElapsed); else {const face=Math.abs(Math.cos(player.facing))>Math.abs(Math.sin(player.facing))?(Math.cos(player.facing)>0?'right':'left'):(Math.sin(player.facing)>0?'down':'up');this.sprites.drawFrame(ctx,player.character==='violet'?`violet_death_${face}_${Math.min(3,Math.floor(world.resultElapsed*8))}`:`death_${Math.min(3,Math.floor(world.resultElapsed*10))}`,player.pos.x,player.pos.y,true);} } };
-    const items = [...(foregroundPlayer?[]:[playerItem]), ...world.enemies.map(enemy => ({ y: enemy.actor.pos.y, draw: () => {ctx.filter=world.time.enemyFrozen?'saturate(.25)':'none';this.sprites.enemy(ctx,enemy);ctx.filter='none';} }))];
-    items.push(...this.adventure.objects(ctx,world,this.sprites));items.sort((a,b)=>a.y-b.y); for (const item of items) item.draw();
+    const items = [...(foregroundPlayer?[]:[playerItem]), ...world.enemies.map((enemy,index) => ({ y: enemy.actor.pos.y, draw: () => {ctx.filter=world.time.enemyFrozen?'saturate(.25)':'none';if(world.defenseMode)this.defense.enemy(ctx,world,index);else this.sprites.enemy(ctx,enemy);ctx.filter='none';} }))];
+    items.push(...this.adventure.objects(ctx,world,this.sprites),...this.defense.objects(ctx,world));items.sort((a,b)=>a.y-b.y); for (const item of items) item.draw();
     for (const enemy of world.enemies) {
       const actor = enemy.actor;
       if (enemy.elite || actor.health.hp < actor.health.maxHP) { ctx.fillStyle='#0a1019'; ctx.fillRect(Math.round(actor.pos.x-14),Math.round(actor.pos.y-53-actor.launch.height),28,3); ctx.fillStyle=enemy.elite?'#e9c077':'#dc8d75'; ctx.fillRect(Math.round(actor.pos.x-13),Math.round(actor.pos.y-52-actor.launch.height),26*actor.health.hp/actor.health.maxHP,1); }
       if (world.settings.enemyStates) { ctx.font='9px Consolas'; ctx.textAlign='center'; ctx.fillStyle='#ebd9a5'; ctx.fillText(enemy.state,actor.pos.x,actor.pos.y-60); }
     }
     this.effects.draw(ctx,world,this.sprites);
-    this.elemental.markers(ctx,world);this.elemental.effects(ctx,world);
+    this.elemental.markers(ctx,world);this.elemental.effects(ctx,world);this.defense.effects(ctx,world);
     this.ultimate.world(ctx,world);
     if(foregroundPlayer)playerItem.draw();
     if(world.damage.shield>0){ctx.strokeStyle='#b2d89f99';ctx.lineWidth=1;ctx.beginPath();ctx.ellipse(player.pos.x,player.pos.y-21,23,29,0,0,Math.PI*2);ctx.stroke();}
-    if (world.state === 'ready') {
+    if (world.state === 'ready'&&!world.defenseMode) {
       const near = distance(player.pos,{x:480,y:375})<=42; ctx.strokeStyle=near?'#92e4d8':'#ab9068'; ctx.lineWidth=1;
       ctx.setLineDash([4,4]); ctx.beginPath(); ctx.ellipse(480,375,27,10,0,0,Math.PI*2); ctx.stroke(); ctx.setLineDash([]);
     }
@@ -59,6 +61,7 @@ export class Renderer {
       ctx.strokeStyle='#fc9e70'; for (const p of world.projectiles.projectiles) { ctx.beginPath(); ctx.arc(p.pos.x,p.pos.y,p.radius,0,Math.PI*2); ctx.stroke(); }
     }
     ctx.restore();
+    ctx.save();ctx.translate(world.feel.offset.x,world.feel.offset.y);this.defense.preview(ctx,world,aim);ctx.restore();
     this.ultimate.overlay(ctx,world);
     if(world.time.enemyFrozen){ctx.save();ctx.fillStyle='#739aad18';ctx.fillRect(0,0,960,540);ctx.strokeStyle='#bbf6efaa';ctx.lineWidth=2;ctx.strokeRect(3,3,954,534);ctx.restore();}
     if(world.adventureMode&&world.adventure.transitionRemaining>0){ctx.fillStyle=`rgba(7,10,20,${Math.min(.85,world.adventure.transitionRemaining/.3)})`;ctx.fillRect(0,0,960,540);}

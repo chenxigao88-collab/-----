@@ -15,7 +15,7 @@ export interface Projectile {
 }
 export class ProjectileSystem {
   projectiles: Projectile[] = []; nextId = 1; peak = 0; limit = 600; overflow = 0;
-  obstacleContact:((from:Vec2,to:Vec2,radius:number)=>{t:number;normal:Vec2}|null)=()=>null;
+  obstacleContact:((from:Vec2,to:Vec2,radius:number,context?:AttackContext)=>{t:number;normal:Vec2}|null)=()=>null;
   launched:((p:Projectile)=>void)=()=>{};
   constructor(private actors: () => Actor[], private damage: DamageSystem, private explosion: (context: AttackContext, pos: Vec2, radius: number, excluded?: number) => void) {}
   canAdd(count: number) { return this.projectiles.length + count <= this.limit; }
@@ -51,7 +51,7 @@ export class ProjectileSystem {
       let remaining = Math.min(p.speed * dt+p.launchDistance, p.range - p.traveled), consumed = 0;p.launchDistance=0;
       for (let contact = 0; contact < 4 && p.alive && remaining > .00001; contact++) {
         const from = { ...p.pos }, to = add(from, mul(direction(p.angle), remaining));
-        const boundary=wallContact(from,to,p.radius),obstacle=this.obstacleContact(from,to,p.radius);
+        const boundary=wallContact(from,to,p.radius),obstacle=this.obstacleContact(from,to,p.radius,p.context);
         const wall=obstacle&&(!boundary||obstacle.t<boundary.t)?obstacle:boundary;
         let closest: { target: Actor; t: number } | undefined;
         for (const target of validTargets) {

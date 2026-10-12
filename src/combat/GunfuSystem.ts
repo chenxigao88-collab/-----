@@ -9,6 +9,7 @@ import type { DamageSystem } from './DamageSystem';
 import type { WeaponController } from './WeaponController';
 import type { ResonanceSystem } from './ResonanceSystem';
 import { sweptSectorCapsule } from '../world/Collision';
+import {ATTACK_PACING} from '../data/attackPacing';
 
 type Kind = 'none' | 'routine' | 'counter' | 'cross';
 interface Prime { slot: number; weapon: string; remaining: number }
@@ -52,6 +53,7 @@ export class GunfuSystem {
   private get duration(){return this.beats.reduce((sum,beat)=>sum+beat.duration,0);}
   private get boundaries(){return this.violet?[1,2,3,4,5]:[1,2,3,6];}
   private get landingPhase(){return this.violet?-1:6;}
+  private get landingDuration(){return this.landingPhase<0?0:this.beats[this.landingPhase].duration*.25;}
   get kind(): Kind { return this.sequence?.kind ?? 'none'; }
   get movementScale() {
     if(this.sequence?.awaiting)return this.sequence.landingRemaining>0?0:1;
@@ -68,7 +70,7 @@ export class GunfuSystem {
       const seq=this.sequence;
       if(this.player.dashing||!this.player.actor.health.alive||seq.queued)return false;
       if(seq.awaiting){
-        seq.awaiting=false;seq.elapsed=seq.phase===this.landingPhase?.08-seq.landingRemaining:0;seq.contact=false;
+        seq.awaiting=false;seq.elapsed=seq.phase===this.landingPhase?this.landingDuration-seq.landingRemaining:0;seq.contact=false;
         seq.aim={...aim};seq.angle=angleTo(this.player.actor.pos,aim);this.syncPose(seq);return true;
       }
       // Buffer one following segment only near the end of the current one.
@@ -100,6 +102,7 @@ export class GunfuSystem {
   }
 
   private effect(kind: GunfuEffect['kind'], pos: Vec2, angle: number, duration = .13) {
+    duration*=ATTACK_PACING.player;
     this.effects.push({ kind, pos: { ...pos }, angle, life: duration, total: duration });
     if (this.effects.length > 20) this.effects.shift();
   }
@@ -112,7 +115,7 @@ export class GunfuSystem {
     const c = this.attacks.snapshot(actor, beat.damage * settings.damageMultiplier * this.player.stats.damageMultiplier,
       'gunfu-body', 'heavy', beat.pose === 'kick'||beat.pose==='greatspin');
     c.gunfu = 'body';c.gunfuSequence=seq.id;c.gunfuPhase=seq.phase; c.chargeGranted = true; c.knockback = beat.knockback ?? 0;
-    if(beat.pose==='greatspin')c.launch={height:30,duration:.8,distance:36};
+    if(beat.pose==='greatspin')c.launch={height:30,duration:.8*ATTACK_PACING.player,distance:36};
     const targets = this.actors().filter(a => a.faction === 'enemy' && a.health.alive &&
       sweptSectorCapsule(actor.pos, a.hurtbox.capsule(a.pos), range, seq.angle - beat.arc! / 2, seq.angle + beat.arc! / 2))
       .sort((a, b) => distance(a.pos, actor.pos) - distance(b.pos, actor.pos)).slice(0, beat.pose === 'sweep'||beat.pose==='greatspin' ? 3 : 1);
@@ -180,7 +183,7 @@ export class GunfuSystem {
       if(seq.awaiting){
         const slice=Math.min(remaining,seq.chainTime);seq.chainTime=Math.max(0,seq.chainTime-slice);remaining-=slice;
         if(seq.phase===this.landingPhase&&seq.landingRemaining>0){
-          seq.landingRemaining=Math.max(0,seq.landingRemaining-slice);seq.elapsed=.08-seq.landingRemaining;
+          seq.landingRemaining=Math.max(0,seq.landingRemaining-slice);seq.elapsed=this.landingDuration-seq.landingRemaining;
           this.syncPose(seq);
         }
         if(seq.landingRemaining===0&&!(this.violet&&[4,5].includes(seq.phase)&&!this.player.actor.moving))this.player.actor.action=undefined;
@@ -209,7 +212,7 @@ export class GunfuSystem {
         seq.elapsed = 0; seq.contact = false;
         if(this.boundaries.includes(seq.phase)){
           if(!seq.queued){
-            seq.awaiting=true;seq.chainTime=.45;seq.landingRemaining=seq.phase===this.landingPhase?.08:0;
+            seq.awaiting=true;seq.chainTime=.45;seq.landingRemaining=seq.phase===this.landingPhase?this.landingDuration:0;
             if(seq.phase!==this.landingPhase&&!(this.violet&&[4,5].includes(seq.phase)))this.player.actor.action=undefined;
             continue;
           }

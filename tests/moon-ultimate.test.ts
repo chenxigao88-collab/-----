@@ -21,6 +21,26 @@ describe('two ultimate circuits and Moon Sever',()=>{
   it('fires both actual charge weapons at full charge and switches outside Q cooldown',()=>{const w=make();target(w,720);w.debugWeapon(0,'frost_string_late');w.debugWeapon(1,'ember_lantern_late');w.weapons.manualSwitchCooldown=3;expect(w.ultimate.request(vec(900,340),2)).toBe(true);tick(w,1.07);const first=w.projectiles.projectiles.filter(p=>p.context.ultimatePhase===0);expect(first.length).toBeGreaterThan(1);expect(first.every(p=>p.charged===1)).toBe(true);tick(w,.63);const second=w.projectiles.projectiles.filter(p=>p.context.ultimatePhase===1);expect(second.length).toBeGreaterThan(0);expect(second.every(p=>p.charged===1&&p.style==='fireball')).toBe(true);expect(w.weapons.active).toBe(1);});
   it('records three blade rifts without damage and resolves them exactly once on sheath click',()=>{const w=make(),e=target(w,790);w.debugWeapon(0,'hush_edge');w.debugWeapon(1,'hush_edge');const hits:{phase:number;amount:number}[]=[];w.events.on('damageApplied',event=>{if(event.attack.ultimateTier===2)hits.push({phase:event.attack.ultimatePhase!,amount:event.amount});});w.ultimate.request(vec(900,340),2);tick(w,4.4);expect(hits).toEqual([]);expect(w.ultimate.snapshot().wounds[e.actor.id]).toBe(3);const previousHP=e.actor.health.hp;tick(w,.3);expect(hits.map(h=>h.phase)).toEqual([2,3,4,5]);expect(hits[3].amount).toBe(Math.round(hits.slice(0,3).reduce((sum,h)=>sum+h.amount,0)*1.2));expect(e.actor.health.hp).toBeLessThan(previousHP);tick(w,1);expect(hits).toHaveLength(4);expect(w.ultimate.energy).toBe(0);expect(w.ultimate.active).toBe(false);});
   it('scales delayed sword hits with giant-blade growth but does not multiply finisher again',()=>{function damage(rank:number){const w=make(),e=target(w,790);w.debugWeapon(0,'hush_edge');w.debugWeapon(1,'hush_edge');w.progression.ranks.blade=rank;w.progression.ranks.gunfu=2;w.progression.ranks.damage=2;w.ultimate.request(vec(900,340),2);tick(w,MOON_DURATION+.1);return 100000-e.actor.health.hp;}expect(damage(3)).toBeGreaterThan(damage(0)*1.6);});
+  it('preserves all three locked blade wounds when scripted travel is blocked by a pillar',()=>{
+    const w=make(true),e=target(w,650);
+    w.adventure.template.obstacles=[{x:600,y:290,w:20,h:20,kind:'pillar'}];
+    const hidden=target(w,790);hidden.actor.pos.y=280;
+    w.debugWeapon(0,'hush_edge');w.debugWeapon(1,'hush_edge');
+    const hits:{target:number;phase:number;amount:number}[]=[];
+    w.events.on('damageApplied',event=>{if(event.attack.ultimateTier===2)hits.push({target:event.targetId,phase:event.attack.ultimatePhase!,amount:event.amount});});
+    expect(w.ultimate.request(vec(900,340),2)).toBe(true);
+    expect(w.ultimate.targets).toEqual([e.actor]);
+    tick(w,4.4);
+    expect(w.player.actor.pos.x).toBeLessThan(600);
+    expect(hits).toEqual([]);
+    expect(w.ultimate.snapshot().wounds[e.actor.id]).toBe(3);
+    tick(w,.3);
+    expect(hits.map(h=>h.phase)).toEqual([2,3,4,5]);
+    expect(hits.every(h=>h.target===e.actor.id&&h.amount>0)).toBe(true);
+    expect(hits[3].amount).toBe(Math.round(hits.slice(0,3).reduce((sum,h)=>sum+h.amount,0)*1.2));
+    expect(hidden.actor.health.hp).toBe(100000);
+    tick(w,1);expect(hits).toHaveLength(4);
+  });
   it('does not launch or drag Bosses, and does not recharge from its own hits',()=>{const w=make(),e=target(w,560,'boss'),start={...e.actor.pos};w.ultimate.request(vec(800,340),2);tick(w,MOON_DURATION);expect(e.actor.launch.active).toBe(false);expect(e.actor.pos).toEqual(start);expect(w.ultimate.energy).toBe(0);});
   it('freezes the performance on pause and restores player control after completion',()=>{const w=make();target(w);w.ultimate.request(vec(800,340),2);tick(w,2.5);w.pause();const before=w.snapshot();tick(w,1);expect(w.snapshot()).toEqual(before);w.resume();tick(w,MOON_DURATION);expect(w.player.actor.action).toBeUndefined();expect(w.ultimate.active).toBe(false);const x=w.player.actor.pos.x;w.step(.1,{...emptyInput(),move:vec(-1,0)});expect(w.player.actor.pos.x).toBeLessThan(x);});
   it('stops scripted travel at pillars and preserves two circuits in camp saves',()=>{const w=make(true);target(w,630);w.ultimate.request(vec(800,340),2);w.adventure.template.obstacles=[{x:490,y:300,w:30,h:90,kind:'pillar'}];tick(w,3.8);expect(w.player.actor.pos.x).toBeLessThan(490);w.ultimate.cancel();expect(w.player.actor.invulnerability.has('ultimate')).toBe(false);w.adventure.currentId='shop';w.adventure.started=true;w.ultimate.energy=200;const parsed=parseCheckpoint(JSON.stringify(captureCheckpoint(w)));expect(parsed?.energy).toBe(200);const clone=make(true);clone.state='ready';restoreCheckpoint(clone,parsed!);expect(clone.ultimate.secondReady).toBe(true);});

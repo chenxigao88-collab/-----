@@ -12,7 +12,11 @@ export interface Actor {
   status: StatusComponent; invulnerability: InvulnerabilityComponent;
   elemental: ElementalComponent;
   launch:LaunchComponent;
-  action?:{kind:'strike'|'draw'|'counter'|'shoot'|GunfuPose;elapsed:number;duration:number;angle:number;gunfu?:boolean;lift?:number;airborne?:boolean;ultimateTime?:number;ultimateTier?:1|2};
+  action?:{kind:'strike'|'draw'|'counter'|'shoot'|GunfuPose;elapsed:number;duration:number;angle:number;windup?:number;active?:number;gunfu?:boolean;lift?:number;airborne?:boolean;ultimateTime?:number;ultimateTier?:1|2};
+}
+export function primaryStrikeFrame(a:NonNullable<Actor['action']>){
+  if(a.windup===undefined||a.active===undefined)return Math.min(3,Math.floor(a.elapsed/a.duration*4));
+  return a.elapsed<a.windup*.5?0:a.elapsed<a.windup?1:a.elapsed<a.windup+a.active?2:3;
 }
 export function createActor(id: number, runId: number, faction: Faction, pos: Vec2, hp: number, radius: number): Actor {
   return { id, runId, faction, character:'ember', pos: { ...pos }, previous: { ...pos }, aim: 0, facing: Math.PI / 2, moving: false, animation: 0, recoil: 0, flash: 0, idleTime:0, restCount:0,
@@ -25,7 +29,10 @@ export const handPosition = (actor: Actor) => {
     const grip=gunfuGrip(a.kind as GunfuPose,p,actor.character);
     return vec(actor.pos.x+Math.cos(a.angle)*grip.forward,actor.pos.y-grip.height-(a.lift??0));
   }
-  if(actor.character==='violet')return vec(actor.pos.x,actor.pos.y-23);
+  if(actor.character==='violet'){
+    if(a?.kind==='strike'||a?.kind==='shoot'){const grip=gunfuGrip(a.kind==='strike'?'greatslash':'turnshot',a.kind==='shoot'?(p<.5?.5:.75):primaryStrikeFrame(a)/4,'violet');return vec(actor.pos.x+Math.cos(a.angle)*grip.forward,actor.pos.y-grip.height);}
+    return vec(actor.pos.x,actor.pos.y-23);
+  }
   const height=a?.kind==='shoot'?20:a?.kind==='draw'?(p<.4?10:20):a?.kind==='counter'?(p<.4?13:21):a?.kind==='strike'?18:13;
   return vec(actor.pos.x,actor.pos.y-height*(a?heroScale.legacy.gripScale:1));
 };

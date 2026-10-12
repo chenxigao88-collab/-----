@@ -1,7 +1,7 @@
 import { AssetManager, type SpriteFrame } from './AssetManager';
 import { SpriteAnimator } from './SpriteAnimator';
 import type { Actor } from '../actors/Actor';
-import { handPosition } from '../actors/Actor';
+import { handPosition,primaryStrikeFrame } from '../actors/Actor';
 import type { Enemy } from '../actors/Enemy';
 import type { WeaponData } from '../data/weapons';
 import { gunfuGrip,gunfuBodyScale,type GunfuPose } from '../data/gunfu';
@@ -9,6 +9,7 @@ import { PLAYER_STATS } from '../data/player';
 import { violetRest } from './VioletRest';
 import {ultimateBodyFrame,ULTIMATE_FINAL_SPIN_START,ULTIMATE_CUT_END} from '../data/ultimate';
 import {moonBodyFrame} from '../data/moonUltimate';
+import {enemySwingDuration} from '../data/attackPacing';
 export class SpriteRenderer {
   animator = new SpriteAnimator();
   private masks = new Map<string, HTMLCanvasElement>();
@@ -66,18 +67,19 @@ export class SpriteRenderer {
       this.drawFrame(ctx,pose.id,actor.pos.x+pose.x,actor.pos.y+pose.y,true,false,pose.breath?this.animator.idleBreath(elapsed)*.5:0);
       return;
     }
-    const violet=actor.character==='violet',bladePose=violet&&Boolean(actor.action&&['greatslash','greatupper','greatspin'].includes(actor.action.kind));
+    const violet=actor.character==='violet',bladePose=violet&&Boolean(actor.action&&['strike','greatslash','greatupper','greatspin'].includes(actor.action.kind));
     if (!bladePose&&Math.sin(actor.aim) < -.2) this.weapon(ctx, actor, weapon.sprite, bladeAngle);
     const action=actor.action;
     const p=action?Math.min(1,action.elapsed/action.duration):0;
     const spin=action?.kind==='landspin'?Math.max(0,(p-.25)/.75)*Math.PI*2:action?.kind==='greatspin'?p*Math.PI*2:action?.kind==='turnshot'?Math.PI*Math.max(0,1-p*2):0;
-    const angle=dashing?actor.facing:action?.gunfu?action.angle+spin:actor.moving?actor.facing:action?.angle??actor.facing;
-    let id = dashing&&this.art.metadata.gunfuMovement?this.animator.combat('slide',actor.facing,dashElapsed,PLAYER_STATS.dashDuration+.08):action&&this.art.metadata.gunfu?this.animator.combat(action.kind,angle,action.elapsed,action.duration):this.animator.body(actor.id, actor.facing, actor.animation, actor.moving, dashing);
+    const angle=dashing?actor.facing:action?.gunfu?action.angle+spin:action?.angle??actor.facing;
+    const primaryStrike=action?.kind==='strike'&&!action.gunfu&&action.windup!==undefined;
+    let id = dashing&&this.art.metadata.gunfuMovement?this.animator.combat('slide',actor.facing,dashElapsed,PLAYER_STATS.dashDuration+.08):action&&this.art.metadata.gunfu?this.animator.combat(action.kind,angle,primaryStrike?[.1,.25,.5,.8][primaryStrikeFrame(action)]:action.elapsed,primaryStrike?1:action.duration):this.animator.body(actor.id, actor.facing, actor.animation, actor.moving, dashing);
     if(violet){
       const facing=Math.abs(Math.cos(angle))>Math.abs(Math.sin(angle))?(Math.cos(angle)>0?'right':'left'):(Math.sin(angle)>0?'down':'up');
-      const kind=dashing?'dash':action?.gunfu?(action.kind==='recover'?'turnshot':action.kind):actor.flash>0?'death':actor.moving?'run':'idle';
+      const kind=dashing?'dash':action?.gunfu?(action.kind==='recover'?'turnshot':action.kind):action?.kind==='strike'?'greatslash':action?.kind==='shoot'?'turnshot':actor.flash>0?'death':actor.moving?'run':'idle';
       const profileRun=actor.moving&&(facing==='left'||facing==='right');
-      const frame=dashing?Math.min(3,Math.floor(dashElapsed/(PLAYER_STATS.dashDuration+.08)*4)):action?.gunfu?(action.kind==='recover'?3:Math.min(3,Math.floor(p*4))):actor.flash>0?0:Math.floor(actor.animation*(actor.moving?(profileRun?16:12):4))%(actor.moving?(profileRun?8:6):4);
+      const frame=dashing?Math.min(3,Math.floor(dashElapsed/(PLAYER_STATS.dashDuration+.08)*4)):action?.gunfu?(action.kind==='recover'?3:Math.min(3,Math.floor(p*4))):action?.kind==='strike'?primaryStrikeFrame(action):action?.kind==='shoot'?(p<.5?2:3):actor.flash>0?0:Math.floor(actor.animation*(actor.moving?(profileRun?16:12):4))%(actor.moving?(profileRun?8:6):4);
       id=`violet_${kind==='kneelshot1'&&frame>=2?'kneelshot2':kind}_${facing}_${frame}`;
     }
     const breath = !actor.moving && !dashing&&!action ? this.animator.idleBreath(actor.animation) : 0;
@@ -88,8 +90,8 @@ export class SpriteRenderer {
   enemy(ctx: CanvasRenderingContext2D, enemy: Enemy) {
     const actor = enemy.actor; this.shadow(ctx, actor);
     if(['shield','dancer','cantor','parasite','boss'].includes(enemy.kind)){
-      const i=enemy.kind==='boss'?enemy.brokenRemaining>0?24+Math.min(3,Math.floor((2.5-enemy.brokenRemaining)*2)):enemy.state==='Attack'?8+Math.min(3,Math.floor(enemy.elapsed/enemy.windup*4)):enemy.state==='Recover'&&enemy.elapsed<.5?(enemy.bossMove==='slam'?16:enemy.attackIndex?20:12)+Math.min(3,Math.floor(enemy.elapsed/.5*4)):actor.moving?4+Math.floor(actor.animation*7)%4:Math.floor(actor.animation*3)%4
-        :enemy.hitstunRemaining>0||actor.launch.active?18+Math.floor(actor.animation*9)%2:enemy.state==='Attack'?12+Math.min(2,Math.floor(enemy.elapsed/enemy.windup*3)):enemy.state==='Recover'&&enemy.elapsed<.45?15+Math.min(2,Math.floor(enemy.elapsed/.45*3)):actor.moving?6+Math.floor(actor.animation*10)%6:Math.floor(actor.animation*4)%6;
+      const i=enemy.kind==='boss'?enemy.brokenRemaining>0?24+Math.min(3,Math.floor((2.5-enemy.brokenRemaining)*2)):enemy.state==='Attack'?8+Math.min(3,Math.floor(enemy.elapsed/enemy.windup*4)):enemy.state==='Recover'&&enemy.elapsed<enemySwingDuration(true)?(enemy.bossMove==='slam'?16:enemy.attackIndex?20:12)+Math.min(3,Math.floor(enemy.elapsed/enemySwingDuration(true)*4)):actor.moving?4+Math.floor(actor.animation*7)%4:Math.floor(actor.animation*3)%4
+        :enemy.hitstunRemaining>0||actor.launch.active?18+Math.floor(actor.animation*9)%2:enemy.state==='Attack'?12+Math.min(2,Math.floor(enemy.elapsed/enemy.windup*3)):enemy.state==='Recover'&&enemy.elapsed<enemySwingDuration()?15+Math.min(2,Math.floor(enemy.elapsed/enemySwingDuration()*3)):actor.moving?6+Math.floor(actor.animation*10)%6:Math.floor(actor.animation*4)%6;
       ctx.save();if(Math.cos(actor.facing)<0){ctx.translate(2*actor.pos.x,0);ctx.scale(-1,1);}this.drawFrame(ctx,`chapter_${enemy.kind}_${i}`,actor.pos.x,actor.pos.y-actor.launch.height,false,actor.flash>0);ctx.restore();
       if(enemy.ward>0){ctx.fillStyle='#edca7c';ctx.fillRect(actor.pos.x-14,actor.pos.y-61,28*Math.min(1,enemy.ward/enemy.wardMax),2);}return;
     }
